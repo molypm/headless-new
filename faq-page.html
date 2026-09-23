@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FAQ — Mockup</title>
+<style>
+  :root{
+    --orange:#f5750f;
+    --orange-dark:#c9631d;
+    --orange-light:#ff9142;
+    --dark:#0b0908;
+    --cream:#faf6f2;
+    --gray:#6b6b6b;
+    --border:#e7e2dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
+  .label-row{text-align:center;padding:18px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+  a{color:inherit;}
+
+  /* ---------- HEADER / NAV (shared) ---------- */
+  .site-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .site-logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700;color:var(--orange);text-decoration:none;}
+  .site-logo .logo-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--orange-light),var(--orange));flex-shrink:0;}
+  .nav-pill{position:absolute;left:50%;top:26px;transform:translateX(-50%);display:flex;align-items:center;gap:30px;background:rgba(15,12,10,.92);border:1px solid rgba(255,255,255,.1);padding:13px 28px;border-radius:999px;}
+  .nav-pill a{color:#e7e2dc;font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;}
+  .nav-pill a:hover{color:#fff;}
+  .nav-pill a.nav-active{color:var(--orange-light);font-weight:700;}
+  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#1a1512;}
+  @media (max-width:900px){ .nav-pill{display:none;} .nav-menu-btn{display:flex;} }
+  .header-right{display:flex;align-items:center;gap:14px;}
+  .header-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+  .header-cta:hover{background:var(--orange-dark);}
+  .header-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.3);font-size:11px;}
+  @media (max-width:480px){ .header-cta{padding:9px 14px;font-size:13px;} .header-cta .arrow{display:none;} }
+
+  /* ---------- PAGE HERO ---------- */
+  .page-hero{position:relative;padding:150px 24px 20px;text-align:center;background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);overflow:hidden;}
+  .grid-overlay{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:760px;max-width:90%;height:220px;background-image:linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, black 40%, transparent 100%);pointer-events:none;}
+  .page-hero-inner{position:relative;max-width:700px;margin:0 auto;}
+  .page-hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-dark);background:#fde3cd;padding:9px 18px;border-radius:999px;margin-bottom:22px;}
+  .page-hero .eyebrow svg{width:14px;height:14px;}
+  .page-hero h1{font-size:42px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:16px;}
+  .page-hero p{font-size:16.5px;line-height:1.65;color:var(--gray);max-width:600px;margin:0 auto;}
+
+  /* ---------- ASK ORANGESOFT (AI chatbot — main visual) ---------- */
+  .ask-section{padding:44px 24px 70px;background:#fdf1e6;}
+  .ask-wrap{max-width:680px;margin:0 auto;}
+
+  .ask-card{background:#fff;border-radius:24px;padding:26px 26px 20px;box-shadow:0 16px 40px rgba(20,14,8,.1);border:1px solid #f3ddc3;}
+  .ask-card-label{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:700;color:#1a1512;}
+  .ask-card-label .spark{color:var(--orange);font-size:18px;}
+  .ask-card input{width:100%;border:none;outline:none;background:transparent;font-size:15.5px;font-style:italic;color:#8a7f74;padding:16px 0 20px;}
+  .ask-card input::placeholder{color:#a89e92;font-style:italic;}
+  .ask-card-bottom{display:flex;justify-content:flex-end;}
+  .ask-send{border:none;background:var(--dark);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;font-size:16px;}
+  .ask-send:hover{background:var(--orange);}
+
+  .ask-thread{max-height:0;overflow:hidden;transition:max-height .2s ease;}
+  .ask-thread.active{max-height:900px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+  .ask-msg{border-radius:16px;padding:14px 18px;font-size:14.5px;line-height:1.55;margin-bottom:12px;max-width:88%;}
+  .ask-msg:last-child{margin-bottom:0;}
+  .ask-msg-user{background:#f2efeb;color:#1a1512;margin-left:auto;border-bottom-right-radius:4px;}
+  .ask-msg-ai{background:#fdeee0;color:#3a2f24;display:flex;gap:10px;align-items:flex-start;border-bottom-left-radius:4px;}
+  .ask-ai-icon{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px;}
+
+  .ask-try-label{text-align:center;font-size:13px;font-weight:700;color:#6b6259;margin:22px 0 12px;}
+  .ask-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .ask-chip{font-size:13.5px;font-weight:600;color:#4a453f;background:#fff;border:1px solid var(--border);border-radius:999px;padding:9px 16px;cursor:pointer;font-family:inherit;}
+  .ask-chip:hover{border-color:var(--orange);color:var(--orange-dark);}
+  .ask-demo-badge{text-align:center;margin-top:22px;}
+  .ask-demo-badge span{font-size:11px;font-weight:800;letter-spacing:.1em;color:#8a4a1a;background:#fde3cd;display:inline-block;padding:6px 14px;border-radius:999px;}
+
+  /* ---------- TRADITIONAL FAQ ---------- */
+  .faq-section{padding:80px 24px 90px;background:#fff;}
+  .section-header{max-width:640px;margin:0 auto 46px;text-align:center;}
+  .section-heading{font-size:30px;font-weight:800;color:#1a1512;margin-bottom:12px;line-height:1.2;}
+  .section-desc{font-size:15.5px;line-height:1.6;color:var(--gray);}
+  .faq-wrap{max-width:760px;margin:0 auto;}
+  .faq-quicklinks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:42px;}
+  .faq-qlink{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:#4a453f;background:#faf6f2;border:1px solid var(--border);border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit;}
+  .faq-qlink svg{width:15px;height:15px;color:var(--orange);flex-shrink:0;}
+  .faq-qlink.active{background:var(--dark);color:#fff;border-color:var(--dark);}
+  .faq-qlink.active svg{color:var(--orange-light);}
+  .faq-cat{margin-bottom:38px;}
+  .faq-cat-label{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;}
+  .faq-item{border:1px solid var(--border);border-radius:16px;margin-bottom:10px;overflow:hidden;background:#fff;}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:18px 22px;font-size:15.5px;font-weight:700;color:#161311;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .chev{width:20px;height:20px;flex-shrink:0;color:var(--orange);transition:transform .15s ease;}
+  .faq-item[open] summary .chev{transform:rotate(180deg);}
+  .faq-item .faq-answer{padding:0 22px 20px;font-size:14.5px;line-height:1.65;color:var(--gray);}
+
+  /* ---------- FINAL CTA BAND (page-specific, not the site-wide unified one) ---------- */
+  .final-cta{padding:0 24px 90px;background:#fff;}
+  .final-cta-inner{
+    max-width:1160px;margin:0 auto;text-align:center;border-radius:28px;padding:56px 24px;
+    background:radial-gradient(1px 1px at 10% 30%, rgba(245,117,15,.35) 1px, transparent 0) 0 0/26px 26px, linear-gradient(160deg,#fde3cd,#fbd9bd);
+    position:relative;overflow:hidden;
+  }
+  .final-cta .eyebrow-cta{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-dark);margin-bottom:14px;}
+  .final-cta h2{font-size:32px;font-weight:800;color:#1a1512;margin-bottom:14px;}
+  .final-cta p{font-size:16px;line-height:1.6;color:#5a5248;max-width:460px;margin:0 auto 28px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid transparent;}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-primary .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+
+  /* ---------- FOOTER (shared) ---------- */
+  .site-footer{background:#fff;padding:70px 24px 0;}
+  .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
+  @media (max-width:800px){ .footer-top{grid-template-columns:1fr 1fr;} }
+  .footer-brand .f-logo{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;color:var(--orange);margin-bottom:18px;}
+  .footer-brand .f-logo .f-dot{width:30px;height:30px;border-radius:50%;background:var(--orange);}
+  .footer-brand p{font-size:14px;line-height:1.6;color:#6b6b6b;max-width:320px;}
+  .footer-col-label{font-size:14px;color:#9c9088;margin-bottom:18px;}
+  .footer-col a{display:block;font-size:15px;font-weight:600;color:#1a1512;text-decoration:none;margin-bottom:14px;}
+  .footer-social{display:flex;gap:12px;margin-top:4px;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4a453f;}
+  .footer-watermark{background:linear-gradient(160deg,#fde3cd,#fff);overflow:hidden;padding:20px 0;}
+  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(245,117,15,.35);}
+  .footer-bottom{max-width:1160px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:13px;color:#9c9088;}
+  .footer-bottom a{color:#9c9088;text-decoration:none;}
+  .back-to-top{display:flex;align-items:center;gap:10px;}
+  .back-to-top .btt-circle{width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;display:flex;align-items:center;justify-content:center;}
+</style>
+</head>
+<body>
+
+  <div class="label-row">FAQ — PAGE MOCKUP (AI search box is a static concept demo, not a live assistant)</div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" id="top">
+    <header class="site-header">
+      <a class="site-logo" href="hero-mockup.html"><span class="logo-dot"></span>orangesoft</a>
+      <nav class="nav-pill">
+        <a href="why-headless-page.html">Headless</a>
+        <a href="solutions-page.html">Solutions</a>
+        <a href="pricing-page.html">Pricing</a>
+        <a href="about-page.html">About</a>
+        <a href="faq-page.html" class="nav-active">FAQ</a>
+        <a href="/contact-us">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="header-cta" href="audit-page.html">Free Audit <span class="arrow">→</span></a>
+        <button class="nav-menu-btn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="grid-overlay"></div>
+    <div class="page-hero-inner">
+      <h1>Have a question? Just ask.</h1>
+      <p>Ask anything about our websites, headless architecture, AI solutions, pricing or process.</p>
+    </div>
+  </section>
+
+  <!-- ASK ORANGESOFT — AI CHATBOT (main visual) -->
+  <section class="ask-section">
+    <div class="ask-wrap">
+      <div class="ask-card">
+        <div class="ask-card-label"><span class="spark">✦</span> Ask Orangesoft anything...</div>
+        <input type="text" id="askInput" placeholder='&quot;Can I keep my WordPress dashboard?&quot;'>
+        <div class="ask-card-bottom">
+          <button class="ask-send" id="askSend" aria-label="Ask"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="ask-thread" id="askThread"></div>
+      </div>
+      <div class="ask-try-label">Try asking:</div>
+      <div class="ask-chips">
+        <button class="ask-chip" data-q="Can you work with WordPress?">Can you work with WordPress?</button>
+        <button class="ask-chip" data-q="Is headless right for my business?">Is headless right for my business?</button>
+        <button class="ask-chip" data-q="How much does it cost?">How much does it cost?</button>
+        <button class="ask-chip" data-q="Can WhatsApp AI take bookings?">Can WhatsApp AI take bookings?</button>
+      </div>
+      <div class="ask-demo-badge"><span>DEMO CHATBOT — CANNED ANSWERS, NOT LIVE AI</span></div>
+    </div>
+  </section>
+
+  <!-- TRADITIONAL FAQ -->
+  <section class="faq-section" id="faq-list">
+    <div class="section-header">
+      <h2 class="section-heading">Prefer to browse?</h2>
+      <p class="section-desc">Here are the questions we get asked most, grouped by topic.</p>
+    </div>
+    <div class="faq-wrap">
+
+      <div class="faq-quicklinks">
+        <button class="faq-qlink active" data-cat="all">All questions</button>
+        <button class="faq-qlink" data-cat="headless"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4M5 21h14"/></svg>Headless &amp; Migration</button>
+        <button class="faq-qlink" data-cat="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>AI Solutions</button>
+        <button class="faq-qlink" data-cat="pricing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Pricing, Audit &amp; Support</button>
+      </div>
+
+      <div class="faq-cat" data-cat="headless">
+        <div class="faq-cat-label">Headless &amp; Migration</div>
+
+        <details class="faq-item">
+          <summary>What is headless WordPress, and how is it different from my current site?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">Headless separates your content (still managed in WordPress, same dashboard your team already knows) from how visitors actually experience the site. That front-end is rebuilt to be fast and flexible, without touching how you publish content day to day.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need to rebuild my whole website from scratch?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">No. Your existing content, structure and WordPress dashboard stay as they are. We rebuild the front end your visitors see, your team keeps publishing exactly as before.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will going headless affect my SEO rankings?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">Done properly, it should help rather than hurt. Page speed is a ranking factor, and headless sites typically load significantly faster, which is also directly tied to conversion, not just search rankings.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How long does a typical headless migration take?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">It depends on how large and complex your current site is. <em>Placeholder answer, needs a real timeline range confirmed with the delivery team before this goes live.</em></div>
+        </details>
+      </div>
+
+      <div class="faq-cat" data-cat="ai">
+        <div class="faq-cat-label">AI Solutions</div>
+
+        <details class="faq-item">
+          <summary>What exactly is the AI Sales Assistant? Is it just a chatbot?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">It holds a real conversation rather than reading from a script. It surfaces the visitor's problem, backs up claims with facts, handles objections honestly, and hands off to your team on WhatsApp when a visitor needs a person, in English, Malay or Chinese today.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can the WhatsApp AI Assistant work with my existing WhatsApp number?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">Yes, it's connected via the official WhatsApp Business API and configured around your specific workflow, answering questions, taking bookings, giving updates, tied to a real, returning customer's number so it can recognise them.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between the AI Sales Assistant and the WhatsApp AI Assistant?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">The Sales Assistant lives on your website and talks to anonymous visitors. The WhatsApp Assistant runs on your business's own number and recognises real, returning customers, so it can take actions like bookings, not just answer questions.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need a separate app for iOS and Android for the App-Like Experience?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">No. It's one build that installs like an app on both platforms, visitors save it to their home screen and you can send push notifications, without the cost or maintenance of separate native apps.</div>
+        </details>
+      </div>
+
+      <div class="faq-cat" data-cat="pricing">
+        <div class="faq-cat-label">Pricing, Audit &amp; Support</div>
+
+        <details class="faq-item">
+          <summary>How does the Free Audit work, and is the score accurate?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">It runs your URL through Google's own Lighthouse data and shows the median of several runs, since a single test can vary by a few points, that's normal, documented behaviour, not an error. We also show lab data (this test) alongside field data (your real visitors), since they answer slightly different questions.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Which pricing plan is right for my business?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">It depends on which add-ons solve a problem you actually have today. See the full plan comparison on our pricing page, or ask us directly and we'll recommend the right fit.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What kind of support do I get after launch?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">An in-house team, not outsourced subcontractors. Every plan's monthly fee covers hosting, maintenance and support, so the people who built your site are the same people answering your questions afterward.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is my data and content safe if I move to a headless setup?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="faq-answer">Generally, yes, more so than a traditional setup. Your WordPress backend isn't directly exposed to the public in a headless architecture, which means fewer attack vectors and less brand risk.</div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA BAND (page-specific) -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <span class="eyebrow-cta">Still stuck?</span>
+      <h2>We're one message away.</h2>
+      <p>The chatbot above and the FAQ below cover the basics, if your question is more specific to your business, our team will give you a straight answer.</p>
+      <a class="btn btn-primary" href="/contact-us">Contact Us <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><span class="f-dot"></span>orangesoft</div>
+        <p>Headless WordPress, built by Orangesoft, the team behind 600+ traditional WordPress projects in Kuala Lumpur since 2007, now applying the same process to a faster way of building the web.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Explore</div>
+        <a href="why-headless-page.html">Why Headless</a>
+        <a href="why-headless-page.html#live-demo">Live Demo</a>
+        <a href="audit-page.html">Free Audit</a>
+        <a href="about-page.html">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Support</div>
+        <a href="faq-page.html">FAQs</a>
+        <a href="/contact-us">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Follow Us</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17M11 12.5v-.001"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-watermark"><span>orangesoft</span></div>
+    <div class="footer-bottom">
+      <div>© Copyright 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</div>
+      <a class="back-to-top" href="#top">Back to top <span class="btt-circle">↑</span></a>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var answers = [
+      { q: "can you work with wordpress", a: "Yes. Headless keeps your existing WordPress dashboard exactly as it is, your team keeps publishing the same way. We just rebuild the front end your visitors see to be faster and more flexible." },
+      { q: "can i keep my wordpress dashboard", a: "Yes, completely. Your team keeps publishing in the same WordPress dashboard, we only change what visitors see on the front end." },
+      { q: "is headless right for my business", a: "It's a strong fit if your site is slow, struggles with traffic spikes, or you want the same content powering a website, app and other channels. The fastest way to find out is a free audit of your current site." },
+      { q: "how much does it cost", a: "Plans start at RM3,000 setup + RM199/month for Standard (AI Sales Assistant), up to RM5,800 + RM399/month for Corporate, which includes every add-on. See the pricing page for the full breakdown." },
+      { q: "can whatsapp ai take bookings", a: "Yes. It's connected via the official WhatsApp Business API and can be configured to take bookings, give status updates, and answer catalog questions directly inside the chat." },
+      { q: "will my seo be affected", a: "Done properly, it should help. Page speed is a ranking factor, and headless sites typically load significantly faster." },
+      { q: "how long does migration take", a: "It depends on how large and complex your current site is, we'll confirm a real timeline once we've seen it. Ask our team directly for an estimate." }
+    ];
+    var fallback = "That one's not in this demo's canned answers, browse the FAQ below or contact our team directly and we'll get you a real answer.";
+    var thread = document.getElementById('askThread');
+    var input = document.getElementById('askInput');
+    var send = document.getElementById('askSend');
+
+    function norm(s){ return s.toLowerCase().replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim(); }
+
+    function findAnswer(q){
+      var key = norm(q);
+      for (var i=0;i<answers.length;i++){
+        if (key.indexOf(answers[i].q) > -1 || answers[i].q.indexOf(key) > -1) return answers[i].a;
+      }
+      return fallback;
+    }
+
+    function addMsg(text, who){
+      var div = document.createElement('div');
+      div.className = 'ask-msg ' + (who === 'user' ? 'ask-msg-user' : 'ask-msg-ai');
+      if (who === 'ai'){
+        div.innerHTML = '<span class="ask-ai-icon">✦</span><span></span>';
+        div.querySelector('span:last-child').textContent = text;
+      } else {
+        div.textContent = text;
+      }
+      thread.appendChild(div);
+      thread.classList.add('active');
+    }
+
+    function ask(q){
+      if (!q || !q.trim()) return;
+      addMsg(q, 'user');
+      var reply = findAnswer(q);
+      setTimeout(function(){ addMsg(reply, 'ai'); }, 350);
+      input.value = '';
+    }
+
+    send.addEventListener('click', function(){ ask(input.value); });
+    input.addEventListener('keydown', function(e){ if (e.key === 'Enter'){ ask(input.value); } });
+    var chips = document.querySelectorAll('.ask-chip');
+    for (var i=0;i<chips.length;i++){
+      chips[i].addEventListener('click', function(){ ask(this.getAttribute('data-q')); });
+    }
+
+    var qlinks = document.querySelectorAll('.faq-qlink');
+    var cats = document.querySelectorAll('.faq-cat');
+    for (var j=0;j<qlinks.length;j++){
+      qlinks[j].addEventListener('click', function(){
+        for (var m=0;m<qlinks.length;m++) qlinks[m].classList.remove('active');
+        this.classList.add('active');
+        var target = this.getAttribute('data-cat');
+        for (var n=0;n<cats.length;n++){
+          cats[n].style.display = (target === 'all' || cats[n].getAttribute('data-cat') === target) ? '' : 'none';
+        }
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>
