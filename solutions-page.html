@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solutions — Mockup</title>
+<style>
+  :root{
+    --orange:#f5750f;
+    --orange-dark:#c9631d;
+    --orange-light:#ff9142;
+    --dark:#0b0908;
+    --cream:#faf6f2;
+    --gray:#6b6b6b;
+    --border:#e7e2dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
+  .label-row{text-align:center;padding:18px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+  a{color:inherit;}
+
+  /* ---------- HEADER / NAV (shared) ---------- */
+  .site-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .site-logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700;color:var(--orange);text-decoration:none;}
+  .site-logo .logo-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--orange-light),var(--orange));flex-shrink:0;}
+  .nav-pill{position:absolute;left:50%;top:26px;transform:translateX(-50%);display:flex;align-items:center;gap:30px;background:rgba(15,12,10,.92);border:1px solid rgba(255,255,255,.1);padding:13px 28px;border-radius:999px;}
+  .nav-pill a{color:#e7e2dc;font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;}
+  .nav-pill a:hover{color:#fff;}
+  .nav-pill a.nav-active{color:var(--orange-light);font-weight:700;}
+  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#1a1512;}
+  @media (max-width:900px){ .nav-pill{display:none;} .nav-menu-btn{display:flex;} }
+  .header-right{display:flex;align-items:center;gap:14px;}
+  .header-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+  .header-cta:hover{background:var(--orange-dark);}
+  .header-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.3);font-size:11px;}
+  @media (max-width:480px){ .header-cta{padding:9px 14px;font-size:13px;} .header-cta .arrow{display:none;} }
+
+  /* ---------- PAGE HERO ---------- */
+  .page-hero{position:relative;padding:150px 24px 70px;text-align:center;background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);overflow:hidden;}
+  .grid-overlay{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:760px;max-width:90%;height:260px;background-image:linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, black 40%, transparent 100%);pointer-events:none;}
+  .page-hero-inner{position:relative;max-width:760px;margin:0 auto;}
+  .page-hero h1{font-size:44px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:24px;}
+  .page-hero p{font-size:17px;line-height:1.65;color:var(--gray);max-width:640px;margin:0 auto;}
+
+  /* ---------- QUICK JUMP STRIP ---------- */
+  .jump-strip{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:36px 24px 10px;background:#fdf1e6;}
+  .jump-strip a{
+    display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
+    border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:600;color:#2c2822;text-decoration:none;
+  }
+  .jump-strip a svg{width:15px;height:15px;color:var(--orange);}
+
+  /* ---------- SOLUTION BLOCKS ---------- */
+  .solutions-list{background:#fdf1e6;padding:50px 24px 90px;}
+  .solution-block{
+    max-width:1080px;margin:0 auto 28px;background:#fff;border:1px solid var(--border);border-radius:26px;
+    padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;scroll-margin-top:110px;
+  }
+  @media (max-width:860px){ .solution-block{grid-template-columns:1fr;padding:32px 26px;} }
+  .sb-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(160deg,#fde3cd,#fbeee2);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+  .sb-icon svg{width:28px;height:28px;}
+  .sb-label{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
+  .sb-headline{font-size:25px;font-weight:800;color:#161311;line-height:1.3;margin-bottom:16px;}
+  .sb-desc{font-size:15px;line-height:1.65;color:var(--gray);margin-bottom:20px;}
+  .sb-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .sb-tag{font-size:12.5px;font-weight:600;color:#4a453f;background:#f2efeb;border-radius:999px;padding:6px 14px;}
+  .sb-features{list-style:none;}
+  .sb-features li{
+    display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);
+    font-size:14.5px;line-height:1.55;color:#2c2822;
+  }
+  .sb-features li:last-child{border-bottom:none;}
+  .sb-features .check{
+    width:22px;height:22px;border-radius:50%;background:#fde3cd;color:var(--orange);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:800;margin-top:1px;
+  }
+  .sb-features strong{color:#161311;}
+
+  /* ---------- FINAL CTA BAND (shared) ---------- */
+  .final-cta{padding:80px 24px 90px;background:#fff;}
+  .final-cta-inner{
+    max-width:1160px;margin:0 auto;text-align:center;border-radius:28px;padding:70px 24px;
+    background:radial-gradient(1px 1px at 10% 30%, rgba(245,117,15,.35) 1px, transparent 0) 0 0/26px 26px, linear-gradient(160deg,#fde3cd,#fbd9bd);
+    position:relative;overflow:hidden;
+  }
+  .final-cta h2{font-size:38px;font-weight:800;color:#1a1512;margin-bottom:16px;}
+  .final-cta p{font-size:16px;color:#5a5248;margin-bottom:30px;}
+  .cta-row-center{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid transparent;}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-outline{background:transparent;color:#1a1512;border:1px solid #d8cfc4;}
+  .btn-primary .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+
+  /* ---------- FOOTER (shared) ---------- */
+  .site-footer{background:#fff;padding:70px 24px 0;}
+  .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
+  @media (max-width:800px){ .footer-top{grid-template-columns:1fr 1fr;} }
+  .footer-brand .f-logo{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;color:var(--orange);margin-bottom:18px;}
+  .footer-brand .f-logo .f-dot{width:30px;height:30px;border-radius:50%;background:var(--orange);}
+  .footer-brand p{font-size:14px;line-height:1.6;color:#6b6b6b;max-width:320px;}
+  .footer-col-label{font-size:14px;color:#9c9088;margin-bottom:18px;}
+  .footer-col a{display:block;font-size:15px;font-weight:600;color:#1a1512;text-decoration:none;margin-bottom:14px;}
+  .footer-social{display:flex;gap:12px;margin-top:4px;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4a453f;}
+  .footer-watermark{background:linear-gradient(160deg,#fde3cd,#fff);overflow:hidden;padding:20px 0;}
+  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(245,117,15,.35);}
+  .footer-bottom{max-width:1160px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:13px;color:#9c9088;}
+  .footer-bottom a{color:#9c9088;text-decoration:none;}
+  .back-to-top{display:flex;align-items:center;gap:10px;}
+  .back-to-top .btt-circle{width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;display:flex;align-items:center;justify-content:center;}
+</style>
+</head>
+<body>
+
+  <div class="label-row">SOLUTIONS — PAGE MOCKUP</div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <header class="site-header">
+      <a class="site-logo" href="hero-mockup.html"><span class="logo-dot"></span>orangesoft</a>
+      <nav class="nav-pill">
+        <a href="why-headless-page.html">Headless</a>
+        <a href="solutions-page.html" class="nav-active">Solutions</a>
+        <a href="pricing-page.html">Pricing</a>
+        <a href="about-page.html">About</a>
+        <a href="faq-page.html">FAQ</a>
+        <a href="/contact-us">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="header-cta" href="audit-page.html">Free Audit <span class="arrow">→</span></a>
+        <button class="nav-menu-btn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="grid-overlay"></div>
+    <div class="page-hero-inner">
+      <h1>One website.<br>A full digital ecosystem.</h1>
+      <p>Headless gives you the fast, flexible foundation. These four add-ons plug in on top, each built to solve a specific problem your business already has.</p>
+    </div>
+  </section>
+
+  <!-- QUICK JUMP STRIP -->
+  <div class="jump-strip">
+    <a href="#sales-assistant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4H4l1.8-3.9A8.4 8.4 0 1 1 21 11.5Z"/></svg>AI Sales Assistant</a>
+    <a href="#whatsapp-assistant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>WhatsApp AI Assistant</a>
+    <a href="#app-experience"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0-4-4m4 4 4-4M5 21h14"/></svg>App-Like Experience</a>
+    <a href="#search-visibility"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>AI Search Visibility</a>
+  </div>
+
+  <!-- SOLUTION BLOCKS -->
+  <section class="solutions-list">
+
+    <div class="solution-block" id="sales-assistant">
+      <div>
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4H4l1.8-3.9A8.4 8.4 0 1 1 21 11.5Z" stroke="#f5750f"/></svg></div>
+        <div class="sb-label">AI Sales Assistant</div>
+        <h3 class="sb-headline">Talks like a real person, not a script, in multiple languages.</h3>
+        <p class="sb-desc">A chatbot on your website that holds a genuine conversation instead of reading from a script. It follows a real sales structure, surfaces the visitor's problem, backs up claims with facts, handles objections honestly, and asks for a next step, then hands off to your team on WhatsApp without making the customer repeat themselves.</p>
+        <div class="sb-tags"><span class="sb-tag">Natural conversation</span><span class="sb-tag">Multilingual</span><span class="sb-tag">Context-aware handoff</span></div>
+      </div>
+      <ul class="sb-features">
+        <li><span class="check">✓</span><span><strong>Holds a real conversation.</strong> Adapts tone instead of sounding like a bot reading a script.</span></li>
+        <li><span class="check">✓</span><span><strong>Speaks your customer's language.</strong> Supports English, Malay and Chinese today.</span></li>
+        <li><span class="check">✓</span><span><strong>Sells, not just answers.</strong> Diagnoses the problem, proves the point, handles objections, asks for the close.</span></li>
+        <li><span class="check">✓</span><span><strong>Never bluffs.</strong> Says "let me get you a person" instead of guessing when it doesn't know.</span></li>
+        <li><span class="check">✓</span><span><strong>Captures every lead</strong> straight into your system, day or night.</span></li>
+      </ul>
+    </div>
+
+    <div class="solution-block" id="whatsapp-assistant">
+      <div>
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z" stroke="#f5750f"/></svg></div>
+        <div class="sb-label">WhatsApp AI Assistant</div>
+        <h3 class="sb-headline">Answers and handles your WhatsApp messages automatically, built around exactly what your business needs.</h3>
+        <p class="sb-desc">A custom AI assistant that runs on your own WhatsApp number, tailored specifically to your workflow, not a generic script. Unlike the website assistant, it's tied to a real, returning customer, so it can recognise who's messaging and actually take action, not just answer questions.</p>
+        <div class="sb-tags"><span class="sb-tag">Custom actions</span><span class="sb-tag">Memory</span><span class="sb-tag">24/7</span></div>
+      </div>
+      <ul class="sb-features">
+        <li><span class="check">✓</span><span><strong>Catches every enquiry</strong> that comes in after hours, when your team's gone home.</span></li>
+        <li><span class="check">✓</span><span><strong>Answers catalog and pricing questions</strong> instantly, without a person typing it out.</span></li>
+        <li><span class="check">✓</span><span><strong>Takes bookings and reservations</strong> directly inside the chat.</span></li>
+        <li><span class="check">✓</span><span><strong>Remembers returning customers</strong> across conversations, something the website chatbot can't do.</span></li>
+        <li><span class="check">✓</span><span><strong>Scoped to your business</strong>, built to do exactly what you need, not sold as an open-ended "does anything" bot.</span></li>
+      </ul>
+    </div>
+
+    <div class="solution-block" id="app-experience">
+      <div>
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M12 3v13m0 0-4-4m4 4 4-4M5 21h14" stroke="#f5750f"/></svg></div>
+        <div class="sb-label">App-Like Experience</div>
+        <h3 class="sb-headline">Sends push notifications straight to your customers' phones, anytime you want.</h3>
+        <p class="sb-desc">Turns your website into something that behaves like an app. Visitors save it to their phone's home screen, it keeps working on a poor connection, and you can reach them again directly, without needing their email or spending on ads to get back in front of them.</p>
+        <div class="sb-tags"><span class="sb-tag">Install</span><span class="sb-tag">Notify</span><span class="sb-tag">Re-engage</span></div>
+      </div>
+      <ul class="sb-features">
+        <li><span class="check">✓</span><span><strong>Installs like a real app,</strong> icon on the home screen, full-screen, no browser bar.</span></li>
+        <li><span class="check">✓</span><span><strong>Works even with bad internet,</strong> cached content stays accessible.</span></li>
+        <li><span class="check">✓</span><span><strong>Push notifications</strong> for offers, reminders and updates, a free channel back to your customer.</span></li>
+        <li><span class="check">✓</span><span><strong>Loads instantly</strong> on repeat visits, extending your site's speed advantage past the first click.</span></li>
+        <li><span class="check">✓</span><span><strong>One build, every device,</strong> no separate iOS and Android cost.</span></li>
+      </ul>
+    </div>
+
+    <div class="solution-block" id="search-visibility">
+      <div>
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><circle cx="11" cy="11" r="7" stroke="#f5750f"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="sb-label">AI Search Visibility</div>
+        <h3 class="sb-headline">When people ask ChatGPT or Google AI for help, this makes sure they recommend you, not a competitor.</h3>
+        <p class="sb-desc">Optimises your content for how AI tools like ChatGPT and Google's AI-powered search actually read and cite sources, a different skill than traditional SEO's focus on ranking in a list of links. As more people get one direct answer instead of ten blue links, being the business named in that answer is what determines whether you're found at all.</p>
+        <div class="sb-tags"><span class="sb-tag">AI Search</span><span class="sb-tag">AEO</span><span class="sb-tag">Visibility</span></div>
+      </div>
+      <ul class="sb-features">
+        <li><span class="check">✓</span><span><strong>Structured for AI to read and cite,</strong> not just ranked in a search results list.</span></li>
+        <li><span class="check">✓</span><span><strong>Built for how people search now,</strong> asking one direct question, not browsing ten links.</span></li>
+        <li><span class="check">✓</span><span><strong>Improves your odds of being named</strong> inside AI-generated answers.</span></li>
+        <li><span class="check">✓</span><span><strong>Gets ahead of competitors</strong> who haven't adapted to AI search yet.</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- FINAL CTA BAND -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Ready to build your ecosystem?</h2>
+      <p>Speed, an AI sales assistant, an installable app experience and AI search visibility, bundled into plans built for exactly this.</p>
+      <div class="cta-row-center">
+        <a class="btn btn-primary" href="pricing-page.html">See Pricing <span class="arrow">→</span></a>
+        <a class="btn btn-outline" href="/contact-us">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><span class="f-dot"></span>orangesoft</div>
+        <p>Headless WordPress, built by Orangesoft, the team behind 600+ traditional WordPress projects in Kuala Lumpur since 2007, now applying the same process to a faster way of building the web.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Explore</div>
+        <a href="#">Why Headless</a>
+        <a href="#">Live Demo</a>
+        <a href="audit-page.html">Free Audit</a>
+        <a href="#">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Support</div>
+        <a href="faq-page.html">FAQs</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Follow Us</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17M11 12.5v-.001"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-watermark"><span>orangesoft</span></div>
+    <div class="footer-bottom">
+      <div>© Copyright 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</div>
+      <a class="back-to-top" href="#top">Back to top <span class="btt-circle">↑</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>

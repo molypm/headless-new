@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pricing — Mockup</title>
+<style>
+  :root{
+    --orange:#f5750f;--orange-dark:#c9631d;--orange-light:#ff9142;
+    --dark:#0b0908;--cream:#faf6f2;--gray:#6b6b6b;--border:#e7e2dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
+  .label-row{text-align:center;padding:18px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+  a{color:inherit;}
+
+  /* HEADER / NAV (shared) */
+  .site-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .site-logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700;color:var(--orange);text-decoration:none;}
+  .site-logo .logo-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--orange-light),var(--orange));flex-shrink:0;}
+  .nav-pill{position:absolute;left:50%;top:26px;transform:translateX(-50%);display:flex;align-items:center;gap:30px;background:rgba(15,12,10,.92);border:1px solid rgba(255,255,255,.1);padding:13px 28px;border-radius:999px;}
+  .nav-pill a{color:#e7e2dc;font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;}
+  .nav-pill a:hover{color:#fff;}
+  .nav-pill a.nav-active{color:var(--orange-light);font-weight:700;}
+  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#1a1512;}
+  @media (max-width:900px){ .nav-pill{display:none;} .nav-menu-btn{display:flex;} }
+  .header-right{display:flex;align-items:center;gap:14px;}
+  .header-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+  .header-cta:hover{background:var(--orange-dark);}
+  .header-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.3);font-size:11px;}
+  @media (max-width:480px){ .header-cta{padding:9px 14px;font-size:13px;} .header-cta .arrow{display:none;} }
+
+  /* PAGE HERO */
+  .page-hero{position:relative;padding:150px 24px 60px;text-align:center;background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);overflow:hidden;}
+  .grid-overlay{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:760px;max-width:90%;height:220px;background-image:linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, black 40%, transparent 100%);pointer-events:none;}
+  .page-hero-inner{position:relative;max-width:720px;margin:0 auto;}
+  .page-hero h1{font-size:44px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:20px;}
+  .page-hero p{font-size:17px;line-height:1.65;color:var(--gray);max-width:600px;margin:0 auto;}
+
+  /* SETUP VS MONTHLY EXPLAINER */
+  .explainer{max-width:720px;margin:34px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .explainer .ex-chip{
+    display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);
+    border-radius:999px;padding:10px 18px;font-size:13.5px;color:#2c2822;font-weight:600;
+  }
+  .explainer .ex-chip b{color:var(--orange);}
+
+  /* PRICING GRID */
+  .pricing-section{padding:60px 24px 90px;background:#fdf1e6;}
+  .pricing-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch;}
+  @media (max-width:1100px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .pricing-grid{grid-template-columns:1fr;} }
+  .plan-card{
+    background:#fff;border:1px solid var(--border);border-radius:24px;padding:34px 28px;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .plan-card.popular{border:2px solid var(--orange);transform:translateY(-10px);box-shadow:0 20px 40px rgba(245,117,15,.18);}
+  .plan-badge{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--orange);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.05em;
+    text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap;
+  }
+  .plan-name{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
+  .plan-price{font-size:30px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:4px;}
+  .plan-price small{font-size:14px;font-weight:600;color:#9c9088;}
+  .plan-setup{font-size:13px;color:#9c9088;margin-bottom:16px;}
+  .plan-tagline{font-size:14px;color:#5a5248;line-height:1.55;margin-bottom:22px;min-height:44px;}
+  .plan-features{list-style:none;margin-bottom:26px;flex:1;}
+  .plan-features li{display:flex;align-items:center;gap:10px;font-size:14px;padding:9px 0;border-bottom:1px solid var(--border);color:#2c2822;}
+  .plan-features li:last-child{border-bottom:none;}
+  .plan-features li.off{color:#c2bbb0;}
+  .plan-features .tick{width:20px;height:20px;border-radius:50%;background:#fde3cd;color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+  .plan-features .tick.off{background:#f2efeb;color:#c2bbb0;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;text-decoration:none;border:1px solid transparent;width:100%;}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-dark{background:#161311;color:#fff;}
+  .btn-outline{background:transparent;color:#1a1512;border:1px solid #d8cfc4;}
+  .pricing-note{max-width:800px;margin:34px auto 0;text-align:center;font-size:13.5px;color:#9c9088;}
+
+  /* TEAM SECTION */
+  .team-section{padding:90px 24px;background:#fff;text-align:center;}
+  .section-header{max-width:680px;margin:0 auto 50px;}
+  .section-heading{font-size:34px;font-weight:800;color:#1a1512;margin-bottom:16px;line-height:1.2;}
+  .section-desc{font-size:16px;line-height:1.6;color:var(--gray);}
+  .team-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:28px 22px;}
+  @media (max-width:900px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
+  .team-card{display:flex;flex-direction:column;align-items:center;}
+  .team-avatar{
+    width:96px;height:96px;border-radius:50%;margin-bottom:14px;
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:26px;
+  }
+  .team-name{font-size:15px;font-weight:700;color:#161311;margin-bottom:3px;}
+  .team-role{font-size:12.5px;color:#9c9088;}
+  .team-note{max-width:640px;margin:44px auto 0;font-size:13px;color:#9c9088;background:#fdf1e6;border-radius:14px;padding:16px 20px;}
+
+  /* REVIEWS (shared from homepage) */
+  .reviews-section{background:#fdf1e6;padding:80px 24px 90px;}
+  .reviews-rating{max-width:680px;margin:0 auto 50px;text-align:center;}
+  .reviews-rating .stars{color:#f5a623;font-size:20px;letter-spacing:3px;margin:14px 0 10px;}
+  .reviews-rating .score-line{display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:600;color:#2c2822;}
+  .g-icon{width:20px;height:20px;}
+  .reviews-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media (max-width:900px){ .reviews-grid{grid-template-columns:1fr;} }
+  .review-card{border:1px solid var(--border);border-radius:18px;padding:26px 24px;background:#fff;}
+  .review-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .review-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;flex-shrink:0;}
+  .review-who{flex:1;}
+  .review-name{font-size:14.5px;font-weight:700;color:#1a1512;}
+  .review-time{font-size:12.5px;color:#9c9088;}
+  .review-stars{color:#f5a623;font-size:14px;margin-bottom:10px;letter-spacing:2px;}
+  .review-text{font-size:14px;line-height:1.6;color:#4a453f;}
+
+  /* FINAL CTA (shared) */
+  .final-cta{padding:80px 24px 90px;background:#fff;}
+  .final-cta-inner{max-width:1160px;margin:0 auto;text-align:center;border-radius:28px;padding:70px 24px;background:radial-gradient(1px 1px at 10% 30%, rgba(245,117,15,.35) 1px, transparent 0) 0 0/26px 26px, linear-gradient(160deg,#fde3cd,#fbd9bd);position:relative;overflow:hidden;}
+  .final-cta h2{font-size:38px;font-weight:800;color:#1a1512;margin-bottom:16px;}
+  .final-cta p{font-size:16px;color:#5a5248;margin-bottom:30px;}
+  .final-cta .btn{width:auto;padding:16px 28px;}
+  .final-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+  .cta-row-center{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* FOOTER (shared) */
+  .site-footer{background:#fff;padding:70px 24px 0;}
+  .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
+  @media (max-width:800px){ .footer-top{grid-template-columns:1fr 1fr;} }
+  .footer-brand .f-logo{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;color:var(--orange);margin-bottom:18px;}
+  .footer-brand .f-logo .f-dot{width:30px;height:30px;border-radius:50%;background:var(--orange);}
+  .footer-brand p{font-size:14px;line-height:1.6;color:#6b6b6b;max-width:320px;}
+  .footer-col-label{font-size:14px;color:#9c9088;margin-bottom:18px;}
+  .footer-col a{display:block;font-size:15px;font-weight:600;color:#1a1512;text-decoration:none;margin-bottom:14px;}
+  .footer-social{display:flex;gap:12px;margin-top:4px;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4a453f;}
+  .footer-watermark{background:linear-gradient(160deg,#fde3cd,#fff);overflow:hidden;padding:20px 0;}
+  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(245,117,15,.35);}
+  .footer-bottom{max-width:1160px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:13px;color:#9c9088;}
+  .footer-bottom a{color:#9c9088;text-decoration:none;}
+  .back-to-top{display:flex;align-items:center;gap:10px;}
+  .back-to-top .btt-circle{width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;display:flex;align-items:center;justify-content:center;}
+</style>
+</head>
+<body>
+
+  <div class="label-row">PRICING — PAGE MOCKUP</div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <header class="site-header">
+      <a class="site-logo" href="hero-mockup.html"><span class="logo-dot"></span>orangesoft</a>
+      <nav class="nav-pill">
+        <a href="why-headless-page.html">Headless</a>
+        <a href="solutions-page.html">Solutions</a>
+        <a href="pricing-page.html" class="nav-active">Pricing</a>
+        <a href="about-page.html">About</a>
+        <a href="faq-page.html">FAQ</a>
+        <a href="/contact-us">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="header-cta" href="audit-page.html">Free Audit <span class="arrow">→</span></a>
+        <button class="nav-menu-btn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="grid-overlay"></div>
+    <div class="page-hero-inner">
+      <h1>Simple pricing. Real ROI.</h1>
+      <p>One-time setup gets it built and configured. A small monthly fee keeps it hosted, maintained, and supported, no surprise costs later.</p>
+    </div>
+  </section>
+
+  <!-- PRICING GRID -->
+  <section class="pricing-section">
+    <div class="pricing-grid">
+
+      <div class="plan-card">
+        <div class="plan-name">Standard</div>
+        <div class="plan-price">RM3,000 <small>setup</small></div>
+        <div class="plan-setup">+ RM199 / month</div>
+        <div class="plan-tagline">Get a smart chatbot working on your site from day one.</div>
+        <ul class="plan-features">
+          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
+          <li class="off"><span class="tick off">–</span>WhatsApp AI Assistant</li>
+          <li class="off"><span class="tick off">–</span>SEO</li>
+          <li class="off"><span class="tick off">–</span>App-Like Experience (PWA)</li>
+          <li class="off"><span class="tick off">–</span>AI Search Visibility (AEO)</li>
+        </ul>
+        <a class="btn btn-outline" href="/contact-us">Get Started</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">RM4,500 <small>setup</small></div>
+        <div class="plan-setup">+ RM299 / month</div>
+        <div class="plan-tagline">Add WhatsApp automation and start showing up in search.</div>
+        <ul class="plan-features">
+          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
+          <li><span class="tick">✓</span>WhatsApp AI Assistant</li>
+          <li><span class="tick">✓</span>SEO</li>
+          <li class="off"><span class="tick off">–</span>App-Like Experience (PWA)</li>
+          <li class="off"><span class="tick off">–</span>AI Search Visibility (AEO)</li>
+        </ul>
+        <a class="btn btn-outline" href="/contact-us">Get Started</a>
+      </div>
+
+      <div class="plan-card popular">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Corporate</div>
+        <div class="plan-price">RM5,800 <small>setup</small></div>
+        <div class="plan-setup">+ RM399 / month</div>
+        <div class="plan-tagline">The full digital ecosystem, built to convert and retain.</div>
+        <ul class="plan-features">
+          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
+          <li><span class="tick">✓</span>WhatsApp AI Assistant</li>
+          <li><span class="tick">✓</span>SEO</li>
+          <li><span class="tick">✓</span>App-Like Experience (PWA)</li>
+          <li><span class="tick">✓</span>AI Search Visibility (AEO)</li>
+        </ul>
+        <a class="btn btn-primary" href="/contact-us">Get Started</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">POA</div>
+        <div class="plan-setup">Custom setup &amp; monthly</div>
+        <div class="plan-tagline">Custom-built for larger teams with specific needs.</div>
+        <ul class="plan-features">
+          <li><span class="tick">✓</span>Everything in Corporate</li>
+          <li><span class="tick">✓</span>Dedicated account manager</li>
+          <li><span class="tick">✓</span>Custom integrations</li>
+          <li><span class="tick">✓</span>Priority support &amp; SLA</li>
+        </ul>
+        <a class="btn btn-dark" href="/contact-us">Talk to Sales</a>
+      </div>
+
+    </div>
+    <p class="pricing-note">All plans run on the same fast, secure headless foundation. Add-ons can be adjusted as your business grows, talk to us if a different mix fits you better.</p>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section">
+    <div class="section-header" style="text-align:center;">
+      <h2 class="section-heading">The team behind it</h2>
+      <p class="section-desc">11 people in Kuala Lumpur building, supporting and improving every project we ship.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar" style="background:#f5750f;">F</div><div class="team-name">Founder</div><div class="team-role">CEO</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#4285f4;">C</div><div class="team-name">Co-Founder</div><div class="team-role">CTO</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#25d366;">H</div><div class="team-name">Design Lead</div><div class="team-role">Head of Design</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#9c6ade;">L</div><div class="team-name">Lead Developer</div><div class="team-role">Engineering</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#e85f10;">B</div><div class="team-name">Backend Engineer</div><div class="team-role">Engineering</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#2c7a7b;">F</div><div class="team-name">Frontend Engineer</div><div class="team-role">Engineering</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#c9631d;">A</div><div class="team-name">AI Engineer</div><div class="team-role">AI &amp; Automation</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#4a453f;">P</div><div class="team-name">Project Manager</div><div class="team-role">Delivery</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#f5a623;">M</div><div class="team-name">Marketing Lead</div><div class="team-role">Growth</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#3b82f6;">C</div><div class="team-name">Client Success</div><div class="team-role">Support</div></div>
+      <div class="team-card"><div class="team-avatar" style="background:#16a34a;">Q</div><div class="team-name">QA Engineer</div><div class="team-role">Quality</div></div>
+    </div>
+    <p class="team-note">Placeholder team section, initials and role titles only. Swap in real photos and names before this goes live.</p>
+  </section>
+
+  <!-- REVIEWS SECTION — DUMMY PLACEHOLDER CONTENT, NOT REAL REVIEWS -->
+  <section class="reviews-section">
+    <div class="reviews-rating">
+      <h2 class="section-heading">What clients say on Google</h2>
+      <div class="stars">★★★★★</div>
+      <div class="score-line">
+        <svg class="g-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285f4"/><path d="M12 6a6 6 0 1 0 5.9 7H12v-2.4h8.4c.1.6.2 1.2.2 1.9 0 5-3.4 8.6-8.6 8.6A9.1 9.1 0 1 1 12 3a8.8 8.8 0 0 1 6.1 2.4l-2.5 2.4A5.3 5.3 0 0 0 12 6Z" fill="#fff"/></svg>
+        4.9 out of 5, based on 120+ Google reviews
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#f5750f;">L</div>
+          <div class="review-who"><div class="review-name">Lim Wei Jun</div><div class="review-time">3 weeks ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Our site used to take forever to load on mobile. After switching to headless our load times dropped massively and enquiries went up. Orangesoft's team explained everything clearly the whole way.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#4285f4;">S</div>
+          <div class="review-who"><div class="review-name">Siti Nurhaliza</div><div class="review-time">1 month ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">We kept our existing WordPress setup so the team barely had to change how they publish, but the site itself feels completely different now. Really smooth process from start to finish.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#25d366;">T</div>
+          <div class="review-who"><div class="review-name">Tan Kai Xuan</div><div class="review-time">2 months ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Added the WhatsApp assistant on top of the new site and it's been catching enquiries we would have missed after hours. Support has been responsive whenever we needed changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Not sure which plan fits yet?</h2>
+      <p>Start with a free check on your current site, see exactly what's slowing it down and what a headless rebuild would fix, then talk to us about the right plan for it.</p>
+      <div class="cta-row-center">
+        <a class="btn btn-primary" href="audit-page.html">Check My Site's Speed <span class="arrow">→</span></a>
+        <a class="btn btn-outline" href="/contact-us">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><span class="f-dot"></span>orangesoft</div>
+        <p>Headless WordPress, built by Orangesoft, the team behind 600+ traditional WordPress projects in Kuala Lumpur since 2007, now applying the same process to a faster way of building the web.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Explore</div>
+        <a href="#">Why Headless</a>
+        <a href="#">Live Demo</a>
+        <a href="audit-page.html">Free Audit</a>
+        <a href="#">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Support</div>
+        <a href="faq-page.html">FAQs</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Follow Us</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17M11 12.5v-.001"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-watermark"><span>orangesoft</span></div>
+    <div class="footer-bottom">
+      <div>© Copyright 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</div>
+      <a class="back-to-top" href="#top">Back to top <span class="btt-circle">↑</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>

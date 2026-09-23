@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Why Headless — Mockup</title>
+<style>
+  :root{
+    --orange:#f5750f;
+    --orange-dark:#c9631d;
+    --orange-light:#ff9142;
+    --dark:#0b0908;
+    --cream:#faf6f2;
+    --gray:#6b6b6b;
+    --border:#e7e2dc;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
+  .label-row{text-align:center;padding:18px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+  a{color:inherit;}
+
+  /* ---------- HEADER / NAV (shared component) ---------- */
+  .site-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .site-logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700;color:var(--orange);text-decoration:none;}
+  .site-logo .logo-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--orange-light),var(--orange));flex-shrink:0;}
+  .nav-pill{position:absolute;left:50%;top:26px;transform:translateX(-50%);display:flex;align-items:center;gap:30px;background:rgba(15,12,10,.92);border:1px solid rgba(255,255,255,.1);padding:13px 28px;border-radius:999px;}
+  .nav-pill a{color:#e7e2dc;font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;}
+  .nav-pill a:hover{color:#fff;}
+  .nav-pill a.nav-new{color:var(--orange-light);font-weight:700;}
+  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#1a1512;}
+  @media (max-width:900px){ .nav-pill{display:none;} .nav-menu-btn{display:flex;} }
+  .header-right{display:flex;align-items:center;gap:14px;}
+  .header-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+  .header-cta:hover{background:var(--orange-dark);}
+  .header-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.3);font-size:11px;}
+  @media (max-width:480px){ .header-cta{padding:9px 14px;font-size:13px;} .header-cta .arrow{display:none;} }
+
+  /* ---------- PAGE HERO ---------- */
+  .page-hero{
+    position:relative;
+    padding:150px 24px 70px;
+    text-align:center;
+    background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);
+    overflow:hidden;
+  }
+  .grid-overlay{
+    position:absolute;top:60px;left:50%;transform:translateX(-50%);
+    width:760px;max-width:90%;height:260px;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom, black 40%, transparent 100%);
+    pointer-events:none;
+  }
+  .page-hero-inner{position:relative;max-width:760px;margin:0 auto;}
+  .page-hero h1{font-size:44px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:24px;}
+  .page-hero p{font-size:17px;line-height:1.65;color:var(--gray);max-width:640px;margin:0 auto;}
+
+  /* ---------- FEATURE LIST ---------- */
+  .feature-section{padding:20px 24px 80px;background:linear-gradient(180deg,#fdf1e6 0%,#fff 35%);}
+  .feature-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:760px){ .feature-grid{grid-template-columns:1fr;} }
+  .feature-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:34px 30px;}
+  .feature-card .icon-badge{width:64px;height:64px;border-radius:16px;background:linear-gradient(160deg,#fde3cd,#fbeee2);display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
+  .feature-card .icon-badge svg{width:28px;height:28px;}
+  .feature-card h3{font-size:20px;font-weight:700;color:#161311;margin-bottom:10px;}
+  .feature-card p{font-size:14.5px;line-height:1.6;color:var(--gray);}
+
+  /* ---------- COMPARISON TABLE ---------- */
+  .compare-section{padding:20px 24px 80px;background:#fff;}
+  .compare-wrap{max-width:1000px;margin:0 auto;}
+  .compare-heads{display:grid;grid-template-columns:1.4fr 1fr 40px 1fr;gap:14px;padding:0 26px 20px;}
+  .compare-heads .ch-label{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}
+  .compare-heads .ch-classic{color:#9c9088;grid-column:2;}
+  .compare-heads .ch-headless{color:var(--orange);grid-column:4;}
+  .compare-row{
+    display:grid;grid-template-columns:1.4fr 1fr 40px 1fr;gap:14px;align-items:center;
+    border:1px solid var(--border);border-radius:18px;padding:22px 26px;margin-bottom:16px;
+  }
+  @media (max-width:760px){
+    .compare-heads{display:none;}
+    .compare-row{grid-template-columns:1fr;text-align:left;gap:8px;}
+  }
+  .compare-feature{display:flex;align-items:center;gap:14px;}
+  .compare-feature .mini-icon{width:40px;height:40px;border-radius:10px;background:#f2efeb;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .compare-feature .mini-icon svg{width:18px;height:18px;color:#2c2822;}
+  .compare-feature span{font-size:16px;font-weight:700;color:#161311;}
+  .compare-classic{font-size:14.5px;color:#8a8278;line-height:1.5;}
+  .compare-check{color:var(--orange);font-weight:700;text-align:center;}
+  .compare-headless{font-size:14.5px;font-weight:700;color:#161311;line-height:1.5;}
+  .compare-cta{text-align:center;margin-top:34px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid transparent;}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-primary .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+  .btn-outline{background:transparent;color:#1a1512;border:1px solid #d8cfc4;}
+  .cta-row-center{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- LIVE DEMO SECTION ---------- */
+  .demo-section{
+    padding:80px 24px;
+    background:linear-gradient(180deg,#fdf1e6 0%,#fbe4cf 100%);
+  }
+  .demo-section .section-header{max-width:680px;margin:0 auto 50px;text-align:center;}
+  .demo-section .section-heading{font-size:34px;font-weight:800;color:#1a1512;margin-bottom:16px;line-height:1.2;}
+  .demo-section .section-desc{font-size:16px;line-height:1.6;color:#5a5248;}
+  .demo-wrap{max-width:1000px;margin:0 auto;}
+  .demo-vs{
+    text-align:center;font-size:13px;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:22px;
+  }
+  .demo-run{text-align:center;margin-bottom:36px;}
+  .demo-run .btn{background:#161311;color:#fff;}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:800px){ .demo-grid{grid-template-columns:1fr;} }
+  .demo-card{border:1px solid var(--border);border-radius:22px;padding:0;overflow:hidden;background:#fff;}
+  .demo-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:22px 24px;}
+  .demo-head .d-label{font-size:16px;font-weight:700;color:#1a1512;}
+  .demo-url{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6b6b6b;border:1px solid var(--border);border-radius:8px;padding:8px 12px;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .demo-body{background:#f2efeb;padding:22px 24px 26px;}
+  .demo-progress{height:8px;border-radius:4px;background:#e7e2dc;margin-bottom:10px;overflow:hidden;}
+  .demo-progress span{display:block;height:100%;width:0%;background:var(--orange);}
+  .demo-timer{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#4a453f;margin-bottom:16px;}
+  .demo-preview{
+    height:260px;border-radius:14px;background:#faf8f5;border:1px dashed var(--border);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#a89f94;
+  }
+  .demo-preview .play-icon{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;color:#b9b2a9;}
+
+  /* ---------- TRUST STRIP (shared) ---------- */
+  .trust-strip{background:#fff;padding:50px 24px 70px;text-align:center;}
+  .trust-strip .t-label{font-size:16px;color:#4a453f;margin-bottom:36px;}
+  .trust-logos{max-width:900px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:56px;flex-wrap:wrap;}
+  .trust-logos span{font-size:20px;font-weight:700;color:#2c2822;opacity:.55;}
+
+  /* ---------- FINAL CTA BAND (shared) ---------- */
+  .final-cta{padding:0 24px 90px;}
+  .final-cta-inner{
+    max-width:1160px;margin:0 auto;text-align:center;border-radius:28px;padding:70px 24px;
+    background:radial-gradient(1px 1px at 10% 30%, rgba(245,117,15,.35) 1px, transparent 0) 0 0/26px 26px, linear-gradient(160deg,#fde3cd,#fbd9bd);
+    position:relative;overflow:hidden;
+  }
+  .final-cta h2{font-size:38px;font-weight:800;color:#1a1512;margin-bottom:16px;}
+  .final-cta p{font-size:16px;color:#5a5248;margin-bottom:30px;}
+
+  /* ---------- FOOTER (shared) ---------- */
+  .site-footer{background:#fff;padding:70px 24px 0;}
+  .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
+  @media (max-width:800px){ .footer-top{grid-template-columns:1fr 1fr;} }
+  .footer-brand .f-logo{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;color:var(--orange);margin-bottom:18px;}
+  .footer-brand .f-logo .f-dot{width:30px;height:30px;border-radius:50%;background:var(--orange);}
+  .footer-brand p{font-size:14px;line-height:1.6;color:#6b6b6b;max-width:320px;}
+  .footer-col-label{font-size:14px;color:#9c9088;margin-bottom:18px;}
+  .footer-col a{display:block;font-size:15px;font-weight:600;color:#1a1512;text-decoration:none;margin-bottom:14px;}
+  .footer-social{display:flex;gap:12px;margin-top:4px;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4a453f;}
+  .footer-watermark{background:linear-gradient(160deg,#fde3cd,#fff);overflow:hidden;padding:20px 0;}
+  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(245,117,15,.35);}
+  .footer-bottom{max-width:1160px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:13px;color:#9c9088;}
+  .footer-bottom a{color:#9c9088;text-decoration:none;}
+  .back-to-top{
+    display:flex;align-items:center;gap:10px;
+  }
+  .back-to-top .btt-circle{
+    width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+  }
+</style>
+</head>
+<body>
+
+  <div class="label-row">WHY HEADLESS — PAGE MOCKUP (recreated from live site)</div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <header class="site-header">
+      <a class="site-logo" href="hero-mockup.html"><span class="logo-dot"></span>orangesoft</a>
+      <nav class="nav-pill">
+        <a href="why-headless-page.html">Headless</a>
+        <a href="solutions-page.html" class="nav-new">Solutions</a>
+        <a href="pricing-page.html">Pricing</a>
+        <a href="about-page.html">About</a>
+        <a href="faq-page.html">FAQ</a>
+        <a href="/contact-us">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="header-cta" href="audit-page.html">Free Audit <span class="arrow">→</span></a>
+        <button class="nav-menu-btn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="grid-overlay"></div>
+    <div class="page-hero-inner">
+      <h1>Any CMS.<br>One faster web experience.</h1>
+      <p>Transform your existing website or build a new one with a headless architecture that separates your content from the experience your customers see.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE LIST -->
+  <section class="feature-section">
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2" stroke="#f5750f"/><path d="M9 2h6M12 2v3"/></svg></div>
+        <h3>Speed</h3>
+        <p>Visitors don't wait. Pages load almost instantly, and speed is directly tied to conversion.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="#f5750f"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Security</h3>
+        <p>Your WordPress backend is no longer directly exposed to the public internet.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M4 20V14M9 20V10M14 20V13M19 20V7"/><path d="M14 6l5-3 1 3.2M19 3l-2.2 4.6" stroke="#f5750f"/></svg></div>
+        <h3>Handles traffic spikes</h3>
+        <p>A viral moment or flash sale hits a content delivery network, not your database.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#f5750f"/></svg></div>
+        <h3>Confidentiality</h3>
+        <p>Sensitive content sits behind a controlled layer, not a public database.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="12" y="4" width="9" height="6" rx="1.5" stroke="#f5750f"/><rect x="12" y="12" width="9" height="8" rx="1.5"/></svg></div>
+        <h3>Unlimited frontends</h3>
+        <p>The same content can power your website, mobile app, and kiosk simultaneously.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="#f5750f"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+        <h3>Always cached</h3>
+        <p>Served from the server nearest each visitor, not one origin far away.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1512" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18" stroke="#f5750f"/><path d="M7 13h4M7 16h7"/></svg></div>
+        <h3>Resilience</h3>
+        <p>Your site keeps serving visitors even if WordPress is mid-update or briefly having issues, the frontend runs independently.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="compare-section">
+    <div class="compare-wrap">
+      <div class="compare-heads">
+        <div></div>
+        <div class="ch-label ch-classic">Classic WordPress</div>
+        <div></div>
+        <div class="ch-label ch-headless">Headless WordPress</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-feature"><div class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.9 7.9 0 0 0 0-2l2-1.5-2-3.4-2.4.8a8 8 0 0 0-1.7-1L15 3h-4l-.3 2.9a8 8 0 0 0-1.7 1l-2.4-.8-2 3.4L6.6 11a7.9 7.9 0 0 0 0 2l-2 1.5 2 3.4 2.4-.8a8 8 0 0 0 1.7 1L11 21h4l.3-2.9a8 8 0 0 0 1.7-1l2.4.8 2-3.4-2-1.5Z"/></svg></div><span>How pages are served</span></div>
+        <div class="compare-classic">Rendered live on each visit</div>
+        <div class="compare-check">✓</div>
+        <div class="compare-headless">Pre-built and served from an edge network</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-feature"><div class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><circle cx="8" cy="7" r=".6" fill="currentColor"/><circle cx="8" cy="17" r=".6" fill="currentColor"/></svg></div><span>Where WordPress sits</span></div>
+        <div class="compare-classic">Runs the site directly, publicly reachable</div>
+        <div class="compare-check">✓</div>
+        <div class="compare-headless">Runs behind the scenes as a content API</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-feature"><div class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/></svg></div><span>Frontend flexibility</span></div>
+        <div class="compare-classic">Tied to the active theme</div>
+        <div class="compare-check">✓</div>
+        <div class="compare-headless">Any framework, any device</div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-feature"><div class="mini-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div><span>Admin experience</span></div>
+        <div class="compare-classic">Same WordPress dashboard</div>
+        <div class="compare-check">✓</div>
+        <div class="compare-headless">Identical, nothing changes for editors</div>
+      </div>
+
+      <div class="compare-cta">
+        <a class="btn btn-primary" href="/contact-us">See how this applies to your site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO SECTION -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2 class="section-heading">Don't take our word for it. Watch it load.</h2>
+      <p class="section-desc">We built one real website two different ways, the traditional way, and headless. Same content, same design intent, two different engines underneath. Click the button below and watch both load side-by-side. The timer measures real onload time, start to finish.</p>
+    </div>
+    <div class="demo-wrap">
+      <div class="demo-vs">Classic WordPress vs Headless WordPress</div>
+      <div class="demo-run">
+        <button class="btn"><span class="arrow" style="background:#fff;color:#161311;">▶</span> Run the Race</button>
+      </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <div class="demo-head">
+            <span class="d-label">Classic WordPress</span>
+            <span class="demo-url">https://trustlend.okie.my/</span>
+          </div>
+          <div class="demo-body">
+            <div class="demo-progress"><span></span></div>
+            <div class="demo-timer">—</div>
+            <div class="demo-preview">
+              <span class="play-icon">▶</span>
+              <span>Press button above</span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <div class="demo-head">
+            <span class="d-label">Headless build</span>
+            <span class="demo-url">https://headlesswordpress.trustlend...</span>
+          </div>
+          <div class="demo-body">
+            <div class="demo-progress"><span></span></div>
+            <div class="demo-timer">—</div>
+            <div class="demo-preview">
+              <span class="play-icon">▶</span>
+              <span>Press button above</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust-strip">
+    <div class="t-label">Trusted by over 600+ businesses</div>
+    <div class="trust-logos">
+      <span>Ricca Lance</span>
+      <span>Ecosys</span>
+      <span>Gamma</span>
+      <span>Democracy of Dreams</span>
+      <span>Pancaran Dinar</span>
+    </div>
+  </section>
+
+  <!-- FINAL CTA BAND -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Ready to build your ecosystem?</h2>
+      <p>Speed, an AI sales assistant, an installable app experience and AI search visibility, bundled into plans built for exactly this.</p>
+      <div class="cta-row-center">
+        <a class="btn btn-primary" href="pricing-page.html">See Pricing <span class="arrow">→</span></a>
+        <a class="btn btn-outline" href="/contact-us">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><span class="f-dot"></span>orangesoft</div>
+        <p>Headless WordPress, built by Orangesoft, the team behind 600+ traditional WordPress projects in Kuala Lumpur since 2007, now applying the same process to a faster way of building the web.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Explore</div>
+        <a href="#">Why Headless</a>
+        <a href="#">Live Demo</a>
+        <a href="audit-page.html">Free Audit</a>
+        <a href="#">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Support</div>
+        <a href="faq-page.html">FAQs</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Follow Us</div>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17M11 12.5v-.001"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-watermark"><span>orangesoft</span></div>
+    <div class="footer-bottom">
+      <div>© Copyright 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</div>
+      <a class="back-to-top" href="#top">Back to top <span class="btt-circle">↑</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>
