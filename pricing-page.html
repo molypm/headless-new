@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <title>Pricing — Mockup</title>
+<meta name="description" content="Simple pricing for a Lightning-fast website, with AI add-ons included on higher plans. See what each plan includes.">
+<link rel="stylesheet" href="assets/css/orangesoft.css">
 <style>
+
   :root{
-    --orange:#f5750f;--orange-dark:#c9631d;--orange-light:#ff9142;
-    --dark:#0b0908;--cream:#faf6f2;--gray:#6b6b6b;--border:#e7e2dc;
+    --orange:#ed7330;
+    --orange-dark:#c9631d;
+    --orange-light:#ff9142;
+    --dark:#121212;
+    --cream:#f8f5f1;
+    --gray:#6b6b6b;
+    --border:#e7e2dc;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
+  body{font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;}
   .label-row{text-align:center;padding:18px 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);font-weight:700;}
   a{color:inherit;}
 
-  /* HEADER / NAV (shared) */
+  /* ---------- HEADER / NAV (shared component) ---------- */
   .site-header{position:absolute;top:0;left:0;right:0;z-index:20;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;}
   .site-logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:700;color:var(--orange);text-decoration:none;}
   .site-logo .logo-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--orange-light),var(--orange));flex-shrink:0;}
   .nav-pill{position:absolute;left:50%;top:26px;transform:translateX(-50%);display:flex;align-items:center;gap:30px;background:rgba(15,12,10,.92);border:1px solid rgba(255,255,255,.1);padding:13px 28px;border-radius:999px;}
   .nav-pill a{color:#e7e2dc;font-size:14.5px;font-weight:500;text-decoration:none;white-space:nowrap;}
   .nav-pill a:hover{color:#fff;}
-  .nav-pill a.nav-active{color:var(--orange-light);font-weight:700;}
-  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#1a1512;}
+  .nav-menu-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;display:none;align-items:center;justify-content:center;color:#121212;}
   @media (max-width:900px){ .nav-pill{display:none;} .nav-menu-btn{display:flex;} }
   .header-right{display:flex;align-items:center;gap:14px;}
   .header-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}
@@ -29,97 +41,137 @@
   .header-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.3);font-size:11px;}
   @media (max-width:480px){ .header-cta{padding:9px 14px;font-size:13px;} .header-cta .arrow{display:none;} }
 
-  /* PAGE HERO */
-  .page-hero{position:relative;padding:150px 24px 60px;text-align:center;background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);overflow:hidden;}
-  .grid-overlay{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:760px;max-width:90%;height:220px;background-image:linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, black 40%, transparent 100%);pointer-events:none;}
-  .page-hero-inner{position:relative;max-width:720px;margin:0 auto;}
-  .page-hero h1{font-size:44px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:20px;}
-  .page-hero p{font-size:17px;line-height:1.65;color:var(--gray);max-width:600px;margin:0 auto;}
+  /* ---------- PAGE HERO ---------- */
+  .page-hero{
+    position:relative;
+    padding:150px 24px 70px;
+    text-align:center;
+    background:linear-gradient(180deg,#fff 0%,#fdf1e6 100%);
+    overflow:hidden;
+  }
+  .grid-overlay{
+    position:absolute;top:60px;left:50%;transform:translateX(-50%);
+    width:760px;max-width:90%;height:260px;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,.05) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom, black 40%, transparent 100%);
+    pointer-events:none;
+  }
+  .page-hero-inner{position:relative;max-width:760px;margin:0 auto;}
+  .page-hero h1{font-size:44px;font-weight:800;color:#121212;line-height:1.2;margin-bottom:24px;}
+  .page-hero p{font-size:17px;line-height:1.65;color:var(--gray);max-width:640px;margin:0 auto;}
 
-  /* SETUP VS MONTHLY EXPLAINER */
-  .explainer{max-width:720px;margin:34px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-  .explainer .ex-chip{
-    display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);
-    border-radius:999px;padding:10px 18px;font-size:13.5px;color:#2c2822;font-weight:600;
-  }
-  .explainer .ex-chip b{color:var(--orange);}
-
-  /* PRICING GRID */
-  .pricing-section{padding:60px 24px 90px;background:#fdf1e6;}
-  .pricing-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch;}
-  @media (max-width:1100px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:640px){ .pricing-grid{grid-template-columns:1fr;} }
-  .plan-card{
-    background:#fff;border:1px solid var(--border);border-radius:24px;padding:34px 28px;
-    display:flex;flex-direction:column;position:relative;
-  }
-  .plan-card.popular{border:2px solid var(--orange);transform:translateY(-10px);box-shadow:0 20px 40px rgba(245,117,15,.18);}
-  .plan-badge{
-    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-    background:var(--orange);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.05em;
-    text-transform:uppercase;padding:6px 16px;border-radius:999px;white-space:nowrap;
-  }
-  .plan-name{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
-  .plan-price{font-size:30px;font-weight:800;color:#161311;line-height:1.2;margin-bottom:4px;}
-  .plan-price small{font-size:14px;font-weight:600;color:#9c9088;}
-  .plan-setup{font-size:13px;color:#9c9088;margin-bottom:16px;}
-  .plan-tagline{font-size:14px;color:#5a5248;line-height:1.55;margin-bottom:22px;min-height:44px;}
-  .plan-features{list-style:none;margin-bottom:26px;flex:1;}
-  .plan-features li{display:flex;align-items:center;gap:10px;font-size:14px;padding:9px 0;border-bottom:1px solid var(--border);color:#2c2822;}
-  .plan-features li:last-child{border-bottom:none;}
-  .plan-features li.off{color:#c2bbb0;}
-  .plan-features .tick{width:20px;height:20px;border-radius:50%;background:#fde3cd;color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
-  .plan-features .tick.off{background:#f2efeb;color:#c2bbb0;}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font-size:14.5px;font-weight:700;text-decoration:none;border:1px solid transparent;width:100%;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;border:1px solid transparent;}
   .btn-primary{background:var(--orange);color:#fff;}
-  .btn-dark{background:#161311;color:#fff;}
-  .btn-outline{background:transparent;color:#1a1512;border:1px solid #d8cfc4;}
-  .pricing-note{max-width:800px;margin:34px auto 0;text-align:center;font-size:13.5px;color:#9c9088;}
-
-  /* TEAM SECTION */
-  .team-section{padding:90px 24px;background:#fff;text-align:center;}
-  .section-header{max-width:680px;margin:0 auto 50px;}
-  .section-heading{font-size:34px;font-weight:800;color:#1a1512;margin-bottom:16px;line-height:1.2;}
-  .section-desc{font-size:16px;line-height:1.6;color:var(--gray);}
-  .team-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:28px 22px;}
-  @media (max-width:900px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
-  @media (max-width:560px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
-  .team-card{display:flex;flex-direction:column;align-items:center;}
-  .team-avatar{
-    width:96px;height:96px;border-radius:50%;margin-bottom:14px;
-    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:26px;
-  }
-  .team-name{font-size:15px;font-weight:700;color:#161311;margin-bottom:3px;}
-  .team-role{font-size:12.5px;color:#9c9088;}
-  .team-note{max-width:640px;margin:44px auto 0;font-size:13px;color:#9c9088;background:#fdf1e6;border-radius:14px;padding:16px 20px;}
-
-  /* REVIEWS (shared from homepage) */
-  .reviews-section{background:#fdf1e6;padding:80px 24px 90px;}
-  .reviews-rating{max-width:680px;margin:0 auto 50px;text-align:center;}
-  .reviews-rating .stars{color:#f5a623;font-size:20px;letter-spacing:3px;margin:14px 0 10px;}
-  .reviews-rating .score-line{display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:600;color:#2c2822;}
-  .g-icon{width:20px;height:20px;}
-  .reviews-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  @media (max-width:900px){ .reviews-grid{grid-template-columns:1fr;} }
-  .review-card{border:1px solid var(--border);border-radius:18px;padding:26px 24px;background:#fff;}
-  .review-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-  .review-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;flex-shrink:0;}
-  .review-who{flex:1;}
-  .review-name{font-size:14.5px;font-weight:700;color:#1a1512;}
-  .review-time{font-size:12.5px;color:#9c9088;}
-  .review-stars{color:#f5a623;font-size:14px;margin-bottom:10px;letter-spacing:2px;}
-  .review-text{font-size:14px;line-height:1.6;color:#4a453f;}
-
-  /* FINAL CTA (shared) */
-  .final-cta{padding:80px 24px 90px;background:#fff;}
-  .final-cta-inner{max-width:1160px;margin:0 auto;text-align:center;border-radius:28px;padding:70px 24px;background:radial-gradient(1px 1px at 10% 30%, rgba(245,117,15,.35) 1px, transparent 0) 0 0/26px 26px, linear-gradient(160deg,#fde3cd,#fbd9bd);position:relative;overflow:hidden;}
-  .final-cta h2{font-size:38px;font-weight:800;color:#1a1512;margin-bottom:16px;}
-  .final-cta p{font-size:16px;color:#5a5248;margin-bottom:30px;}
-  .final-cta .btn{width:auto;padding:16px 28px;}
-  .final-cta .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+  .btn-primary .arrow{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--orange);font-size:14px;}
+  .btn-outline{background:transparent;color:#121212;border:1px solid #d8cfc4;}
   .cta-row-center{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  /* ---------- LIVE DEMO SECTION ---------- */
+  .demo-section{
+    padding:80px 24px;
+    background:linear-gradient(180deg,#fdf1e6 0%,#fbe4cf 100%);
+  }
+  .demo-section .section-header{max-width:680px;margin:0 auto 50px;text-align:center;}
+  .demo-section .section-heading{font-size:34px;font-weight:800;color:#121212;margin-bottom:16px;line-height:1.2;}
+  .demo-section .section-desc{font-size:16px;line-height:1.6;color:#5a5248;}
+  .demo-wrap{max-width:1000px;margin:0 auto;}
+  .demo-vs{
+    text-align:center;font-size:13px;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--orange-dark);margin-bottom:22px;
+  }
+  .demo-run{text-align:center;margin-bottom:36px;}
+  .demo-run .btn{background:#161311;color:#fff;}
+  .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:800px){ .demo-grid{grid-template-columns:1fr;} }
+  .demo-card{border:1px solid var(--border);border-radius:22px;padding:0;overflow:hidden;background:#fff;}
+  .demo-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:22px 24px;}
+  .demo-head .d-label{font-size:16px;font-weight:700;color:#121212;}
+  .demo-url{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#6b6b6b;border:1px solid var(--border);border-radius:8px;padding:8px 12px;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .demo-body{background:#f2efeb;padding:22px 24px 26px;}
+  .demo-progress{height:8px;border-radius:4px;background:#e7e2dc;margin-bottom:10px;overflow:hidden;}
+  .demo-progress span{display:block;height:100%;width:0%;background:var(--orange);}
+  .demo-timer{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;color:#50525f;margin-bottom:16px;}
+  .demo-preview{
+    height:260px;border-radius:14px;background:#f8f5f1;border:1px dashed var(--border);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#a89f94;
+  }
+  .demo-preview .play-icon{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;color:#b9b2a9;}
 
-  /* FOOTER (shared) */
+  /* ---------- NEW SECTIONS ---------- */
+  .section-header{max-width:720px;margin:0 auto 50px;text-align:center;}
+  .section-heading{font-size:36px;font-weight:800;color:#121212;margin-bottom:16px;line-height:1.2;}
+  .section-desc{font-size:16.5px;line-height:1.65;color:var(--gray);}
+  .eyebrow,.pill-label{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:14px;}
+  .page-hero h1{font-size:46px;}
+  .explain-section{background:#fff;padding:90px 24px;}
+  .explain-grid{max-width:1040px;margin:0 auto 50px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:center;}
+  @media (max-width:860px){ .explain-grid{grid-template-columns:1fr;} .explain-arrow{transform:rotate(90deg);text-align:center;} }
+  .explain-step{background:var(--cream);border:1px solid var(--border);border-radius:22px;padding:28px 24px;height:100%;}
+  .ex-num,.proc-num{width:38px;height:38px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .explain-step h3,.proc-card h3{font-size:18px;font-weight:700;color:#121212;margin-bottom:8px;}
+  .explain-step p,.proc-card p{font-size:14.5px;line-height:1.55;color:var(--gray);}
+  .explain-arrow{font-size:26px;color:var(--orange);font-weight:700;}
+  .explain-visual{max-width:760px;margin:0 auto;text-align:center;}
+  .explain-visual img{max-width:100%;height:auto;}
+  .outcomes-section{background:var(--cream);padding:90px 24px;}
+  .outcome-grid{max-width:1160px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:1000px){ .outcome-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .outcome-grid{grid-template-columns:1fr;} }
+  .outcome-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 26px;}
+  .icon-badge{width:60px;height:60px;border-radius:16px;background:linear-gradient(160deg,#fde3cd,#fbeee2);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+  .icon-badge svg{width:28px;height:28px;}
+  .outcome-card h3{font-size:19px;font-weight:700;color:#121212;margin-bottom:10px;}
+  .outcome-card p{font-size:14.5px;line-height:1.6;color:var(--gray);}
+  .tech-details{max-width:900px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:18px;padding:6px 24px;}
+  .tech-details summary,.qa summary{cursor:pointer;font-weight:700;color:#121212;padding:16px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  .tech-details summary::-webkit-details-marker,.qa summary::-webkit-details-marker{display:none;}
+  .tech-details summary::after,.qa summary::after{content:"+";font-size:22px;color:var(--orange);font-weight:700;}
+  .tech-details[open] summary::after,.qa[open] summary::after{content:"–";}
+  .tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px;padding:6px 0 20px;}
+  @media (max-width:760px){ .tech-grid{grid-template-columns:1fr;} }
+  .tech-grid b{display:block;font-size:14.5px;color:#121212;margin-bottom:4px;}
+  .tech-grid span{font-size:14px;line-height:1.55;color:var(--gray);}
+  .cms-section{background:#fff;padding:90px 24px;}
+  .cms-chips{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+  .cms-chips span{font-size:17px;font-weight:700;color:#121212;background:var(--cream);border:1px solid var(--border);border-radius:999px;padding:14px 26px;}
+  .process-section{background:var(--cream);padding:90px 24px;}
+  .process-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:1000px){ .process-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .process-grid{grid-template-columns:1fr;} }
+  .proc-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:28px 24px;}
+  .qa-section{background:#fff;padding:90px 24px;}
+  .qa-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .qa{border:1px solid var(--border);border-radius:16px;padding:2px 24px;background:var(--cream);}
+  .qa summary{font-size:17px;}
+  .qa p{font-size:15px;line-height:1.65;color:var(--gray);padding:0 0 18px;}
+  .qa a{color:var(--orange);font-weight:700;}
+  .proof2-section{background:var(--cream);padding:90px 24px 70px;text-align:center;}
+  .proof2-stats{max-width:960px;margin:0 auto 60px;display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;}
+  @media (max-width:760px){ .proof2-stats{grid-template-columns:1fr;} }
+  .p2-stat{background:var(--dark);border-radius:24px;padding:34px 30px;display:flex;gap:22px;align-items:center;}
+  .p2-num{font-size:56px;font-weight:800;color:var(--orange-light);line-height:1;flex-shrink:0;}
+  .p2-txt{font-size:16px;font-weight:700;color:#fff;line-height:1.4;}
+  .p2-txt small{display:block;font-size:12px;font-weight:500;color:#8f877e;margin-top:8px;}
+  .t-label{font-size:16px;color:#50525f;margin-bottom:28px;}
+  .trust-logos{max-width:900px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:20px 48px;flex-wrap:wrap;}
+  .trust-logos span{font-size:20px;font-weight:700;color:#2c2822;opacity:.55;}
+  .final-cta{background:#fff;padding:80px 24px 90px;}
+  .final-cta-inner{position:relative;max-width:1160px;margin:0 auto;border-radius:34px;padding:84px 32px;text-align:center;overflow:hidden;background:linear-gradient(150deg,#1c1612 0%,#121212 70%);}
+  .fc-orb{position:absolute;border-radius:50%;pointer-events:none;}
+  .fc-orb-1{width:520px;height:520px;left:-140px;top:-220px;background:radial-gradient(closest-side,rgba(237,115,48,.55),transparent 72%);}
+  .fc-orb-2{width:460px;height:460px;right:-120px;bottom:-240px;background:radial-gradient(closest-side,rgba(255,145,66,.40),transparent 72%);}
+  .fc-content{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+  .fc-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--orange-light);border:1px solid rgba(255,145,66,.45);border-radius:999px;padding:7px 16px;margin-bottom:24px;}
+  .final-cta h2{font-size:48px;line-height:1.12;font-weight:800;color:#fff;margin-bottom:18px;}
+  .final-cta p{font-size:18px;line-height:1.6;color:#c9c3bc;margin-bottom:38px;}
+  .fc-btn{padding:18px 32px;font-size:16px;box-shadow:0 14px 32px rgba(237,115,48,.4);}
+  .fc-link{display:inline-block;margin-top:22px;font-size:15px;font-weight:600;color:#c9c3bc;text-decoration:none;}
+  .fc-link:hover{color:#fff;text-decoration:underline;}
+  @media (max-width:700px){ .final-cta h2{font-size:32px;} .final-cta-inner{padding:60px 22px;} .page-hero h1{font-size:34px;} .section-heading{font-size:28px;} }
+
+  /* ---------- FOOTER (shared) ---------- */
   .site-footer{background:#fff;padding:70px 24px 0;}
   .footer-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;}
   @media (max-width:800px){ .footer-top{grid-template-columns:1fr 1fr;} }
@@ -127,221 +179,936 @@
   .footer-brand .f-logo .f-dot{width:30px;height:30px;border-radius:50%;background:var(--orange);}
   .footer-brand p{font-size:14px;line-height:1.6;color:#6b6b6b;max-width:320px;}
   .footer-col-label{font-size:14px;color:#9c9088;margin-bottom:18px;}
-  .footer-col a{display:block;font-size:15px;font-weight:600;color:#1a1512;text-decoration:none;margin-bottom:14px;}
+  .footer-col a{display:block;font-size:15px;font-weight:600;color:#121212;text-decoration:none;margin-bottom:14px;}
   .footer-social{display:flex;gap:12px;margin-top:4px;}
-  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#4a453f;}
+  .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#50525f;}
   .footer-watermark{background:linear-gradient(160deg,#fde3cd,#fff);overflow:hidden;padding:20px 0;}
-  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(245,117,15,.35);}
+  .footer-watermark span{display:block;text-align:center;white-space:nowrap;font-size:140px;font-weight:800;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(237,115,48,.35);}
   .footer-bottom{max-width:1160px;margin:0 auto;padding:22px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:13px;color:#9c9088;}
   .footer-bottom a{color:#9c9088;text-decoration:none;}
-  .back-to-top{display:flex;align-items:center;gap:10px;}
-  .back-to-top .btt-circle{width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;display:flex;align-items:center;justify-content:center;}
+  .back-to-top{
+    display:flex;align-items:center;gap:10px;
+  }
+  .back-to-top .btt-circle{
+    width:34px;height:34px;border-radius:50%;background:#161311;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:50;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-weight:700;font-size:14px;padding:13px 20px;border-radius:999px;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.2);}
+  .wa-float svg{width:20px;height:20px;}
+
+  /* ---------- SOLID PASS ---------- */
+  .explain-section,.outcomes-section,.process-section,.qa-section{padding:64px 24px;}
+  .proof2-section{padding:56px 24px 56px;}
+  .section-header{margin-bottom:34px;}
+  .page-hero{padding-bottom:40px;}
+  .statbar{background:var(--dark);padding:0 24px;}
+  .statbar-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);}
+  .sb{padding:34px 28px;border-left:1px solid #2a2420;}
+  .sb:first-child{border-left:0;}
+  .sb b{display:block;font-size:52px;font-weight:800;color:var(--orange-light);line-height:1;margin-bottom:10px;}
+  .sb span{display:block;font-size:15.5px;font-weight:600;color:#fff;line-height:1.4;}
+  .sb small{display:block;font-size:12px;color:#8f877e;margin-top:8px;}
+  @media (max-width:760px){ .statbar-inner{grid-template-columns:1fr;} .sb{border-left:0;border-top:1px solid #2a2420;} .sb:first-child{border-top:0;} }
+  .cmp{max-width:1040px;margin:0 auto 36px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:760px){ .cmp{grid-template-columns:1fr;} }
+  .cmp-col{border-radius:24px;padding:32px 30px;}
+  .cmp-old{background:var(--cream);border:1px solid var(--border);}
+  .cmp-new{background:var(--dark);box-shadow:0 24px 50px rgba(11,9,8,.25);}
+  .cmp-tag{font-size:12px;font-weight:800;letter-spacing:.14em;margin-bottom:20px;color:var(--gray);}
+  .cmp-new .cmp-tag{color:var(--orange-light);}
+  .cmp ul{list-style:none;display:flex;flex-direction:column;gap:16px;}
+  .cmp li{display:flex;gap:14px;align-items:flex-start;font-size:16px;font-weight:600;line-height:1.45;color:#3a352f;}
+  .cmp-new li{color:#fff;}
+  .cmp li i{font-style:normal;flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:#ece6df;color:#9a9188;}
+  .cmp-new li i{background:var(--orange);color:#fff;}
+  .outcome-card{background:var(--dark);border:0;border-radius:22px;padding:30px 26px;}
+  .oc-big{font-size:30px;font-weight:800;color:var(--orange-light);margin-bottom:14px;line-height:1;}
+  .outcome-card h3{color:#fff;}
+  .outcome-card p{color:#b9b2aa;}
+  .cms-row{max-width:1060px;margin:34px auto 0;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px 26px;}
+  .cms-label{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);}
+  .cms-row .cms-chips{gap:10px;}
+  .cms-row .cms-chips span{font-size:15px;padding:10px 20px;}
+  .final-cta{padding:56px 24px 72px;}
+
+  .hero-split{max-width:1160px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;text-align:left;}
+  .hero-split h1{font-size:44px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+  .hero-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 24px 40px rgba(201,99,29,.18));}
+  @media (max-width:900px){ .hero-split{grid-template-columns:1fr;text-align:center;} .hero-btns{justify-content:center;} .hero-split h1{font-size:34px;} }
+
+  .bf-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .bf-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:32px 28px;}
+  .bf-wide{grid-column:span 2;}
+  .bf-dark{background:var(--dark);border-color:var(--dark);}
+  .bf-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(160deg,#fde3cd,#fbeee2);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .bf-dark .bf-icon{background:rgba(237,115,48,.18);color:var(--orange-light);}
+  .bf-icon svg{width:26px;height:26px;}
+  .bf-tag{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:10px;}
+  .bf-card h3{font-size:22px;font-weight:800;line-height:1.25;color:#121212;margin-bottom:10px;}
+  .bf-card p{font-size:15px;line-height:1.6;color:var(--gray);}
+  .bf-dark .bf-tag{color:var(--orange-light);} .bf-dark h3{color:#fff;} .bf-dark p{color:#b9b2aa;}
+  @media (max-width:900px){ .bf-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .bf-grid{grid-template-columns:1fr;} .bf-wide{grid-column:auto;} }
+
+  .sb-lead{max-width:1160px;margin:0 auto;padding:30px 28px 0;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--orange-light);}
+  .statbar-inner .sb{padding-top:22px;}
+  .cmp-h{font-size:24px;font-weight:800;line-height:1.25;margin-bottom:12px;color:#121212;}
+  .cmp-new .cmp-h{color:#fff;}
+  .cmp-p{font-size:16px;line-height:1.65;color:#5a544d;}
+  .cmp-new .cmp-p{color:#c9c3bc;}
+  .explain-note{max-width:760px;margin:0 auto;text-align:center;font-size:17px;line-height:1.6;color:#50525f;}
+  .explain-note b{color:var(--orange);}
+  .bg-grid{max-width:1160px;margin:0 auto 20px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:860px){ .bg-grid{grid-template-columns:1fr;} }
+  .bg-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:32px 30px;}
+  .bg-title{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:800;color:#121212;margin-bottom:8px;}
+  .bg-ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(160deg,#fde3cd,#fbeee2);display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .bg-item{padding:20px 0;border-top:1px solid var(--border);}
+  .bg-title+.bg-item{margin-top:14px;}
+  .bg-tag{font-size:11.5px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:6px;}
+  .bg-item h4{font-size:18px;font-weight:800;color:#121212;margin-bottom:6px;}
+  .bg-item p{font-size:14.5px;line-height:1.6;color:var(--gray);}
+  .bg-strip{max-width:1160px;margin:0 auto;background:var(--dark);border-radius:24px;padding:30px 34px;display:grid;grid-template-columns:1fr 1.4fr;gap:30px;align-items:center;}
+  @media (max-width:860px){ .bg-strip{grid-template-columns:1fr;} }
+  .bg-strip h4{font-size:24px;font-weight:800;color:#fff;}
+  .bg-strip .bg-tag{color:var(--orange-light);}
+  .bg-strip p{font-size:15.5px;line-height:1.6;color:#c9c3bc;}
+
+  /* ---------- CLEAR LAYOUT PASS ---------- */
+  .step-section{padding:72px 24px;}
+  .bg-white{background:#fff;} .bg-cream{background:var(--cream);}
+  .step-tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);background:#fdeede;border-radius:999px;padding:7px 16px;margin-bottom:16px;}
+  .stat-panel{background:var(--dark);border-radius:28px;max-width:1060px;margin:0 auto;overflow:hidden;}
+  .statbar{display:none;}
+  .flow{max-width:1040px;margin:0 auto 36px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;}
+  @media (max-width:860px){ .flow{grid-template-columns:1fr;} .flow-arrow{transform:rotate(90deg);text-align:center;} }
+  .flow-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:26px 24px;}
+  .flow-n{width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .flow-card h3{font-size:18px;font-weight:700;color:#121212;margin-bottom:8px;}
+  .flow-card p{font-size:14.5px;line-height:1.55;color:var(--gray);}
+  .flow-arrow{align-self:center;font-size:26px;font-weight:700;color:var(--orange);}
+  .jargon{max-width:720px;margin:30px auto 0;text-align:center;font-size:15.5px;color:#5a5248;background:#fff;border:1px dashed #e0b793;border-radius:14px;padding:14px 20px;}
+  .jargon b{color:var(--orange-dark);}
+  .grp-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
+  @media (max-width:980px){ .grp-grid{grid-template-columns:1fr;} }
+  .grp{background:var(--cream);border:1px solid var(--border);border-radius:26px;padding:28px 26px;}
+  .grp-dark{background:var(--dark);border-color:var(--dark);}
+  .grp-head{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:800;color:#121212;margin-bottom:22px;}
+  .grp-head span{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .grp-dark .grp-head{color:#fff;}
+  .grp ul{list-style:none;display:flex;flex-direction:column;gap:20px;}
+  .grp li{display:flex;gap:14px;align-items:flex-start;}
+  .gi{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:#fff;color:var(--orange);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+  .gi svg{width:20px;height:20px;}
+  .grp-dark .gi{background:rgba(237,115,48,.18);border-color:transparent;color:var(--orange-light);}
+  .grp li b{display:block;font-size:16px;color:#121212;margin-bottom:4px;}
+  .grp li p{font-size:14.5px;line-height:1.55;color:var(--gray);}
+  .grp-dark li b{color:#fff;} .grp-dark li p{color:#b9b2aa;}
+  .grp-note{margin-top:22px;font-size:14.5px;line-height:1.55;color:#d8d2ca;border-top:1px solid #2a2420;padding-top:18px;}
+  .grp-link{display:inline-block;margin-top:14px;font-weight:700;color:var(--orange-light);text-decoration:none;}
+  .sc{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:700px){ .sc{grid-template-columns:1fr;} }
+  .sc-col{background:#fff;border:1px solid var(--border);border-radius:24px;padding:28px;}
+  .sc-new{background:var(--dark);border-color:var(--dark);}
+  .sc-tag{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--gray);margin-bottom:18px;}
+  .sc-new .sc-tag{color:var(--orange-light);}
+  .sc ul{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .sc li{display:flex;gap:12px;align-items:center;font-size:16px;font-weight:600;color:#2c2822;}
+  .sc-new li{color:#fff;}
+  .sc li i{font-style:normal;width:26px;text-align:center;color:var(--orange);font-weight:800;}
+  .process-section{background:#fff;} .qa-section{background:var(--cream);} .proof2-section{background:#fff;} .final-cta{background:var(--cream);}
+  .qa{background:#fff;}
+  .cms-row{background:var(--cream);}
+  .hero-note{margin-top:18px;font-size:14px;color:#7a7168;}
+
+  .faq2-grid{max-width:860px;margin:0 auto;display:block;}
+  @media (max-width:900px){ .faq2-grid{grid-template-columns:1fr;gap:34px;} }
+  .faq2-side{position:sticky;top:24px;}
+  @media (max-width:900px){ .faq2-side{position:static;} }
+  .faq2-side .section-heading{font-size:34px;}
+  .faq2-card{margin-top:28px;background:var(--dark);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px;}
+  .faq2-card b{color:#fff;font-size:19px;}
+  .faq2-card span{color:#b9b2aa;font-size:14.5px;line-height:1.5;}
+  .faq2-card .btn{justify-content:center;margin-top:6px;}
+  .faq2-wa{color:var(--orange-light);font-weight:600;font-size:14.5px;text-decoration:none;}
+  .faq2 .qa-list{max-width:none;margin:0;gap:14px;}
+  .faq2 .qa{background:var(--cream);border:1px solid var(--border);border-radius:18px;padding:4px 26px;}
+  .faq2 .qa[open]{background:#fff;border-color:var(--orange);box-shadow:0 10px 28px rgba(237,115,48,.10);}
+  .faq2 .qa summary{font-size:17px;padding:20px 0;}
+  .faq2 .qa-body p{font-size:15.5px;line-height:1.7;color:#50525f;padding:0 0 22px;}
+  .faq2 .qa a{color:var(--orange);font-weight:700;}
+  .proof2-section{background:var(--cream);} .final-cta{background:#fff;}
+  .faq2-card{padding:34px 30px;gap:14px;background:linear-gradient(150deg,#1c1612,#121212);box-shadow:0 20px 44px rgba(11,9,8,.25);}
+  .faq2-card b{font-size:26px;line-height:1.2;}
+  .faq2-card .fc-eyebrow{align-self:flex-start;font-size:11px;margin-bottom:4px;color:var(--orange-light);}
+  .faq2-card .btn{padding:16px 24px;}
+  .proof2-section{background:var(--cream);}
+  /* ---------- MARQUEE ---------- */
+  .marquee-section{
+    background:#fff;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:34px 0;
+    overflow:hidden;
+  }
+  .marquee-caption{
+    text-align:center;
+    font-size:13px;
+    color:var(--gray);
+    margin-bottom:22px;
+    letter-spacing:.03em;
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 26s linear infinite;
+  }
+  .marquee-track:hover{animation-play-state:paused;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .logo-set{
+    display:flex;
+    align-items:center;
+    gap:64px;
+    padding-right:64px;
+  }
+  .logo-chip{
+    font-size:22px;
+    font-weight:700;
+    color:#20180f;
+    opacity:.45;
+    white-space:nowrap;
+    letter-spacing:-.01em;
+  }
+
+
+  .final-cta{background:var(--cream);padding:80px 24px 90px;}
+  .final-cta-inner{position:relative;max-width:1160px;margin:0 auto;border-radius:34px;padding:88px 32px;text-align:center;overflow:hidden;background:linear-gradient(150deg,#1c1612 0%,#121212 70%);}
+  .fc-orb{position:absolute;border-radius:50%;pointer-events:none;}
+  .fc-orb-1{width:520px;height:520px;left:-140px;top:-220px;background:radial-gradient(closest-side,rgba(237,115,48,.55),transparent 72%);}
+  .fc-orb-2{width:460px;height:460px;right:-120px;bottom:-240px;background:radial-gradient(closest-side,rgba(255,145,66,.40),transparent 72%);}
+  .fc-content{position:relative;z-index:1;max-width:780px;margin:0 auto;}
+  .fc-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--orange-light);border:1px solid rgba(255,145,66,.45);border-radius:999px;padding:7px 16px;margin-bottom:24px;}
+  .final-cta h2{font-size:52px;line-height:1.1;font-weight:800;color:#fff;margin-bottom:20px;letter-spacing:-.01em;}
+  .final-cta p{font-size:18px;line-height:1.6;color:#c9c3bc;margin:0 auto 38px;max-width:640px;}
+  .fc-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .fc-btn{padding:18px 32px;font-size:16px;box-shadow:0 14px 32px rgba(237,115,48,.4);}
+  .fc-btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:18px 30px;border-radius:999px;font-size:16px;font-weight:600;text-decoration:none;color:#fff;border:1.5px solid rgba(255,255,255,.4);transition:background .15s ease,border-color .15s ease;}
+  .fc-btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;}
+  .fc-points{list-style:none;display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);}
+  .fc-points li{font-size:14.5px;font-weight:600;color:#d8d2ca;}
+  @media (max-width:700px){ .final-cta h2{font-size:34px;} .final-cta-inner{padding:60px 22px;} .final-cta p{font-size:16px;} }
+
+  /* ---------- ADD-ONS PAGE ---------- */
+  .jump{margin-top:22px;font-size:13.5px;color:#7a7168;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;}
+  .jump a{color:#121212;font-weight:600;text-decoration:none;border-bottom:1px solid #e0b793;}
+  .jump a:hover{color:var(--orange);}
+  .stack{display:flex;flex-direction:column;gap:12px;}
+  .stack-top{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .st{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 18px;font-weight:700;color:#121212;font-size:15.5px;box-shadow:0 10px 24px rgba(201,99,29,.10);text-align:center;}
+  .stack-plus{text-align:center;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);}
+  .stack-base{background:var(--dark);border-radius:20px;padding:26px;text-align:center;box-shadow:0 20px 40px rgba(11,9,8,.25);}
+  .stack-base b{display:block;color:#fff;font-size:20px;margin-bottom:4px;}
+  .stack-base span{color:var(--orange-light);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+  .addon-row{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .addon-row.rev .addon-copy{order:2;}
+  @media (max-width:900px){ .addon-row{grid-template-columns:1fr;gap:34px;} .addon-row.rev .addon-copy{order:0;} }
+  .addon-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px;}
+  .addon-badge{font-size:12px;font-weight:700;color:#121212;background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 14px;}
+  .bg-cream .addon-badge{background:#fff;}
+  .addon-copy .section-heading{font-size:34px;}
+  .addon-desc{font-size:17px;line-height:1.6;color:#50525f;margin:0 0 24px;}
+  .addon-list{list-style:none;display:flex;flex-direction:column;gap:18px;margin-bottom:30px;}
+  .addon-list li{display:flex;gap:14px;align-items:flex-start;}
+  .addon-list .gi{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:#fff;color:var(--orange);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+  .addon-list .gi svg{width:20px;height:20px;}
+  .addon-list b{display:block;font-size:16px;color:#121212;margin-bottom:3px;}
+  .addon-list p{font-size:14.5px;line-height:1.55;color:var(--gray);}
+  .addon-visual{display:flex;justify-content:center;}
+  .mock{width:100%;max-width:440px;background:#fff;border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:0 24px 50px rgba(11,9,8,.12);}
+  .mock-bar{display:flex;align-items:center;gap:6px;margin-bottom:18px;}
+  .mock-bar i{width:10px;height:10px;border-radius:50%;background:#e7e2dc;}
+  .mock-bar span{margin-left:10px;font-size:12px;color:#9a9188;}
+  .msgs{display:flex;flex-direction:column;gap:10px;}
+  .m{max-width:82%;padding:12px 15px;border-radius:16px;font-size:14.5px;line-height:1.45;}
+  .m small{display:block;font-size:10.5px;opacity:.55;margin-top:4px;text-align:right;}
+  .mock-chat .me{align-self:flex-end;background:var(--cream);color:#121212;border-bottom-right-radius:4px;}
+  .mock-chat .bot{align-self:flex-start;background:var(--orange);color:#fff;border-bottom-left-radius:4px;}
+  .mock-wa{background:#efe7dd;}
+  .wa-head{display:flex;align-items:center;gap:12px;background:#075e54;margin:-22px -22px 18px;padding:14px 20px;border-radius:24px 24px 0 0;color:#fff;}
+  .wa-head b{display:block;font-size:15px;} .wa-head small{font-size:11.5px;opacity:.8;}
+  .wa-av{width:38px;height:38px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .mock-wa .me{align-self:flex-start;background:#fff;color:#121212;border-bottom-left-radius:4px;}
+  .mock-wa .bot{align-self:flex-end;background:#d9fdd3;color:#121212;border-bottom-right-radius:4px;}
+  .mock-note{margin-top:16px;text-align:center;font-size:11px;letter-spacing:.06em;color:#a19a91;text-transform:uppercase;}
+  .mock-phone{max-width:300px;border-radius:38px;background:var(--dark);border-color:var(--dark);padding:18px 18px 22px;}
+  .ph-notch{width:90px;height:8px;border-radius:99px;background:#2a2420;margin:0 auto 20px;}
+  .ph-notif{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.95);border-radius:18px;padding:12px 14px;position:relative;}
+  .ph-ico{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .ph-notif b{display:block;font-size:13px;color:#121212;} .ph-notif small{font-size:12px;color:#5a5248;line-height:1.35;display:block;margin-top:2px;}
+  .ph-notif em{position:absolute;right:12px;top:10px;font-size:10px;color:#9a9188;font-style:normal;}
+  .ph-home{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:70px;margin-bottom:60px;}
+  .ph-home span{aspect-ratio:1;border-radius:14px;background:var(--orange);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.1;}
+  .ph-home .ph-dim{background:#2a2420;}
+  .mock-phone .mock-note{color:#6f675f;}
+  .mock-ai .ai-q{background:var(--cream);border:1px solid var(--border);border-radius:999px;padding:12px 18px;font-size:14.5px;font-weight:600;color:#121212;margin-bottom:16px;}
+  .ai-a{border:1px solid var(--border);border-radius:18px;padding:18px;}
+  .ai-tag{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:8px;}
+  .ai-a p{font-size:14.5px;line-height:1.55;color:#3a352f;} .ai-a b{color:#121212;}
+  .ai-src{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .ai-src span{font-size:12px;background:var(--cream);border:1px solid var(--border);border-radius:999px;padding:5px 12px;color:#5a5248;}
+  .matrix-wrap{max-width:900px;margin:0 auto;overflow-x:auto;}
+  .matrix{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;}
+  .matrix th,.matrix td{padding:18px 16px;text-align:center;font-size:15px;border-bottom:1px solid var(--border);}
+  .matrix th{background:var(--cream);font-weight:800;color:#121212;font-size:14px;}
+  .matrix th.pop{background:var(--dark);color:#fff;}
+  .matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:700;color:#121212;}
+  .matrix tr:last-child td{border-bottom:0;}
+  .ck{color:#fff;background:var(--orange);width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+  .no{color:#c9c1b8;font-size:18px;}
+  .final-cta{background:var(--cream);}
+
+  .pc-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;}
+  @media (max-width:1000px){ .pc-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .pc-grid{grid-template-columns:1fr;} }
+  .pc{background:var(--cream);border:1px solid var(--border);border-radius:26px;padding:28px 24px;display:flex;flex-direction:column;}
+  .pc-pop{background:var(--dark);border-color:var(--dark);box-shadow:0 26px 54px rgba(11,9,8,.28);transform:translateY(-10px);}
+  @media (max-width:1000px){ .pc-pop{transform:none;} }
+  .pc-tag{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+  .pc-pop .pc-tag{color:var(--orange-light);}
+  .pc h3{font-size:24px;font-weight:800;color:#121212;margin-bottom:10px;}
+  .pc-pop h3{color:#fff;}
+  .pc-price{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+  .pc-pop .pc-price{border-color:#2a2420;}
+  .pc-price b{display:block;font-size:30px;font-weight:800;color:#121212;line-height:1.1;}
+  .pc-price span{font-size:13.5px;color:var(--gray);}
+  .pc-pop .pc-price b{color:#fff;} .pc-pop .pc-price span{color:#b9b2aa;}
+  .pc ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+  .pc li{display:flex;gap:12px;align-items:center;font-size:14.5px;font-weight:600;color:#2c2822;}
+  .pc li i{font-style:normal;flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;background:var(--orange);color:#fff;}
+  .pc li.off{color:#a79f96;font-weight:500;}
+  .pc li.off i{background:#ece6df;color:#b9b0a6;}
+  .pc-pop li{color:#fff;} .pc-pop li.off{color:#6f675f;} .pc-pop li.off i{background:#2a2420;color:#6f675f;}
+  /* ---------- PRICING SECTION (v2) ---------- */
+  .pricing-section{background:#fff;padding:90px 24px 90px;position:relative;overflow:hidden;}
+  .pricing-section::before{content:"";position:absolute;left:50%;top:-120px;width:900px;height:420px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(237,115,48,.10),transparent 70%);pointer-events:none;}
+  .pricing-section .section-header{position:relative;}
+  .price-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:12px;}
+  .plan-grid{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch;padding-top:14px;}
+  @media (max-width:1050px){ .plan-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .plan-grid{grid-template-columns:1fr;} }
+  .plan-mini{position:relative;background:var(--cream);border:1px solid var(--border);border-radius:28px;padding:34px 26px 28px;text-align:left;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;}
+  .plan-mini:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,14,8,.09);}
+  .plan-mini.pop{background:linear-gradient(170deg,#1c1612 0%,#121212 60%);border:none;color:#fff;transform:translateY(-14px);box-shadow:0 28px 56px rgba(237,115,48,.28);}
+  .plan-mini.pop:hover{transform:translateY(-20px);}
+  @media (max-width:1050px){ .plan-mini.pop,.plan-mini.pop:hover{transform:none;} }
+  .plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--orange-light),var(--orange));color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px rgba(237,115,48,.4);}
+  .plan-icon{width:46px;height:46px;border-radius:14px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--orange);}
+  .plan-icon svg{width:22px;height:22px;}
+  .plan-mini.pop .plan-icon{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:var(--orange-light);}
+  .plan-name{font-size:22px;font-weight:800;color:#121212;margin-bottom:4px;}
+  .plan-mini.pop .plan-name{color:#fff;}
+  .plan-best{font-size:12.5px;font-weight:500;color:#9c9088;margin-bottom:22px;line-height:1.4;min-height:35px;}
+  .plan-was{font-size:17px;font-weight:700;margin-bottom:2px;}
+  .plan-was s{color:#b9a99a;text-decoration-thickness:2px;text-decoration-color:#e0553a;}
+  .plan-mini.pop .plan-was s{color:#8f877e;}
+  .plan-price{font-size:54px;font-weight:800;line-height:1;color:#121212;letter-spacing:-.02em;display:flex;align-items:flex-start;gap:4px;}
+  .plan-price .pp-cur{font-size:20px;font-weight:700;margin-top:8px;color:var(--gray);letter-spacing:0;}
+  .plan-price.custom{font-size:44px;margin-top:22px;}
+  .plan-mini.pop .plan-price{color:#fff;}
+  .plan-mini.pop .plan-price .pp-cur{color:var(--orange-light);}
+  .plan-setup{font-size:13px;font-weight:600;color:var(--gray);margin:8px 0 14px;}
+  .plan-mini.pop .plan-setup{color:#b9b2a9;}
+  .plan-monthly{display:inline-block;align-self:flex-start;background:#fff;border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-size:14.5px;font-weight:800;color:#121212;margin-bottom:20px;}
+  .plan-monthly em{font-style:normal;font-weight:600;color:var(--gray);}
+  .plan-mini.pop .plan-monthly{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff;}
+  .plan-mini.pop .plan-monthly em{color:#b9b2a9;}
+  .plan-for{font-size:14.5px;line-height:1.5;color:var(--gray);margin:0 0 18px;min-height:44px;}
+  .plan-mini.pop .plan-for{color:#c9c3bc;}
+  .plan-list{list-style:none;margin-bottom:4px;flex:1;border-top:1px solid var(--border);padding-top:14px;}
+  .plan-mini.pop .plan-list{border-top-color:rgba(255,255,255,.14);}
+  .plan-list li{font-size:14.5px;font-weight:600;color:#2c2822;padding:8px 0 8px 32px;position:relative;line-height:1.35;}
+  .plan-mini.pop .plan-list li{color:#fff;}
+  .plan-list li::before{content:"check";font-family:'Material Icons Round';font-feature-settings:'liga';font-style:normal;letter-spacing:normal;text-transform:none;;position:absolute;left:0;top:7px;width:22px;height:22px;border-radius:50%;background:rgba(237,115,48,.14);color:var(--orange);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .plan-mini.pop .plan-list li::before{background:var(--orange);color:#fff;}
+  .plan-list li.plan-inherit{padding-left:0;font-weight:800;color:#121212;font-size:14px;}
+  .plan-list li.plan-inherit::before{display:none;}
+  .plan-mini.pop .plan-list li.plan-inherit{color:var(--orange-light);}
+  .btn-dark-outline{background:transparent;color:#121212;border:1.5px solid #161311;}
+  .btn-dark-outline:hover{background:#161311;color:#fff;}
+  .plan-btn{justify-content:center;width:100%;padding:15px 16px;font-size:14.5px;}
+  .btn-wa{width:18px;height:18px;flex-shrink:0;}
+  .plan-foot{text-align:center;margin-top:34px;font-size:14px;color:#6b6259;}
+
+
+  .page-hero-inner{text-align:center;}
+  .matrix .mx-price td{font-weight:800;color:#121212;background:var(--cream);}
+  .matrix .mx-price td:first-child{color:var(--gray);font-weight:700;}
+  .pricing-section{padding:72px 24px;}
+  .faq2.bg-white .qa{background:var(--cream);}
+  .reviews-band{background:#fff;padding:80px 24px;}
+  .gr-wrap{max-width:1240px;margin:0 auto;}
+  .gr-head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--cream);border-radius:22px;padding:26px 30px;margin-bottom:18px;}
+  .gr-title{font-size:26px;font-weight:800;color:#121212;display:flex;align-items:baseline;gap:8px;}
+  .gr-logo{font-size:30px;font-weight:700;letter-spacing:-.5px;}
+  .gr-rating{display:flex;align-items:center;gap:10px;margin-top:6px;}
+  .gr-score{font-size:30px;font-weight:800;color:#121212;}
+  .gr-big-stars{color:#fbbc05;font-size:26px;letter-spacing:2px;}
+  .gr-count{font-size:15px;color:#8a8279;}
+  .gr-cta{background:var(--orange);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+  .gr-cta:hover{background:var(--orange-dark,#c9631d);}
+  .gr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media (max-width:1000px){ .gr-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .gr-grid{grid-template-columns:1fr;} .gr-head{padding:20px;} }
+  .gr-card{background:var(--cream);border-radius:22px;padding:22px 22px 20px;display:flex;flex-direction:column;}
+  .gr-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .gr-avatar{position:relative;width:46px;height:46px;border-radius:50%;color:#fff;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .gr-g{position:absolute;right:-5px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:#fff;color:#4285f4;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+  .gr-who{min-width:0;}
+  .gr-name{font-size:15.5px;font-weight:800;color:#121212;display:flex;align-items:center;gap:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .gr-tick{width:16px;height:16px;flex-shrink:0;}
+  .gr-time{font-size:13px;color:#8a8279;}
+  .gr-stars{color:#fbbc05;font-size:18px;letter-spacing:2px;margin-bottom:10px;}
+  .gr-text{font-size:14.5px;line-height:1.55;color:#2c2822;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:8px;}
+  .gr-more{font-size:14px;font-weight:700;color:var(--orange);text-decoration:none;margin-top:auto;}
+
+  /* ---------- STAT PANEL + CREDENTIALS (v2) ---------- */
+  .stat-panel{position:relative;max-width:1160px;margin:0 auto 80px;background:var(--dark);border-radius:30px;padding:56px 40px;overflow:hidden;}
+  .stat-glow{position:absolute;inset:0;background:radial-gradient(45% 80% at 20% 0%,rgba(237,115,48,.30),transparent 70%),radial-gradient(40% 70% at 95% 100%,rgba(255,145,66,.18),transparent 70%);pointer-events:none;}
+  .stat-cols{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);}
+  @media (max-width:800px){ .stat-cols{grid-template-columns:1fr;} .stat-col{border-left:none !important;border-top:1px solid rgba(255,255,255,.12);padding:32px 0 !important;} .stat-col:first-child{border-top:none;padding-top:0 !important;} }
+  .stat-col{padding:6px 36px;border-left:1px solid rgba(255,255,255,.12);text-align:left;}
+  .stat-col:first-child{border-left:none;padding-left:0;}
+  .stat-big{font-size:76px;font-weight:800;line-height:1;color:var(--orange-light);margin-bottom:16px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .stat-head{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;}
+  .stat-sub{font-size:15px;color:#c9c3bc;line-height:1.45;margin-bottom:14px;}
+  .stat-src{font-size:12px;color:#8f877e;}
+  .proof-creds{text-align:center;max-width:1100px;margin:0 auto;}
+  .cred-eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--orange);margin-bottom:10px;}
+  .cred-title{font-size:26px;font-weight:800;color:#121212;margin-bottom:34px;}
+  .cred-row{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;}
+  .cred-tile{width:200px;height:120px;background:#fff;border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:center;padding:16px;transition:transform .2s ease,box-shadow .2s ease;}
+  .cred-tile:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,14,8,.10);}
+  .cred-tile img{max-width:100%;max-height:100%;object-fit:contain;}
+  @media (max-width:560px){ .cred-tile{width:44%;height:100px;} .stat-big{font-size:60px;} .stat-panel{padding:40px 24px;} }
+
+  .proof-certs{background:var(--cream);padding:72px 24px;}
+  .rv-cream{background:var(--cream);}
+  .rv-cream .gr-card,.rv-cream .gr-head{background:#fff;}
+
+  /* ===== SITE-WIDE CONSISTENCY (keep identical on every page) ===== */
+  .btn{padding:16px 28px;font-size:15px;}
+  .nav-pill a.nav-active{color:#fff;font-weight:700;box-shadow:inset 0 -2px 0 var(--orange);padding-bottom:3px;}
+  .section-heading{font-size:36px;line-height:1.2;}
+  .section-desc{font-size:16.5px;line-height:1.65;}
+  .page-hero h1{font-size:46px;line-height:1.15;}
+  .final-cta{padding:80px 24px 90px;}
+  .final-cta-inner{position:relative;max-width:1160px;margin:0 auto;border-radius:34px;padding:84px 32px;text-align:center;overflow:hidden;background:linear-gradient(150deg,#1c1612 0%,#121212 70%);}
+  .final-cta h2{font-size:50px;line-height:1.12;font-weight:800;color:#fff;margin-bottom:18px;letter-spacing:-.01em;}
+  .final-cta p{font-size:18px;line-height:1.6;color:#c9c3bc;margin-bottom:38px;}
+  .fc-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .fc-btn{padding:18px 32px;font-size:16px;}
+  .fc-btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:18px 30px;border-radius:999px;font-size:16px;font-weight:600;text-decoration:none;color:#fff;border:1.5px solid rgba(255,255,255,.4);}
+  @media (max-width:700px){ .section-heading{font-size:28px;} .page-hero h1{font-size:34px;} .final-cta h2{font-size:34px;} .final-cta-inner{padding:60px 22px;} .final-cta p{font-size:16px;} }
+
+  /* ===== HERO (identical layout on every sub-page: copy left, visual right) ===== */
+  .page-hero-inner.hero-split{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;text-align:left !important;}
+  .page-hero-inner.hero-split .hero-btns{justify-content:flex-start;}
+  .page-hero-inner.hero-split .hero-copy p{margin-left:0;margin-right:0;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;}
+  @media (max-width:900px){ .page-hero-inner.hero-split{grid-template-columns:1fr;gap:30px;text-align:left !important;} }
+  /* hero visuals */
+  .hp{display:flex;flex-direction:column;gap:12px;}
+  .hp-row{background:var(--dark);border-radius:26px;padding:30px 30px;box-shadow:0 22px 46px rgba(11,9,8,.22);}
+  .hp-row small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.14em;color:var(--orange-light);margin-bottom:8px;}
+  .hp-row b{display:block;font-size:24px;color:#fff;margin-bottom:6px;}
+  .hp-row span{font-size:14.5px;color:#b9b2aa;line-height:1.5;}
+  .hp-orange{background:linear-gradient(120deg,#ed7330,#c9631d);} .hp-orange small{color:#ffe2c9;} .hp-orange span{color:#fff3e8;}
+  .hp-plus{text-align:center;font-size:26px;font-weight:800;color:var(--orange);line-height:1;}
+  .hero-img .ask{margin:0;max-width:none;}
+  .hero-img .ct-side{margin:0;}
+  .pv{background:var(--dark);border-radius:30px;padding:30px;text-align:center;box-shadow:0 26px 52px rgba(11,9,8,.25);}
+  .pv-tag{font-size:11px;font-weight:800;letter-spacing:.16em;color:#8f877e;margin-bottom:14px;}
+  .pv-ring{position:relative;width:170px;height:170px;margin:0 auto 6px;} .pv-ring svg{width:100%;height:100%;}
+  .pv-ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:62px;color:#ff8a73;}
+  .pv-rate{font-size:20px;font-weight:700;color:#fff;} .pv-arrow{color:var(--orange-light);font-size:26px;margin:6px 0;}
+  .pv-new{display:inline-flex;align-items:center;gap:14px;background:rgba(47,168,102,.16);border:1px solid rgba(111,220,159,.4);border-radius:999px;padding:8px 10px 8px 20px;color:#a8edc6;font-weight:700;font-size:14px;}
+  .pv-new b{background:#2fa866;color:#fff;border-radius:999px;padding:4px 14px;font-family:ui-monospace,Menlo,monospace;font-size:18px;}
+  .au-entry{margin-top:28px;} .au-form{margin:0;max-width:600px;} .au-sample{display:inline-block;} .recent{margin:22px 0 0;max-width:600px;} .au-scan{margin:28px 0 0;max-width:none;}
+  .ct-grid{grid-template-columns:1fr;max-width:820px;}
+
+  /* centered text-only inner-page hero */
+  .page-hero-inner.hero-split{display:block;max-width:820px;margin:0 auto;text-align:center !important;}
+  .page-hero-inner.hero-split .hero-btns{justify-content:center;}
+  .page-hero-inner.hero-split .hero-copy p{margin-left:auto;margin-right:auto;}
+  .page-hero-inner.hero-split .hero-copy>*{margin-left:auto;margin-right:auto;}
+  .page-hero-inner.hero-split .jump{justify-content:center;}
+  .hero-extra{margin:36px auto 0;max-width:620px;text-align:left;}
+  @media (max-width:900px){ .page-hero-inner.hero-split{text-align:center !important;} }
+
+  /* ---- professional footer ---- */
+  .site-footer{background:#121212;padding:0;color:#b9b2aa;}
+  .site-footer .sf-inner{max-width:1160px;margin:0 auto;padding:64px 24px 28px;}
+  .sf-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:44px;border-bottom:1px solid #2a2420;}
+  .sf-logo{display:inline-flex;align-items:center;gap:10px;font-size:24px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.01em;}
+  .sf-dot{width:14px;height:14px;border-radius:50%;background:var(--orange);display:inline-block;}
+  .sf-brand p{font-size:14.5px;line-height:1.65;margin:16px 0 20px;max-width:300px;color:#b9b2aa;}
+  .sf-social{display:flex;gap:10px;}
+  .sf-social a{width:38px;height:38px;border-radius:50%;border:1px solid #3a322b;display:flex;align-items:center;justify-content:center;color:#d8d2ca;transition:all .2s;}
+  .sf-social a:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+  .sf-col{display:flex;flex-direction:column;gap:11px;}
+  .sf-h{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:6px;}
+  .sf-col a{font-size:14.5px;color:#b9b2aa;text-decoration:none;transition:color .15s;}
+  .sf-col a:hover{color:var(--orange-light);}
+  .sf-contact span{font-size:14px;line-height:1.6;color:#8f877e;margin-top:4px;}
+  .sf-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:13px;color:#8f877e;}
+  .sf-legal{display:flex;gap:22px;align-items:center;}
+  .sf-legal a{color:#8f877e;text-decoration:none;} .sf-legal a:hover{color:#fff;}
+  .sf-legal .sf-top-link{color:var(--orange-light);font-weight:700;}
+  @media (max-width:900px){.sf-top{grid-template-columns:1fr 1fr;gap:32px;}.sf-brand{grid-column:1/-1;}}
+  @media (max-width:520px){.sf-top{grid-template-columns:1fr;}.sf-bottom{flex-direction:column;align-items:flex-start;}}
+
+  /* mobile menu */
+  .m-menu{position:fixed;inset:0;z-index:200;background:#121212;color:#fff;display:none;flex-direction:column;padding:22px 24px 32px;overflow-y:auto;}
+  .m-menu.open{display:flex;}
+  .m-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;}
+  .m-logo{display:inline-flex;align-items:center;gap:10px;font-size:22px;font-weight:800;color:#fff;text-decoration:none;}
+  .m-logo i{width:13px;height:13px;border-radius:50%;background:#ed7330;display:inline-block;}
+  .m-close{width:44px;height:44px;border-radius:50%;border:1px solid #3a322b;background:transparent;color:#fff;font-size:22px;cursor:pointer;}
+  .m-links{display:flex;flex-direction:column;}
+  .m-links a{font-size:22px;font-weight:700;color:#fff;text-decoration:none;padding:16px 4px;border-bottom:1px solid #2a2420;display:flex;justify-content:space-between;align-items:center;}
+  .m-links a:after{content:"arrow_forward";font-family:'Material Icons Round';font-feature-settings:'liga';font-style:normal;letter-spacing:normal;text-transform:none;;color:#ed7330;}
+  .m-links a.on{color:#ff9142;}
+  .m-cta{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+  .m-cta a{text-align:center;text-decoration:none;font-weight:700;font-size:16px;padding:16px;border-radius:999px;}
+  .m-cta .p{background:#ed7330;color:#fff;} .m-cta .g{border:1px solid #3a322b;color:#fff;}
+  body.m-lock{overflow:hidden;}
+
+  /* Google Material Icons */
+  .mi{font-family:'Material Icons Round';font-weight:400;font-style:normal;font-size:1.25em;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';-webkit-font-smoothing:antialiased;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0;width:1em;height:1em;overflow:hidden;}
+  .icon-badge .mi{font-size:28px;}
+  .wa-float .mi{font-size:20px;}
+  .bf-icon .mi{font-size:26px;}
+  .gi .mi{font-size:20px;}
+  .addon-list .gi .mi{font-size:20px;}
+  .plan-icon .mi{font-size:22px;}
+  .sf-social a{width:auto;height:auto;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;}
+
+  /* nav dropdown */
+  .nav-dd{position:relative;display:flex;align-items:center;}
+  .nav-dd>a{display:inline-flex;align-items:center;gap:2px;}
+  .nav-dd .dd-chev{font-size:18px;transition:transform .2s;}
+  .nav-dd:hover .dd-chev,.nav-dd:focus-within .dd-chev{transform:rotate(180deg);}
+  .dd-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:20px;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s;z-index:60;}
+  .nav-dd:hover .dd-panel,.nav-dd:focus-within .dd-panel{opacity:1;visibility:visible;}
+  .dd-card{width:340px;background:#fff;border:1px solid #e7e2dc;border-radius:20px;padding:10px;box-shadow:0 22px 50px rgba(11,9,8,.22);}
+  .nav-pill .dd-card a{color:#121212;white-space:normal;}
+  .dd-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;}
+  .dd-item:hover{background:#fff7ef;}
+  .dd-item img{width:44px;height:44px;object-fit:contain;flex-shrink:0;}
+  .dd-item b{display:block;font-size:15px;font-weight:800;color:#121212;}
+  .dd-item small{display:block;font-size:13px;font-weight:500;color:#50525f;margin-top:1px;}
+  .nav-pill .dd-card a.dd-all{display:flex;align-items:center;justify-content:space-between;margin-top:6px;padding:12px 14px;border-top:1px solid #e7e2dc;border-radius:0 0 12px 12px;font-size:14px;font-weight:800;color:#b4530b;}
+  .nav-pill .dd-card a.dd-all:hover{color:#b4530b;text-decoration:underline;}
+  .dd-all .mi{font-size:18px;}
+  .m-sub{display:flex;flex-direction:column;padding:4px 0 8px 14px;border-bottom:1px solid #2a2420;}
+  .m-links .m-sub a{font-size:17px;font-weight:600;color:#d9d2ca;padding:11px 4px;border-bottom:0;}
+  .m-links .m-sub a:after{content:none;}
+
+  /* simple dropdown */
+  .dd-card{width:250px;padding:8px;}
+  .dd-item img,.dd-item small{display:none !important;}
+  .dd-item{padding:11px 14px;}
+  .dd-item b{font-size:15px;font-weight:700;}
+  .soon-tag{display:inline-block;margin-left:8px;font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#b4530b;background:#fdeede;border:1px solid #f6c79b;border-radius:999px;padding:3px 8px;vertical-align:middle;white-space:nowrap;}
+  .dd-item>span{display:flex;align-items:center;gap:8px;}
+  .dd-item .soon-tag{margin-left:0;font-size:9.5px;padding:2px 7px;}
+  .plan-list li .soon-tag{margin-left:8px;font-size:9.5px;padding:2px 7px;line-height:1.3;}
+  .plan-mini.pop .plan-list li .soon-tag{background:rgba(237,115,48,.18);color:#ffb27a;border-color:rgba(237,115,48,.45);}
+  .eco-label .soon-tag{font-size:9.5px;margin-left:10px;padding:2px 7px;line-height:1.3;}
+  .eco-middle .eco-label .soon-tag{display:none;}
+  .m-links .m-sub a .soon-tag{margin-left:10px;}
+  .ac-body h3 .soon-tag,.ex-copy h3 .soon-tag{font-size:11px;margin-left:12px;position:relative;top:-3px;}
+  .dd-card{min-width:310px;}
+  .dd-item>span{white-space:nowrap;flex:1;}
+  .dd-item b{white-space:nowrap;}
+  .dd-item .soon-tag{margin-left:auto;}
 </style>
+<link rel="stylesheet" href="assets/css/overrides.css">
 </head>
 <body>
 
-  <div class="label-row">PRICING — PAGE MOCKUP</div>
-
-  <!-- PAGE HERO -->
   <section class="page-hero">
     <header class="site-header">
-      <a class="site-logo" href="hero-mockup.html"><span class="logo-dot"></span>orangesoft</a>
+      <a class="site-logo" href="index.html"><span class="logo-dot"></span>orangesoft</a>
       <nav class="nav-pill">
-        <a href="why-headless-page.html">Headless</a>
-        <a href="solutions-page.html">Solutions</a>
+        <a href="index.html">Home</a>
+        <a href="why-headless-page.html">Lightning-fast website</a>
+        <div class="nav-dd"><a href="solutions-page.html">Add-ons <span class="mi dd-chev" aria-hidden="true">expand_more</span></a><div class="dd-panel"><div class="dd-card"><a class="dd-item" href="ai-search-page.html"><span><b>Found by AI search</b></span></a><a class="dd-item" href="ai-chatbot-page.html"><span><b>AI chatbot</b></span></a><a class="dd-item" href="app-experience-page.html"><span><b>App-like experience</b></span></a><a class="dd-item" href="whatsapp-assistant-page.html"><span><b>WhatsApp AI assistant</b><em class="soon-tag">Coming soon</em></span></a><a class="dd-all" href="solutions-page.html">See all add-ons <span class="mi" aria-hidden="true">arrow_forward</span></a></div></div></div>
         <a href="pricing-page.html" class="nav-active">Pricing</a>
         <a href="about-page.html">About</a>
         <a href="faq-page.html">FAQ</a>
-        <a href="/contact-us">Contact</a>
+        <a href="contact-page.html">Contact</a>
       </nav>
       <div class="header-right">
-        <a class="header-cta" href="audit-page.html">Free Audit <span class="arrow">→</span></a>
+        <a class="header-cta" href="https://calendly.com/daniel-orangesoft/45min" target="_blank" rel="noopener">Book a free call <span class="arrow"><span class="mi" aria-hidden="true">arrow_forward</span></span></a>
         <button class="nav-menu-btn" aria-label="Open menu">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <span class="mi" aria-hidden="true" style="font-size:18px;">menu</span>
         </button>
       </div>
     </header>
     <div class="grid-overlay"></div>
-    <div class="page-hero-inner">
-      <h1>Simple pricing. Real ROI.</h1>
-      <p>One-time setup gets it built and configured. A small monthly fee keeps it hosted, maintained, and supported, no surprise costs later.</p>
+    <div class="page-hero-inner hero-split">
+      <div class="hero-copy">
+        <span class="pill-label">PRICING</span>
+        <h1>Simple pricing. Real ROI.</h1>
+        <p>One setup fee. One small monthly fee. No surprises.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="https://calendly.com/daniel-orangesoft/45min" target="_blank" rel="noopener">Book a free call <span class="arrow"><span class="mi" aria-hidden="true">arrow_forward</span></span></a>
+          <a class="btn btn-outline" href="#pricing">See the plans</a>
+        </div>
+      </div>
+      
     </div>
   </section>
 
-  <!-- PRICING GRID -->
-  <section class="pricing-section">
-    <div class="pricing-grid">
-
-      <div class="plan-card">
+  <!-- PLANS (same cards as homepage) -->
+  <section class="pricing-section" id="pricing">
+    <div class="plan-grid">
+      <div class="plan-mini">
+        
+        <div class="plan-icon"><span class="mi" aria-hidden="true">bolt</span></div>
         <div class="plan-name">Standard</div>
-        <div class="plan-price">RM3,000 <small>setup</small></div>
-        <div class="plan-setup">+ RM199 / month</div>
-        <div class="plan-tagline">Get a smart chatbot working on your site from day one.</div>
-        <ul class="plan-features">
-          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
-          <li class="off"><span class="tick off">–</span>WhatsApp AI Assistant</li>
-          <li class="off"><span class="tick off">–</span>SEO</li>
-          <li class="off"><span class="tick off">–</span>App-Like Experience (PWA)</li>
-          <li class="off"><span class="tick off">–</span>AI Search Visibility (AEO)</li>
+        <div class="plan-best">Best for new sites and small businesses</div>
+        <div class="plan-was"><s>RM4,500</s></div>
+        <div class="plan-price"><span class="pp-cur">RM</span>3,000</div>
+        <div class="plan-setup">one-time setup</div>
+        <div class="plan-monthly">+ RM199 <em>/ month</em></div>
+        <p class="plan-for">Get online with a smart chatbot from day one.</p>
+        <ul class="plan-list">
+          <li>Lightning-fast website</li>
+          <li>AI chatbot</li>
         </ul>
-        <a class="btn btn-outline" href="/contact-us">Get Started</a>
       </div>
-
-      <div class="plan-card">
+      <div class="plan-mini">
+        
+        <div class="plan-icon"><span class="mi" aria-hidden="true">chat_bubble_outline</span></div>
         <div class="plan-name">Premium</div>
-        <div class="plan-price">RM4,500 <small>setup</small></div>
-        <div class="plan-setup">+ RM299 / month</div>
-        <div class="plan-tagline">Add WhatsApp automation and start showing up in search.</div>
-        <ul class="plan-features">
-          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
-          <li><span class="tick">✓</span>WhatsApp AI Assistant</li>
-          <li><span class="tick">✓</span>SEO</li>
-          <li class="off"><span class="tick off">–</span>App-Like Experience (PWA)</li>
-          <li class="off"><span class="tick off">–</span>AI Search Visibility (AEO)</li>
-        </ul>
-        <a class="btn btn-outline" href="/contact-us">Get Started</a>
+        <div class="plan-best">Best for businesses chasing more leads</div>
+        <div class="plan-was"><s>RM6,500</s></div>
+        <div class="plan-price"><span class="pp-cur">RM</span>4,500</div>
+        <div class="plan-setup">one-time setup</div>
+        <div class="plan-monthly">+ RM299 <em>/ month</em></div>
+        <p class="plan-for">Add WhatsApp replies and Google SEO.</p>
+        <ul class="plan-list">
+          <li>Lightning-fast website</li>
+          <li>AI chatbot</li>
+          
+          <li>SEO for Google</li>
+        <li>WhatsApp AI assistant <em class="soon-tag">Coming soon</em></li>
+         </ul>
       </div>
-
-      <div class="plan-card popular">
-        <div class="plan-badge">Most Popular</div>
+      <div class="plan-mini pop">
+        <span class="plan-badge">Most popular</span>
+        <div class="plan-icon"><span class="mi" aria-hidden="true">star</span></div>
         <div class="plan-name">Corporate</div>
-        <div class="plan-price">RM5,800 <small>setup</small></div>
-        <div class="plan-setup">+ RM399 / month</div>
-        <div class="plan-tagline">The full digital ecosystem, built to convert and retain.</div>
-        <ul class="plan-features">
-          <li><span class="tick">✓</span>AI Sales Assistant (Chatbot)</li>
-          <li><span class="tick">✓</span>WhatsApp AI Assistant</li>
-          <li><span class="tick">✓</span>SEO</li>
-          <li><span class="tick">✓</span>App-Like Experience (PWA)</li>
-          <li><span class="tick">✓</span>AI Search Visibility (AEO)</li>
-        </ul>
-        <a class="btn btn-primary" href="/contact-us">Get Started</a>
+        <div class="plan-best">Best for established businesses ready to scale</div>
+        <div class="plan-was"><s>RM8,500</s></div>
+        <div class="plan-price"><span class="pp-cur">RM</span>5,800</div>
+        <div class="plan-setup">one-time setup</div>
+        <div class="plan-monthly">+ RM399 <em>/ month</em></div>
+        <p class="plan-for">The complete package, built to convert and retain.</p>
+        <ul class="plan-list">
+          <li>Lightning-fast website</li>
+          <li>AI chatbot</li>
+          
+          <li>SEO for Google</li>
+          <li>App-like experience</li>
+          <li>Found by AI search</li>
+        <li>WhatsApp AI assistant <em class="soon-tag">Coming soon</em></li>
+         </ul>
       </div>
-
-      <div class="plan-card">
+      <div class="plan-mini">
+        
+        <div class="plan-icon"><span class="mi" aria-hidden="true">home</span></div>
         <div class="plan-name">Enterprise</div>
-        <div class="plan-price">POA</div>
-        <div class="plan-setup">Custom setup &amp; monthly</div>
-        <div class="plan-tagline">Custom-built for larger teams with specific needs.</div>
-        <ul class="plan-features">
-          <li><span class="tick">✓</span>Everything in Corporate</li>
-          <li><span class="tick">✓</span>Dedicated account manager</li>
-          <li><span class="tick">✓</span>Custom integrations</li>
-          <li><span class="tick">✓</span>Priority support &amp; SLA</li>
+        <div class="plan-best">Best for larger teams with specific needs</div>
+        <div class="plan-price custom">Custom</div>
+        <div class="plan-setup">tailored setup and monthly</div>
+        <p class="plan-for">Custom-built around your systems and approvals.</p>
+        <ul class="plan-list">
+          <li>Lightning-fast website</li>
+          <li>AI chatbot</li>
+          
+          <li>SEO for Google</li>
+          <li>App-like experience</li>
+          <li>Found by AI search</li>
+          <li>WhatsApp AI assistant <em class="soon-tag">Coming soon</em></li>
+           <li>Dedicated account manager</li>
+          <li>Custom integrations</li>
+          <li>Priority support &amp; SLA</li>
         </ul>
-        <a class="btn btn-dark" href="/contact-us">Talk to Sales</a>
-      </div>
-
-    </div>
-    <p class="pricing-note">All plans run on the same fast, secure headless foundation. Add-ons can be adjusted as your business grows, talk to us if a different mix fits you better.</p>
-  </section>
-
-  <!-- TEAM SECTION -->
-  <section class="team-section">
-    <div class="section-header" style="text-align:center;">
-      <h2 class="section-heading">The team behind it</h2>
-      <p class="section-desc">11 people in Kuala Lumpur building, supporting and improving every project we ship.</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card"><div class="team-avatar" style="background:#f5750f;">F</div><div class="team-name">Founder</div><div class="team-role">CEO</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#4285f4;">C</div><div class="team-name">Co-Founder</div><div class="team-role">CTO</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#25d366;">H</div><div class="team-name">Design Lead</div><div class="team-role">Head of Design</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#9c6ade;">L</div><div class="team-name">Lead Developer</div><div class="team-role">Engineering</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#e85f10;">B</div><div class="team-name">Backend Engineer</div><div class="team-role">Engineering</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#2c7a7b;">F</div><div class="team-name">Frontend Engineer</div><div class="team-role">Engineering</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#c9631d;">A</div><div class="team-name">AI Engineer</div><div class="team-role">AI &amp; Automation</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#4a453f;">P</div><div class="team-name">Project Manager</div><div class="team-role">Delivery</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#f5a623;">M</div><div class="team-name">Marketing Lead</div><div class="team-role">Growth</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#3b82f6;">C</div><div class="team-name">Client Success</div><div class="team-role">Support</div></div>
-      <div class="team-card"><div class="team-avatar" style="background:#16a34a;">Q</div><div class="team-name">QA Engineer</div><div class="team-role">Quality</div></div>
-    </div>
-    <p class="team-note">Placeholder team section, initials and role titles only. Swap in real photos and names before this goes live.</p>
-  </section>
-
-  <!-- REVIEWS SECTION — DUMMY PLACEHOLDER CONTENT, NOT REAL REVIEWS -->
-  <section class="reviews-section">
-    <div class="reviews-rating">
-      <h2 class="section-heading">What clients say on Google</h2>
-      <div class="stars">★★★★★</div>
-      <div class="score-line">
-        <svg class="g-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285f4"/><path d="M12 6a6 6 0 1 0 5.9 7H12v-2.4h8.4c.1.6.2 1.2.2 1.9 0 5-3.4 8.6-8.6 8.6A9.1 9.1 0 1 1 12 3a8.8 8.8 0 0 1 6.1 2.4l-2.5 2.4A5.3 5.3 0 0 0 12 6Z" fill="#fff"/></svg>
-        4.9 out of 5, based on 120+ Google reviews
       </div>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar" style="background:#f5750f;">L</div>
-          <div class="review-who"><div class="review-name">Lim Wei Jun</div><div class="review-time">3 weeks ago</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Our site used to take forever to load on mobile. After switching to headless our load times dropped massively and enquiries went up. Orangesoft's team explained everything clearly the whole way.</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar" style="background:#4285f4;">S</div>
-          <div class="review-who"><div class="review-name">Siti Nurhaliza</div><div class="review-time">1 month ago</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">We kept our existing WordPress setup so the team barely had to change how they publish, but the site itself feels completely different now. Really smooth process from start to finish.</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar" style="background:#25d366;">T</div>
-          <div class="review-who"><div class="review-name">Tan Kai Xuan</div><div class="review-time">2 months ago</div></div>
-        </div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Added the WhatsApp assistant on top of the new site and it's been catching enquiries we would have missed after hours. Support has been responsive whenever we needed changes.</p>
-      </div>
+    <!-- MOCKUP NOTE: struck-through prices are placeholders; set real standard prices before publishing -->
+    <div class="cta-row-center" style="margin-top:26px;">
+      <a class="btn btn-primary" href="https://wa.me/60127888000?text=Hi%20Orangesoft%2C%20I%20would%20like%20help%20choosing%20the%20right%20plan%20for%20my%20business.">Chat on WhatsApp <span class="arrow"><span class="mi" aria-hidden="true">arrow_forward</span></span></a>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- GOOGLE REVIEWS: full-width beige band -->
+  <section class="reviews-band rv-cream">
+
+    <!-- REAL REVIEWS GO HERE: replace the 8 placeholder cards, the rating and the count with genuine Google data. Keep the links to Google. -->
+    <div class="gr-wrap">
+      <div class="gr-head">
+        <div>
+          <div class="gr-title"><span class="gr-logo"><b style="color:#4285f4">G</b><b style="color:#ea4335">o</b><b style="color:#fbbc05">o</b><b style="color:#4285f4">g</b><b style="color:#34a853">l</b><b style="color:#ea4335">e</b></span> Reviews</div>
+          <div class="gr-rating"><span class="gr-score">[5.0]</span><span class="gr-big-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></span><span class="gr-count">([00])</span></div>
+        </div>
+        <a class="gr-cta" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Review us on Google</a>
+      </div>
+      <div class="ph-tag" style="margin:0 0 16px 4px;">PLACEHOLDER: replace with real Google reviews, the real rating and the real review count</div>
+      <div class="gr-grid">
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#5c6bc0;">A<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#ed7330;">B<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#455a64;">C<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#8e44ad;">D<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#1e63c4;">E<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#e67e22;">F<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#d35400;">G<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      <div class="gr-card">
+        <div class="gr-top">
+          <div class="gr-avatar" style="background:#d6336c;">H<span class="gr-g">G</span></div>
+          <div class="gr-who">
+            <div class="gr-name">[Reviewer name] <span class="mi" aria-hidden="true" style="color:#0b7a4b;">check_circle</span></div>
+            <div class="gr-time">[time ago]</div>
+          </div>
+        </div>
+        <div class="gr-stars"><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span><span class="mi" aria-hidden="true">star</span></div>
+        <p class="gr-text">[Paste a real Google review here, word for word. Long reviews are cut to three lines with a "Read more" link.]</p>
+        <a class="gr-more" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">Read more</a>
+      </div>
+      </div>
+      <div style="text-align:center;margin-top:30px;">
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/Orangesoft+Puchong" target="_blank" rel="noopener">See all reviews on Google <span class="mi" aria-hidden="true">north_east</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="step-section bg-white faq2">
+    <div class="section-header">
+      <span class="step-tag">PRICING FAQ</span>
+      <h2 class="section-heading">Pricing questions, answered.</h2>
+    </div>
+    <div class="faq2-grid">
+      <div class="qa-list">
+      <details class="qa" open><summary>What does the one-time setup cover?</summary><div class="qa-body"><p>Building and configuring your lightning-fast website and the add-ons in your plan, so it is ready to go live. You can transform your existing site or start fresh.</p></div></details>
+      <details class="qa"><summary>What does the monthly fee cover?</summary><div class="qa-body"><p>Hosting, maintenance and support, so your site stays fast, secure and up to date, with no surprise costs later.</p></div></details>
+      <details class="qa"><summary>Which plan should I choose?</summary><div class="qa-body"><p>Standard suits new sites and small businesses. Premium suits businesses chasing more leads. Corporate suits established businesses ready to scale. Enterprise suits larger teams with specific needs. Not sure? Our free website audit shows where you stand, and we will recommend a plan.</p></div></details>
+      <details class="qa"><summary>Can I change plans later?</summary><div class="qa-body"><p>Yes. Add-ons can be adjusted as your business grows. Talk to us if a different mix fits you better.</p></div></details>
+      </div>
+    </div>
+    <!-- MOCKUP NOTE: confirm with sales before publishing: whether prices include/exclude SST, plan-change terms, setup inclusions, supported CMS list. -->
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="proof-section proof-certs">
+    <div class="proof-creds">
+      <div class="cred-eyebrow">CERTIFIED &amp; PARTNERED</div>
+      <h3 class="cred-title">Officially certified and partnered.</h3>
+      <div class="cred-row">
+        <div class="cred-tile"><img src="assets/partners/alibaba-official-partner.png" alt="Alibaba.com Official Partner"></div>
+        <div class="cred-tile"><img src="assets/partners/cloudways-gold-agency-partner.png" alt="Cloudways by DigitalOcean Gold Agency Partner"></div>
+        <div class="cred-tile"><img src="assets/partners/kentico-silver-partner.png" alt="Kentico Silver Partner"></div>
+        <div class="cred-tile"><img src="assets/partners/hubspot-academy.png" alt="HubSpot Academy certified"></div>
+        <div class="cred-tile"><img src="assets/partners/semrush-academy-certified.png" alt="Semrush Academy digital marketing education and certification"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT LOGOS: auto-scrolling marquee -->
+  <section class="marquee-section">
+    <div class="marquee-caption">600+ projects delivered since 2007</div>
+    <div class="marquee-track">
+      <div class="logo-set">
+        <span class="logo-chip">Cagamas</span>
+        <span class="logo-chip">IOI Properties</span>
+        <span class="logo-chip">Nilai University</span>
+        <span class="logo-chip">Ajinomoto Malaysia</span>
+        <span class="logo-chip">Pelabuhan Tanjung Pelepas</span>
+        <span class="logo-chip">Skrine</span>
+      </div>
+      <div class="logo-set" aria-hidden="true">
+        <span class="logo-chip">Cagamas</span>
+        <span class="logo-chip">IOI Properties</span>
+        <span class="logo-chip">Nilai University</span>
+        <span class="logo-chip">Ajinomoto Malaysia</span>
+        <span class="logo-chip">Pelabuhan Tanjung Pelepas</span>
+        <span class="logo-chip">Skrine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA BAND -->
   <section class="final-cta">
     <div class="final-cta-inner">
-      <h2>Not sure which plan fits yet?</h2>
-      <p>Start with a free check on your current site, see exactly what's slowing it down and what a headless rebuild would fix, then talk to us about the right plan for it.</p>
-      <div class="cta-row-center">
-        <a class="btn btn-primary" href="audit-page.html">Check My Site's Speed <span class="arrow">→</span></a>
-        <a class="btn btn-outline" href="/contact-us">Contact Us</a>
+      <div class="fc-orb fc-orb-1"></div>
+      <div class="fc-orb fc-orb-2"></div>
+      <div class="fc-content">
+        <span class="fc-eyebrow">FREE · NO OBLIGATION</span>
+        <h2>Not sure which plan fits?</h2>
+        <p>Tell us about your website and we will recommend the right plan.</p>
+        <div class="fc-actions">
+          <a class="btn btn-primary fc-btn" href="https://calendly.com/daniel-orangesoft/45min" target="_blank" rel="noopener">Book a free call <span class="arrow"><span class="mi" aria-hidden="true">arrow_forward</span></span></a>
+          <a class="fc-btn-ghost" href="https://wa.me/60127888000?text=Hi%20Orangesoft%2C%20I%20would%20like%20help%20choosing%20the%20right%20plan%20for%20my%20business." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="f-logo"><span class="f-dot"></span>orangesoft</div>
-        <p>Headless WordPress, built by Orangesoft, the team behind 600+ traditional WordPress projects in Kuala Lumpur since 2007, now applying the same process to a faster way of building the web.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-label">Explore</div>
-        <a href="#">Why Headless</a>
-        <a href="#">Live Demo</a>
-        <a href="audit-page.html">Free Audit</a>
-        <a href="#">About</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-label">Support</div>
-        <a href="faq-page.html">FAQs</a>
-        <a href="#">Contact Us</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-label">Follow Us</div>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17M11 12.5v-.001"/></svg></a>
+  <footer class="hq-footer">
+    <div class="hq-in">
+      <div class="hq-main">
+        <div class="hq-brand">
+          <a class="hq-logo" href="index.html" aria-label="Orangesoft home"><svg class="hq-mark" viewBox="0 0 26 26" aria-hidden="true"><path d="M10.686 24.1202L11.6445 23.9393C11.6445 23.9393 12.4364 23.692 12.4412 23.692C13.4672 23.2138 14.2168 22.484 14.735 21.456C15.2617 20.4184 15.5279 19.2722 15.5279 18.0517V15.7211C15.5279 14.6159 15.685 13.5304 15.9962 12.5015C16.3123 11.461 16.7658 10.5271 17.3547 9.7212C17.9622 8.90947 18.7042 8.25014 19.5612 7.75829C20.2139 7.38281 20.9295 7.1383 21.7036 7.02688C19.784 3.99877 16.4845 1.99981 12.7356 1.99981C6.80611 1.99981 2 6.99932 2 13.1637C2 18.5994 5.73408 23.1266 10.6804 24.123C10.6822 24.123 10.6841 24.1214 10.686 24.1214V24.1202Z" fill="currentColor"/><path d="M23.0978 9.95121L22.8754 9.96769C22.0757 10.0344 21.3601 10.2278 20.7596 10.5427C20.1474 10.8654 19.6304 11.2859 19.2205 11.7895C18.8007 12.3066 18.4811 12.9183 18.2738 13.6132L17.9402 15.9222V18.2252C17.9402 19.3086 17.7577 20.3785 17.4034 21.401C17.0948 22.2766 16.68 23.0737 16.1719 23.7773C20.5384 22.2457 23.6617 18.176 23.6617 13.3948C23.6617 12.1916 23.4631 11.0336 23.0968 9.95026L23.0978 9.95121Z" fill="currentColor"/></svg><span>orangesoft</span></a>
+          <p class="hq-tag">Fast, AI-ready websites for Malaysian businesses. Building since 2007.</p>
+          <p class="hq-co">Orangesoft Sdn Bhd</p>
+          <p class="hq-addr">SS-19-10, Stellar Office Suites, Jalan Puteri 4/7, Bandar Puteri Puchong, 47100 Puchong, Selangor</p>
+          <div class="hq-icons">
+            <a href="https://waze.com/ul?ll=3.017778,101.613917&amp;navigate=yes" aria-label="Waze" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 5C10.5 5 6 9.2 6 14.4c0 1.4.3 2.7.9 3.9-.9.9-.6 2.4.6 2.9.8.3 1.7.1 2.2-.5 1.1.8 2.5 1.2 4 1.3 0 1.3 1 2.4 2.4 2.4 1 0 1.8-.6 2.2-1.4 4.8-.6 8.7-4.5 8.7-9.4C26.9 9.4 22 5 16 5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12.6" cy="13.2" r="1.2" fill="currentColor"/><circle cx="19.4" cy="13.2" r="1.2" fill="currentColor"/><path d="M12.4 16.8c1 1.4 2.2 2 3.6 2s2.6-.6 3.6-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+            <a href="https://www.google.com/maps?q=3.017778,101.613917" aria-label="Google Maps" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 28s8-7.2 8-14a8 8 0 1 0-16 0c0 6.8 8 14 8 14z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="16" cy="14" r="3" stroke="currentColor" stroke-width="1.6"/></svg></a>
+            <i class="hq-sep" aria-hidden="true"></i>
+            <a href="tel:+60378903113" aria-label="Call us"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M8.4375 12.1875C8.4375 11.1929 8.83259 10.2391 9.53585 9.53585C10.2391 8.83259 11.1929 8.4375 12.1875 8.4375L14.0625 12.1875L12.6188 14.352C13.1914 15.7204 14.2796 16.8086 15.648 17.3813L17.8125 15.9375L21.5625 17.8125C21.5625 18.8071 21.1674 19.7609 20.4641 20.4641C19.7609 21.1674 18.8071 21.5625 17.8125 21.5625C15.3261 21.5625 12.9415 20.5748 11.1834 18.8166C9.42522 17.0585 8.4375 14.6739 8.4375 12.1875Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="mailto:sales@os.my" aria-label="Email us"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M28 7L16 18L4 7M4 7H28V24C28 24.2652 27.8946 24.5196 27.7071 24.7071C27.5196 24.8946 27.2652 25 27 25H5C4.73478 25 4.48043 24.8946 4.29289 24.7071C4.10536 24.5196 4 24.2652 4 24V7ZM13.8188 16L4.30875 24.7175M27.6912 24.7175L18.1812 16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="https://wa.me/60127888000" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M8.4375 12.1875C8.4375 11.1929 8.83259 10.2391 9.53585 9.53585C10.2391 8.83259 11.1929 8.4375 12.1875 8.4375L14.0625 12.1875L12.6188 14.352C13.1914 15.7204 14.2796 16.8086 15.648 17.3813L17.8125 15.9375L21.5625 17.8125C21.5625 18.8071 21.1674 19.7609 20.4641 20.4641C19.7609 21.1674 18.8071 21.5625 17.8125 21.5625C15.3261 21.5625 12.9415 20.5748 11.1834 18.8166C9.42522 17.0585 8.4375 14.6739 8.4375 12.1875Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.3668 24.7395C11.7299 26.1071 14.5098 26.5687 17.1881 26.0382C19.8664 25.5076 22.2604 24.0212 23.9237 21.8559C25.587 19.6906 26.406 16.9944 26.2282 14.2698C26.0503 11.5452 24.8877 8.97832 22.957 7.04766C21.0264 5.117 18.4595 3.95436 15.7349 3.7765C13.0103 3.59865 10.3141 4.41772 8.1488 6.081C5.98354 7.74428 4.49706 10.1383 3.96651 12.8166C3.43596 15.4949 3.89756 18.2748 5.26523 20.6379L3.79922 25.0148C3.74413 25.18 3.73614 25.3573 3.77613 25.5268C3.81613 25.6962 3.90253 25.8512 4.02566 25.9743C4.14878 26.0975 4.30377 26.1839 4.47324 26.2239C4.64271 26.2639 4.81997 26.2559 4.98516 26.2008L9.3668 24.7395Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <i class="hq-sep" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/orangesoft" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 11H19C18.2044 11 17.4413 11.3161 16.8787 11.8787C16.3161 12.4413 16 13.2044 16 14V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="https://www.instagram.com/orangesoft.my/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/><path d="M22 4H10C6.68629 4 4 6.68629 4 10V22C4 25.3137 6.68629 28 10 28H22C25.3137 28 28 25.3137 28 22V10C28 6.68629 25.3137 4 22 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22.5 8.0625C23.2939 8.0625 23.9375 8.70609 23.9375 9.5C23.9375 10.2939 23.2939 10.9375 22.5 10.9375C21.7061 10.9375 21.0625 10.2939 21.0625 9.5C21.0625 8.70609 21.7061 8.0625 22.5 8.0625Z" fill="currentColor" stroke="currentColor" stroke-width="0.125"/></svg></a>
+            <a href="https://www.linkedin.com/company/orangesoft-interactive/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M27 4H5C4.44772 4 4 4.44772 4 5V27C4 27.5523 4.44772 28 5 28H27C27.5523 28 28 27.5523 28 27V5C28 4.44772 27.5523 4 27 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 14V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 14V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 17.5C15 16.5717 15.3687 15.6815 16.0251 15.0251C16.6815 14.3687 17.5717 14 18.5 14C19.4283 14 20.3185 14.3687 20.9749 15.0251C21.6313 15.6815 22 16.5717 22 17.5V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 12C11.8284 12 12.5 11.3284 12.5 10.5C12.5 9.67157 11.8284 9 11 9C10.1716 9 9.5 9.67157 9.5 10.5C9.5 11.3284 10.1716 12 11 12Z" fill="currentColor"/></svg></a>
+          </div>
         </div>
+        <nav class="hq-cols" aria-label="Footer">
+          <div class="hq-col"><p class="hq-h">Website</p><a href="why-headless-page.html">Lightning-fast website</a><a href="pricing-page.html">Pricing</a><a href="audit-page.html">Free website audit</a></div>
+          <div class="hq-col"><p class="hq-h">Add-ons</p><a href="ai-search-page.html">Found by AI search</a><a href="ai-chatbot-page.html">AI chatbot</a><a href="app-experience-page.html">App-like experience</a><a href="whatsapp-assistant-page.html">WhatsApp AI assistant <em class="soon-tag">Coming soon</em></a></div>
+          <div class="hq-col"><p class="hq-h">Company</p><a href="about-page.html">About</a><a href="faq-page.html">FAQ</a><a href="contact-page.html">Contact us</a></div>
+        </nav>
       </div>
-    </div>
-    <div class="footer-watermark"><span>orangesoft</span></div>
-    <div class="footer-bottom">
-      <div>© Copyright 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</div>
-      <a class="back-to-top" href="#top">Back to top <span class="btt-circle">↑</span></a>
+      <hr class="hq-hr">
+      <div class="hq-legal">
+        <p>© Copyright 2007 - 2026 Orangesoft Sdn Bhd 200701012044 (770049-P). All Rights Reserved.</p>
+        <div class="hq-links"><a href="https://www.orangesoft.com.my/privacy-policy">Privacy Policy</a><a href="https://www.orangesoft.com.my/terms-conditions">Terms &amp; Conditions</a><a href="https://www.orangesoft.com.my/service-terms">Service Terms</a><a href="https://www.orangesoft.com.my/refund-policy">Refund Policy</a><a href="#" data-cookie-settings>Cookie Settings</a></div>
+      </div>
     </div>
   </footer>
 
+
+<div class="m-menu" id="mMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="m-top"><a class="m-logo" href="index.html"><i></i>orangesoft</a><button class="m-close" type="button" id="mClose" aria-label="Close menu">&#10005;</button></div>
+  <nav class="m-links">
+    <a href="index.html">Home</a>
+    <a href="why-headless-page.html">Lightning-fast website</a>
+    <a href="solutions-page.html">Add-ons</a><div class="m-sub"><a href="ai-search-page.html">Found by AI search</a><a href="ai-chatbot-page.html">AI chatbot</a><a href="app-experience-page.html">App-like experience</a><a href="whatsapp-assistant-page.html">WhatsApp AI assistant <em class="soon-tag">Coming soon</em></a></div>
+    <a href="pricing-page.html" class="on">Pricing</a>
+    <a href="about-page.html">About</a>
+    <a href="faq-page.html">FAQ</a>
+    <a href="contact-page.html">Contact</a>
+  </nav>
+  <div class="m-cta"><a class="p" href="https://calendly.com/daniel-orangesoft/45min" target="_blank" rel="noopener">Book a free call</a><a class="g" href="https://wa.me/60127888000">Chat on WhatsApp</a></div>
+</div>
+<script>
+(function(){var m=document.getElementById('mMenu');if(!m)return;
+function set(o){m.classList.toggle('open',o);document.body.classList.toggle('m-lock',o);document.querySelectorAll('.nav-menu-btn').forEach(function(b){b.setAttribute('aria-expanded',o)});}
+document.querySelectorAll('.nav-menu-btn').forEach(function(b){b.addEventListener('click',function(){set(true)});});
+document.getElementById('mClose').addEventListener('click',function(){set(false)});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false)});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+</script>
+<script src="assets/js/accordion.js"></script>
+<script src="assets/js/motion.js"></script>
+<script src="assets/js/ollie.js"></script>
 </body>
 </html>

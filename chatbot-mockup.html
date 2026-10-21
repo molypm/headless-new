@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ollie, the Orangesoft AI chatbot — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--o:#ed7330;--o2:#ff9142;--ink:#121212;--body:#50525f;--line:#ece4da;--peach:#fdeede}
+body{font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(160deg,#fbf8f4 0%,#f6efe7 60%,#f1e6da 100%);overflow-x:hidden;min-height:100vh}
+.mi{font-family:"Material Icons Round";font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none;z-index:0;animation:drift 14s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#ff9142;left:-120px;top:-100px}.b2{width:380px;height:380px;background:#ffd2a8;right:-80px;bottom:-100px;animation-delay:-5s}
+@keyframes drift{50%{transform:translate(40px,30px) scale(1.08)}}
+.stage{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:36px 24px;min-height:100vh;display:grid;grid-template-columns:1fr 410px;gap:60px;align-items:center}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;color:#b4530b;background:#fff;border:1px solid #f6c79b;border-radius:999px;padding:7px 16px;margin-bottom:16px}
+h1{font-size:clamp(34px,4.6vw,54px);line-height:1.06;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--o)}
+.lead{font-size:17.5px;line-height:1.6;color:#3d3f4a;max-width:520px;margin-bottom:22px}
+.pg{margin-bottom:16px}.pg h3{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7a4a22;margin-bottom:9px;display:flex;align-items:center;gap:7px}.pg h3 .mi{font-size:17px;color:var(--o)}
+.pr{display:flex;flex-wrap:wrap;gap:9px}
+.pr button{font:inherit;font-size:14px;font-weight:600;text-align:left;color:var(--ink);background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border:1.5px solid #fff;border-radius:12px;padding:10px 15px;cursor:pointer;box-shadow:0 4px 12px rgba(60,35,15,.07);transition:all .25s}
+.pr button:hover{border-color:var(--o);transform:translateY(-3px);box-shadow:0 14px 28px rgba(237,115,48,.22)}
+.pr button small{display:block;font-size:11.5px;font-weight:800;color:#b4530b;letter-spacing:.05em;margin-top:2px}
+.caps{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.caps span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:800;color:#8f877e;background:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.9);border-radius:999px;padding:7px 14px 7px 10px;transition:all .4s}
+.caps .mi{font-size:18px}.caps span.done{color:#1f6b3d;background:#e8f6ee;border-color:#bfe0cc}
+.note{margin-top:14px;font-size:12.5px;color:#7a746d}
+.phone{justify-self:center;transform-origin:top center}
+.bezel{position:relative;width:390px;height:800px;background:#121212;border-radius:54px;padding:11px;box-shadow:0 50px 90px rgba(90,40,5,.35),0 0 0 2px #2c2822 inset}
+.notch{position:absolute;top:20px;left:50%;margin-left:-58px;width:116px;height:30px;border-radius:18px;background:#121212;z-index:30}
+.scr{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#f8f5f1;display:flex;flex-direction:column}
+.hd{position:relative;padding:54px 18px 16px;background:linear-gradient(130deg,#ed7330 0%,#ff9142 100%);color:#fff;display:flex;align-items:center;gap:12px;overflow:hidden}
+.hd:before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+.av{position:relative;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--o);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex-shrink:0;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.av i{position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border-radius:50%;background:#2fa866;border:2.5px solid #ff9142}
+.who{position:relative;min-width:0}.who b{display:block;font-size:17px}.who small{font-size:12px;opacity:.92;display:block;line-height:1.3}
+.hr{margin-left:auto;display:flex;align-items:center;gap:8px;position:relative}
+.lang{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.24);border-radius:999px;padding:7px 11px 7px 8px;font-size:12.5px;font-weight:800;transition:all .3s;white-space:nowrap}
+.lang .mi{font-size:16px}.lang.flip{animation:flip .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes flip{0%{transform:scale(.7) rotate(-6deg);background:#fff;color:var(--o)}100%{transform:none}}
+.callb{width:38px;height:38px;border-radius:50%;background:#fff;color:#2e7d4f;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.18);border:0;cursor:pointer}.callb .mi{font-size:21px}
+.callb.ring{animation:cring 1.2s ease-out 4}@keyframes cring{0%{box-shadow:0 0 0 0 rgba(255,255,255,.9)}100%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+.msgs{flex:1;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:11px;scroll-behavior:smooth;scrollbar-width:none;background:radial-gradient(circle at 1px 1px,rgba(237,115,48,.07) 1.2px,transparent 1.4px) 0 0/22px 22px,#f8f5f1}
+.msgs::-webkit-scrollbar{display:none}
+.row{display:flex;gap:8px;align-items:flex-end;animation:rise .4s cubic-bezier(.2,.8,.2,1)}.row.u{justify-content:flex-end}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.mini{width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.col{display:flex;flex-direction:column;gap:5px;max-width:80%;min-width:0}.u .col{align-items:flex-end}
+.bub{padding:11px 15px;border-radius:20px;font-size:14.8px;line-height:1.5;word-wrap:break-word}
+.b .bub{background:#fff;border:1px solid var(--line);border-bottom-left-radius:6px;box-shadow:0 4px 12px rgba(60,35,15,.06)}
+.u .bub{background:linear-gradient(135deg,#ed7330,#f58a47);color:#fff;border-bottom-right-radius:6px;box-shadow:0 8px 18px rgba(237,115,48,.3)}
+.dec{display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:11.8px;color:#7a4a22;background:#fff7ef;border:1px dashed #e2b48a;border-radius:12px;padding:6px 10px;line-height:1.4;animation:rise .5s .15s both}
+.dec .mi{font-size:15px;color:var(--o)}.dec b{font-weight:800;color:#121212}.dec code{font:inherit;font-weight:800;background:#fff;border:1px solid #f6c79b;border-radius:6px;padding:0 5px;color:#b4530b}
+.typ{display:inline-flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:18px;border-bottom-left-radius:6px;padding:13px 15px}
+.typ i{width:7px;height:7px;border-radius:50%;background:#b9b2aa;animation:dot 1s infinite}.typ i:nth-child(2){animation-delay:.15s}.typ i:nth-child(3){animation-delay:.3s}@keyframes dot{50%{transform:translateY(-4px);opacity:.5}}
+.sys{align-self:center;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;color:#b4530b;background:linear-gradient(90deg,#fdeede,#fff7ef);border:1px solid #f6c79b;border-radius:999px;padding:6px 14px;animation:rise .4s;box-shadow:0 6px 14px rgba(237,115,48,.14)}.sys .mi{font-size:16px;color:var(--o)}
+.card{margin-left:34px;background:#fff;border:1.5px solid #ecdccb;border-radius:20px;padding:15px 16px;box-shadow:0 12px 26px rgba(60,35,15,.1);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+.card h4{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:800;margin-bottom:10px}.card h4 .mi{color:var(--o);font-size:19px}
+.steps{list-style:none;display:grid;gap:9px;font-size:13.8px}.steps li{display:flex;align-items:center;gap:9px;color:#8f877e}
+.steps .mi{width:21px;height:21px;border-radius:50%;background:#f1ece6;color:#a89f96;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps li.run{color:var(--ink)}.steps li.run .mi{background:var(--peach);color:var(--o);animation:spin 1s linear infinite}.steps li.ok{color:var(--ink)}.steps li.ok .mi{background:#2fa866;color:#fff}@keyframes spin{to{transform:rotate(360deg)}}
+.score{display:flex;align-items:center;gap:14px}.ring{--p:0;width:74px;height:74px;border-radius:50%;background:conic-gradient(#d1432a calc(var(--p)*1%),#f1ece6 0);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ring b{width:58px;height:58px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#d1432a}
+.score strong{display:block;font-size:14.5px}.score small{font-size:12px;color:#7a746d}
+.gaps{display:grid;gap:7px;margin-top:12px}.gaps span{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;background:#fff5f2;border:1px solid #f3cfc6;border-radius:12px;padding:8px 11px;animation:rise .4s both}.gaps .mi{width:20px;height:20px;border-radius:50%;background:#d1432a;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center}
+.sum{list-style:none;display:grid;gap:7px;margin-bottom:12px}.sum li{display:flex;gap:10px;font-size:13.6px}.sum b{min-width:76px;font-size:11.5px;color:#7a746d;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}.sum span{font-weight:700}
+.wa{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#25d366;color:#fff;font:inherit;font-weight:800;font-size:15px;border:0;border-radius:999px;padding:13px;cursor:pointer;text-decoration:none;box-shadow:0 12px 24px rgba(37,211,102,.4);transition:all .3s}
+.wa:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 2.6s infinite}@keyframes shine{to{left:130%}}
+.wa .mi{font-size:21px}.wa.sent{background:#e8f6ee;color:#1f6b3d;box-shadow:none}.wa.sent:after{display:none}
+.fine{font-size:11.8px;color:#7a746d;text-align:center;margin-top:9px;line-height:1.4}
+.hello{font-size:15px;font-weight:800;color:var(--o);margin:0 0 6px;height:22px;transition:opacity .3s}
+.hello.f{opacity:0}
+.lh{display:flex;align-items:center;justify-content:center;gap:5px;font-size:11.5px;font-weight:700;color:#8a7a6b;padding:2px 0 8px}.lh .mi{font-size:14px;color:var(--o)}
+.lgs{display:flex;align-items:center;gap:8px;padding:7px 0 7px 12px;background:#fff7ef;border-bottom:1px solid var(--line);overflow:hidden}
+.lgt{flex:1;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);margin-right:12px}
+.lgi{display:inline-block;animation:lgm 40s linear infinite}
+.lgi span{display:inline-block;font-size:12.5px;font-weight:700;color:#8a4a1a;margin-right:16px}
+.lgi span::after{content:'·';margin-left:16px;color:var(--o)}
+.lgs em{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;background:var(--o);border-radius:999px;padding:3px 9px;margin-right:10px;white-space:nowrap}
+@keyframes lgm{to{transform:translateX(-50%)}}
+.chips{display:flex;gap:8px;padding:6px 14px 10px;flex-wrap:wrap;justify-content:flex-start;min-height:6px}
+.chips button{font:inherit;font-size:13.2px;font-weight:700;color:#b4530b;background:#fff;border:1.5px solid var(--o);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;gap:6px;animation:rise .35s;cursor:pointer;transition:all .2s;text-align:left}.chips .mi{font-size:17px}
+.chips .lt{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--o);border-radius:999px;padding:2px 7px;margin-left:2px}
+.chips button:hover .lt{background:#fff;color:var(--o)}
+.chips button:hover{background:var(--o);color:#fff}
+.comp{display:flex;align-items:center;gap:8px;padding:10px 12px 22px;background:#fff;border-top:1px solid var(--line)}
+.comp input{flex:1;min-width:0;height:44px;border:1.5px solid #e2d6c8;border-radius:999px;background:#f8f5f1;padding:0 16px;font:inherit;font-size:14.5px;color:var(--ink)}.comp input:focus{outline:2px solid var(--o);border-color:var(--o)}
+.mic,.snd{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:0;cursor:pointer}.mic{background:var(--peach);color:#b4530b}.snd{background:var(--o);color:#fff}.mic .mi,.snd .mi{font-size:22px}
+.call{position:absolute;inset:0;z-index:20;background:linear-gradient(180deg,#2a1c12 0%,#120d09 100%);color:#fff;display:flex;flex-direction:column;align-items:center;padding:70px 22px 34px;opacity:0;pointer-events:none;transition:opacity .45s}
+.call.on{opacity:1;pointer-events:auto}
+.orbw{position:relative;width:200px;height:200px;margin-top:14px;display:flex;align-items:center;justify-content:center}
+.orb{position:absolute;inset:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffb27a,#ed7330 55%,#c9631d);box-shadow:0 0 60px rgba(237,115,48,.7);animation:orb 3.2s ease-in-out infinite}
+.orb.b{inset:24px;opacity:.4;filter:blur(14px);animation-delay:-1s;background:#ff9142}.orb.c{inset:44px;opacity:.5;filter:blur(10px);animation-delay:-2s;background:#ffd2a8}
+@keyframes orb{0%,100%{transform:scale(1) rotate(0);border-radius:50% 46% 54% 50%}50%{transform:scale(1.07) rotate(8deg);border-radius:46% 54% 48% 52%}}
+.call.talk .orb{animation-duration:.9s}.call.talk .orbw:before,.call.talk .orbw:after{content:"";position:absolute;inset:20px;border-radius:50%;border:2px solid rgba(255,145,66,.6);animation:wave 1.6s ease-out infinite}.call.talk .orbw:after{animation-delay:.8s}@keyframes wave{to{transform:scale(1.5);opacity:0}}
+.call h3{font-size:22px;margin-top:20px}.call .st{font-size:13.5px;color:#d8d4cf;margin-top:3px}.tm{font-size:15px;font-weight:800;color:#ff9142;margin-top:6px;font-variant-numeric:tabular-nums}
+.lines{flex:1;width:100%;margin:16px 0;display:flex;flex-direction:column;justify-content:flex-end;gap:9px;overflow:hidden}
+.ln{max-width:90%;font-size:14.5px;line-height:1.45;padding:10px 14px;border-radius:16px;animation:rise .4s}.ln small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-bottom:2px}
+.ln.o{align-self:flex-start;background:rgba(255,255,255,.13)}.ln.y{align-self:flex-end;background:var(--o)}
+.cbs{display:flex;gap:20px;align-items:center}.cb{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#fff;border:0;cursor:pointer}.cb.end{width:66px;height:66px;background:#d1432a}.cb .mi{font-size:26px}
+.toast{position:absolute;left:14px;right:14px;top:96px;z-index:25;background:#121212;color:#fff;border-radius:18px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 18px 36px rgba(0,0,0,.35);opacity:0;pointer-events:none;transform:translateY(-30px) scale(.92);transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .3s}.toast.on{opacity:1;transform:none}
+.toast .ti{width:38px;height:38px;border-radius:12px;background:#2fa866;display:flex;align-items:center;justify-content:center;flex-shrink:0}.toast b{display:block;font-size:14px}.toast small{font-size:12.5px;color:#d8d4cf}
+@media (max-width:980px){.stage{grid-template-columns:1fr;gap:30px;padding:24px 16px}.phone{order:-1}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<main class="stage">
+  <aside class="left">
+    <span class="tag">AI SALES ASSISTANT · DEMO</span>
+    <div class="hello" id="hello" aria-hidden="true">Hello</div>
+    <h1>Understands your customers, <em>however they write</em>.</h1>
+    <p class="lead">Your customers write the way they speak, in any language, short forms, slang, or a mix in one sentence. Ollie understands, answers in kind, takes a call when typing is slow, and passes qualified enquiries to your sales team with a full summary. Tap a prompt or type your own.</p>
+    <div class="pg"><h3><span class="mi">bolt</span>Short forms and local slang</h3><div class="pr">
+      <button type="button" data-t="brp hrg nk buat web company? x mahal kan">brp hrg nk buat web company? x mahal kan<small>BM SHORT FORM · PRICING</small></button>
+      <button type="button" data-t="pls check my company web la, slow sangat">pls check my company web la, slow sangat<small>MANGLISH · WEBSITE CHECK</small></button>
+      <button type="button" data-t="tq, boleh call tak? nk discuss project">tq, boleh call tak? nk discuss project<small>SHORT FORM · CALL</small></button>
+    </div></div>
+    <div class="pg"><h3><span class="mi">translate</span>Other languages and mixes</h3><div class="pr">
+      <button type="button" data-t="你们的网站速度能快多少？">你们的网站速度能快多少？<small>MANDARIN · SPEED</small></button>
+      <button type="button" data-t="இந்த site ரொம்ப slow, evlo cost?">இந்த site ரொம்ப slow, evlo cost?<small>TAMIL + TANGLISH · PRICING</small></button>
+      <button type="button" data-t="Boleh bagi quotation untuk e-commerce site? Budget around 20k">Boleh bagi quotation untuk e-commerce site?<small>BM + ENGLISH · QUOTATION</small></button>
+    </div></div>
+    <div class="pg"><h3><span class="mi">touch_app</span>What Ollie can do for your team</h3><div class="pr">
+      <button type="button" data-t="I prefer to talk, can you call me?">Take a voice call<small>HANDS-FREE ENQUIRY</small></button>
+      <button type="button" data-t="check my website">Audit a prospect's website<small>SPEED + GAPS</small></button>
+      <button type="button" data-t="I want to speak to a real person">Hand over to sales<small>WHATSAPP + SUMMARY</small></button>
+    </div></div>
+    <div class="caps" id="caps"><span data-k="lang"><span class="mi">translate</span>Languages: <b id="lc">0</b>/3</span><span data-k="call"><span class="mi">call</span>Call</span><span data-k="check"><span class="mi">speed</span>Website audit</span><span data-k="hand"><span class="mi">forward_to_inbox</span>Lead handover</span></div>
+    <p class="note">Demo with sample replies in five styles; quick replies follow the visitor's language. The live assistant uses AI to understand and answer anything, in any language, short form or slang.</p>
+  </aside>
+  <section class="phone" id="phone">
+    <div class="bezel"><div class="notch"></div>
+      <div class="scr">
+        <div class="hd">
+          <div class="av">O<i></i></div>
+          <div class="who"><b>Ollie</b><small>Orangesoft · AI sales assistant</small></div>
+          <div class="hr"><span class="lang" id="lang"><span class="mi">language</span><span id="langT">EN</span></span><button class="callb" id="callb" aria-label="Call Ollie"><span class="mi">call</span></button></div>
+        </div>
+        <div class="lgs" aria-label="Ollie replies in any language"><div class="lgt"><div class="lgi"><span>Hello</span><span>Selamat datang</span><span>你好</span><span>வணக்கம்</span><span>مرحبا</span><span>こんにちは</span><span>Bonjour</span><span>สวัสดี</span><span>Hola</span><span>안녕하세요</span><span>नमस्ते</span><span>Xin chào</span><span>Hallo</span><span>Привет</span><span>Olá</span><span>Kumusta</span><span>হ্যালো</span><span>Merhaba</span><span>Ciao</span><span>Jambo</span><span>Hello</span><span>Selamat datang</span><span>你好</span><span>வணக்கம்</span><span>مرحبا</span><span>こんにちは</span><span>Bonjour</span><span>สวัสดี</span><span>Hola</span><span>안녕하세요</span><span>नमस्ते</span><span>Xin chào</span><span>Hallo</span><span>Привет</span><span>Olá</span><span>Kumusta</span><span>হ্যালো</span><span>Merhaba</span><span>Ciao</span><span>Jambo</span></div></div></div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="chips" id="chips"></div>
+        <form class="comp" id="form"><input id="inp" type="text" placeholder="Type in any language or short form..." autocomplete="off" aria-label="Message"><button type="button" class="mic" id="mic" aria-label="Talk to Ollie"><span class="mi">mic</span></button><button type="submit" class="snd" aria-label="Send"><span class="mi">arrow_upward</span></button></form>
+        <div class="toast" id="toast"><span class="ti"><span class="mi">done_all</span></span><div><b>Lead sent to Sales</b><small>Summary attached, ready for follow-up</small></div></div>
+        <div class="call" id="call">
+          <div class="orbw"><div class="orb b"></div><div class="orb c"></div><div class="orb"></div></div>
+          <h3>Ollie · Orangesoft</h3><div class="st" id="callSt">Connecting...</div><div class="tm" id="tm">00:00</div>
+          <div class="lines" id="lines"></div>
+          <div class="cbs"><button class="cb" aria-label="Mute"><span class="mi">mic</span></button><button class="cb end" id="end" aria-label="End call"><span class="mi">call_end</span></button><button class="cb" aria-label="Speaker"><span class="mi">volume_up</span></button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},msgs=$('msgs'),chips=$('chips'),inp=$('inp');
+var WA='60127888000';
+var HANDOFF_ENDPOINT=''; /* REAL BUILD: POST the summary JSON here when the WhatsApp button is tapped */
+var SF={brp:'berapa',hrg:'harga',hrga:'harga',nk:'nak',x:'tak',xde:'tiada',dpt:'dapat',camne:'macam mana',cmne:'macam mana',mcm:'macam',tlg:'tolong',dh:'dah',dgn:'dengan',utk:'untuk',blh:'boleh',sy:'saya',pls:'please',plz:'please',tq:'thank you',tqvm:'thank you very much',thx:'thanks',ty:'thank you',u:'you',ur:'your',ni:'ini',nih:'ini',tu:'itu',jgn:'jangan',lg:'lagi',sket:'sikit',sikit:'sikit',gila:'very',msg:'message',web:'website',wsite:'website',wp:'WordPress',asap:'as soon as possible',btw:'by the way',idk:"I don't know",okla:'okay lah'};
+var STY={en:{n:'English',c:'EN'},rojak:{n:'Rojak (BM + English)',c:'MIX'},ms:{n:'Bahasa Malaysia',c:'BM'},zh:{n:'Mandarin',c:'中文'},ta:{n:'Tamil',c:'தமிழ்'}};
+var R={
+en:{quote:'Happy to arrange a quotation. A specialist needs your website address and what you want to improve. I can collect that now and send it across with a summary.',greet:'Hi, I am Ollie from Orangesoft. Write to me in any language, the way you normally talk. I will reply in the same one, and you can switch anytime.',price:'Pricing depends on your platform and plan. A Lightning-fast website starts from our Standard plan, and add-ons plug in on top. I can pass your details to a specialist for an exact quote.',speed:'Most sites we move to a Lightning-fast website load in under a second on mobile. I can check yours for a real number.',dash:'You keep the same WordPress dashboard and your team edits as usual. We only replace the front end your customers see.',time:'Most projects go live within weeks, depending on size. A specialist can confirm after a quick look.',check:'Sure. What is your website address?',call:'Prefer to talk? Tap the call button at the top and speak to me instead of typing.',human:'Of course. I will pass everything to our team with a summary, so you do not repeat yourself.',thanks:'You are welcome. Anything else?',fb:'Good question. I can answer that, or pass it to a specialist with a summary. Want me to?',after:'Want me to pass this to a specialist? I will send a summary so you do not need to repeat yourself.',hand:'Done. Here is the summary I will pass on. Tap the green button to continue on WhatsApp.',callDone:'Thanks for the call. I noted everything. Shall I send it to our sales team?',send:'Send summary to sales',use:'Use majupackaging.com.my',bad:'That does not look like a website address. Try yourwebsite.com.',steps:['Reading your site','Measuring mobile speed','Checking AI visibility'],found:'Here is what I found for ',scoreT:'Mobile speed score',missT:'Gaps we found',miss:['AI crawler blocked','No instant answers','Cannot be installed on phones'],callL:['Hi, this is Ollie from Orangesoft. May I know your company and website?','Maju Packaging. Our online catalogue is slow on mobile.','Understood. Slow pages cost enquiries. May I have your name and the best time for a call?','Hafiz. Tomorrow morning, please.','Noted. I will send a summary to our sales team now.']},
+rojak:{quote:'Boleh, kita arrange quotation. Specialist perlukan website address dan apa yang you nak improve. I collect sekarang dan hantar dengan summary.',greet:'Hai! Ollie here. Tanya je apa-apa, BM, English, Mandarin, rojak pun boleh lah.',price:'Harga depends on platform and plan lah. Lightning-fast website start dari Standard plan, add-ons boleh tambah. Nak specialist bagi quote exact?',speed:'Most sites we convert load bawah 1 saat kat mobile. Nak I check your site? Free je.',dash:'Tak payah risau, WordPress dashboard you still sama. Team you edit macam biasa, kita tukar front end je.',time:'Biasanya few weeks lah, depends saiz site. Specialist boleh confirm lepas tengok sikit.',check:'Can! Bagi website address you.',call:'Malas taip? Tekan call button kat atas, cakap terus dengan I.',human:'Boleh. I pass everything to our team dengan summary, you tak payah repeat.',thanks:'Sama-sama! Anything else, shoot lah.',fb:'Hmm, good one. I boleh jawab, or pass to specialist dengan summary. Nak?',after:'Nak I pass this to specialist? I send summary, tak payah explain balik.',hand:'Done lah. Ni summary I hantar. Tekan butang hijau untuk continue kat WhatsApp.',callDone:'Thanks for the call! I dah note semua. Nak I hantar ke sales team?',send:'Hantar summary ke sales',use:'Guna majupackaging.com.my',bad:'Eh, macam bukan website address. Cuba yourwebsite.com.',steps:['Baca site you','Check mobile speed','Check AI visibility'],found:'Ni result untuk ',scoreT:'Mobile speed score',missT:'Gaps yang I jumpa',miss:['AI crawler kena block','Takde instant reply','Tak boleh install kat phone'],callL:['Hi, Ollie dari Orangesoft. Boleh share company dan website you?','Maju Packaging. Online catalogue kami slow kat mobile.','Faham. Page slow memang kurangkan enquiry. Boleh bagi nama dan masa sesuai untuk call?','Hafiz. Esok pagi boleh.','Noted. I hantar summary ke sales team sekarang.']},
+ms:{quote:'Boleh, kami aturkan sebut harga. Pakar memerlukan alamat laman web dan apa yang ingin diperbaiki. Saya kumpulkan sekarang dan hantar bersama ringkasan.',greet:'Hai, saya Ollie dari Orangesoft. Tanya apa sahaja, dalam bahasa atau slanga apa pun.',price:'Harga bergantung pada platform dan pelan anda. Laman web Lightning-fast bermula dari pelan Standard, dan add-on boleh ditambah. Saya boleh hantar butiran anda kepada pakar untuk sebut harga tepat.',speed:'Kebanyakan laman yang kami tukar dimuat dalam masa kurang satu saat di telefon. Saya boleh semak laman anda untuk nombor sebenar.',dash:'Anda kekalkan papan pemuka WordPress yang sama dan pasukan anda mengedit seperti biasa. Kami hanya gantikan bahagian depan.',time:'Kebanyakan projek siap dalam beberapa minggu, bergantung pada saiz. Pakar boleh sahkan selepas melihat laman anda.',check:'Boleh. Apakah alamat laman web anda?',call:'Lebih suka bercakap? Tekan butang panggilan di atas dan cakap dengan saya.',human:'Baik. Saya hantar semuanya kepada pasukan kami dengan ringkasan, anda tak perlu ulang.',thanks:'Sama-sama. Ada lagi?',fb:'Soalan bagus. Saya boleh jawab, atau hantar kepada pakar dengan ringkasan. Mahu saya buat?',after:'Mahu saya hantar ini kepada pakar? Saya akan hantar ringkasan supaya anda tidak perlu ulang.',hand:'Siap. Ini ringkasan yang saya akan hantar. Tekan butang hijau untuk teruskan di WhatsApp.',callDone:'Terima kasih atas panggilan. Saya dah catat semuanya. Nak saya hantar kepada pasukan jualan?',send:'Hantar ringkasan kepada jualan',use:'Guna majupackaging.com.my',bad:'Itu nampaknya bukan alamat laman web. Cuba yourwebsite.com.',steps:['Membaca laman anda','Mengukur kelajuan mudah alih','Menyemak keterlihatan AI'],found:'Ini hasil untuk ',scoreT:'Skor kelajuan mudah alih',missT:'Jurang yang kami jumpa',miss:['Perangkak AI disekat','Tiada jawapan segera','Tidak boleh dipasang pada telefon'],callL:['Hai, saya Ollie dari Orangesoft. Boleh kongsi nama syarikat dan laman web anda?','Maju Packaging. Katalog dalam talian kami lambat di telefon.','Faham. Halaman lambat mengurangkan pertanyaan. Boleh berikan nama dan masa sesuai untuk panggilan?','Hafiz. Esok pagi.','Dicatat. Saya hantar ringkasan kepada pasukan jualan sekarang.']},
+zh:{quote:'没问题，我们可以安排报价。专员需要你的网址和想改善的方面。我现在收集，并连同摘要一起转交。',greet:'你好，我是 Orangesoft 的 Ollie。用任何语言或口语问我都可以。',price:'价格取决于你的平台和方案。极速网站从标准方案起，附加功能可以叠加。我可以把你的资料交给专员为你报价。',speed:'我们改造的大多数网站在手机上不到一秒就能打开。我可以帮你检测，给你真实数字。',dash:'你保留同一个 WordPress 后台，团队照常编辑。我们只替换客户看到的前端。',time:'大多数项目几周内上线，视网站规模而定。专员看过后可以确认。',check:'好的，请问你的网址是什么？',call:'想直接说话？点击上方的通话按钮，用语音跟我聊。',human:'好的，我会把所有内容连同摘要交给团队，你不用重复。',thanks:'不客气。还有其他问题吗？',fb:'好问题。我可以回答，或把它连同摘要交给专员。需要吗？',after:'需要我把这些交给专员吗？我会发送摘要，你不用重复说明。',hand:'好了。这是我要转交的摘要。点击绿色按钮在 WhatsApp 继续。',callDone:'谢谢来电，我都记下了。要我发给销售团队吗？',send:'把摘要发给销售',use:'使用 majupackaging.com.my',bad:'这看起来不像网址。请试试 yourwebsite.com。',steps:['正在读取网站','测量手机速度','检查 AI 可见度'],found:'这是检测结果：',scoreT:'手机速度得分',missT:'发现的不足',miss:['AI 爬虫被屏蔽','没有即时回复','无法安装到手机'],callL:['你好，我是 Orangesoft 的 Ollie。请问贵公司和网址是？','Maju Packaging。我们的在线目录在手机上很慢。','明白，页面慢会流失询盘。请问您怎么称呼，什么时间方便来电？','我是 Hafiz，明天上午。','已记录。我现在把摘要发给销售团队。']},
+ta:{quote:'சரி, விலை மதிப்பீட்டை ஏற்பாடு செய்கிறோம். நிபுணருக்கு உங்கள் இணையதள முகவரியும் மேம்படுத்த விரும்புவதும் தேவை. இப்போது சேகரித்து சுருக்கத்துடன் அனுப்புகிறேன்.',greet:'வணக்கம், நான் Orangesoft-இன் Ollie. எந்த மொழியிலும், எந்த பாணியிலும் கேளுங்கள்.',price:'விலை உங்கள் தளம் மற்றும் திட்டத்தைப் பொறுத்தது. Lightning-fast website Standard திட்டத்திலிருந்து தொடங்குகிறது; add-on-களைச் சேர்க்கலாம். துல்லியமான விலைக்கு உங்கள் விவரங்களை நிபுணரிடம் தருகிறேன்.',speed:'நாங்கள் மாற்றும் பெரும்பாலான தளங்கள் மொபைலில் ஒரு வினாடிக்குள் திறக்கும். உங்கள் தளத்தைச் சரிபார்த்து உண்மையான எண்ணைத் தருகிறேன்.',dash:'அதே WordPress டாஷ்போர்டை வைத்துக்கொள்ளலாம்; உங்கள் குழு வழக்கம்போல் திருத்தலாம். முன்பகுதியை மட்டும் மாற்றுகிறோம்.',time:'பொதுவாக சில வாரங்களில் தொடங்கலாம்; தளத்தின் அளவைப் பொறுத்தது. நிபுணர் பார்த்தபின் உறுதிசெய்வார்.',check:'சரி. உங்கள் இணையதள முகவரி என்ன?',call:'பேச விரும்புகிறீர்களா? மேலே உள்ள அழைப்பு பொத்தானைத் தட்டி என்னிடம் பேசுங்கள்.',human:'சரி. எல்லாவற்றையும் சுருக்கத்துடன் குழுவிடம் தருகிறேன், நீங்கள் மீண்டும் சொல்ல வேண்டாம்.',thanks:'நன்றி. வேறு ஏதாவது?',fb:'நல்ல கேள்வி. நான் பதில் சொல்லலாம், அல்லது சுருக்கத்துடன் நிபுணரிடம் தரலாம். தரவா?',after:'இதை நிபுணரிடம் தரவா? சுருக்கத்தை அனுப்புவேன், நீங்கள் மீண்டும் சொல்ல வேண்டியதில்லை.',hand:'முடிந்தது. நான் அனுப்பும் சுருக்கம் இதோ. WhatsApp-இல் தொடர பச்சை பொத்தானைத் தட்டுங்கள்.',callDone:'அழைப்புக்கு நன்றி. எல்லாவற்றையும் குறித்துக்கொண்டேன். விற்பனைக் குழுவுக்கு அனுப்பவா?',send:'சுருக்கத்தை விற்பனைக்கு அனுப்பு',use:'majupackaging.com.my பயன்படுத்து',bad:'இது இணையதள முகவரி போல் இல்லை. yourwebsite.com முயற்சிக்கவும்.',steps:['தளத்தைப் படிக்கிறேன்','மொபைல் வேகத்தை அளவிடுகிறேன்','AI தெரிவுநிலையைச் சரிபார்க்கிறேன்'],found:'முடிவுகள்: ',scoreT:'மொபைல் வேக மதிப்பெண்',missT:'கண்ட குறைபாடுகள்',miss:['AI crawler தடுக்கப்பட்டுள்ளது','உடனடி பதில் இல்லை','தொலைபேசியில் நிறுவ முடியாது'],callL:['வணக்கம், நான் Orangesoft-இன் Ollie. உங்கள் நிறுவனம் மற்றும் இணையதளத்தைச் சொல்ல முடியுமா?','Maju Packaging. எங்கள் ஆன்லைன் கேட்டலாக் மொபைலில் மெதுவாக உள்ளது.','புரிந்தது. மெதுவான பக்கங்கள் விசாரணைகளைக் குறைக்கும். உங்கள் பெயர் மற்றும் அழைப்புக்கு ஏற்ற நேரம் என்ன?','Hafiz. நாளை காலை.','குறிக்கப்பட்டது. சுருக்கத்தை விற்பனைக் குழுவுக்கு அனுப்புகிறேன்.']}
+};
+var MEAN={quote:'I would like a quotation',price:'How much does it cost?',speed:'How much faster would my site be?',dash:'Will I keep my WordPress dashboard?',time:'How long does it take?',check:'Please check my website',call:'I would rather talk, can you call me?',human:'I want to speak to a person',thanks:'Thank you',greet:'Hello',fb:'A question for a specialist'};
+var RX={quote:/(quote|quotation|sebut harga|bajet|budget|rfq|proposal|报价单|预算|மதிப்பீடு)/i,human:/(human|real person|sales|agent|speak to|jurujual|cakap dengan orang|orang sebenar|manusia|真人|销售|人工|专员|விற்பனை|மனிதர்)/i,check:/(check|audit|scan|test|semak|periksa|检查|检测|测试|பரிசோத|சரிபார்|run my)/i,call:/(call me|call|phone|voice|talk|speak|telefon|panggil|cakap|电话|通话|语音|打给|அழை|பேச)/i,price:/(cost|price|pricing|how much|berapa|harga|bayar|mahal|kos|几钱|多少钱|价格|费用|报价|贵|விலை|evlo|evalo|கட்டணம்)/i,speed:/(faster|speed|slow|fast|laju|pantas|cepat|lambat|lembab|loading|速度|快|慢|卡|வேகம்|மெதுவ|slow)/i,dash:/(dashboard|wordpress|admin|backend|papan pemuka|后台|控制台|டாஷ்போர்டு|lose)/i,time:/(how long|timeline|berapa lama|lama|多久|几周|எவ்வளவு நாள்)/i,thanks:/(thank|terima kasih|谢谢|多谢|நன்றி|nandri)/i,greet:/^(hi|hello|hey|hai|helo|你好|vanakkam|வணக்கம்)\b/i};
+function norm(t){var hits=[];var out=t.toLowerCase().replace(/[^\p{L}\p{N}\s'?]/gu,' ').split(/\s+/).filter(Boolean).map(function(w){if(SF[w]&&w!=='sikit'&&w!=='gila'&&w.length<=7){hits.push([w,SF[w]]);return SF[w];}return w;});return{n:out.join(' '),hits:hits};}
+function style(t,n){if(/[஀-௿]/.test(t))return 'ta';if(/[一-鿿]/.test(t))return /[a-z]{3,}/i.test(t)?'rojak':'zh';
+ var ms=(n.match(/\b(saya|boleh|berapa|harga|apa|tak|tidak|nak|ada|anda|laman|tolong|terima kasih|macam|untuk|dengan|ini|itu|dah|cakap|semak|hantar|orang|lah|je|kan|sikit|lambat|mahal|dapat)\b/g)||[]).length;
+ var en=(n.match(/\b(the|can|you|check|my|website|site|how|much|does|what|please|call|me|want|talk|speak|is|are|it|to|slow|fast|cost|price|a|i|for|and|your|do|will)\b/g)||[]).length;
+ var manglish=/\b(lah|la|leh|lor|meh|mah|sia|bro|boss|wah|aiyo|alamak|can can)\b/i.test(n);
+ if(/\b(enna|evlo|evalo|romba|seri|illa|venum|machan|da)\b/i.test(n))return 'ta';
+ if(ms>0&&en>1||manglish&&ms>0)return 'rojak';if(ms>0)return 'ms';if(manglish)return 'rojak';return 'en';}
+function intentOf(n,raw){var ks=['quote','human','check','call','price','speed','dash','time','thanks','greet'];for(var i=0;i<ks.length;i++){if(RX[ks[i]].test(n)||RX[ks[i]].test(raw))return ks[i];}return 'fb';}
+var st={style:'en',site:null,score:null,name:null,interests:{},call:null,awaitUrl:false,styles:{},done:{}};
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+function scrl(){msgs.scrollTop=msgs.scrollHeight;}
+function add(h,cls){var d=document.createElement('div');d.className=cls;d.innerHTML=h;msgs.appendChild(d);scrl();return d;}
+function usr(t){var d=add('<div class="col"><div class="bub"></div></div>','row u');d.querySelector('.bub').textContent=t;}
+function sys(t){add('<span class="mi">translate</span>'+esc(t),'sys');}
+function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+async function bot(t,dec,ms){var ty=add('<span class="mini">O</span><span class="typ"><i></i><i></i><i></i></span>','row b');scrl();await wait(ms||850);ty.remove();var h='<span class="mini">O</span><div class="col"><div class="bub">'+t+'</div>'+(dec||'')+'</div>';add(h,'row b');}
+function decoder(meaning,hits,sty){var s='<div class="dec"><span class="mi">psychology</span><span>Understood: <b>“'+esc(meaning)+'”</b> · '+esc(sty)+'</span>';if(hits&&hits.length){s+='<span style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:5px;align-items:center">'+hits.slice(0,4).map(function(h){return '<code>'+esc(h[0])+'</code> = '+esc(h[1]);}).join('&nbsp;&nbsp;')+'</span>';}return s+'</div>';}
+function chipsSet(list){chips.innerHTML='';list.forEach(function(x){var b=document.createElement('button');b.type='button';b.innerHTML=(x[2]?'<span class="mi">'+x[2]+'</span>':'')+esc(x[0])+(x[3]?'<small class="lt">'+esc(x[3])+'</small>':'');b.addEventListener('click',function(){chips.innerHTML='';x[1](x[0]);});chips.appendChild(b);});}
+var CH={
+en:{faster:'How much faster would my site be?',cost:'What does it cost?',dash:'Will I lose my WordPress dashboard?',check:'Check my website',call:'Talk instead of typing',human:'Talk to sales',any:'Any language',anyR:'Yes, any language, and you can switch anytime. Type however you like.'},
+rojak:{faster:'Brp laju site I boleh jadi?',cost:'Brp harga?',dash:'WordPress dashboard hilang ke?',check:'Check website I',call:'Cakap je, x payah type',human:'Cakap dgn sales',any:'Any language',anyR:'Boleh, any language. Tukar bila-bila masa, type macam biasa.'},
+ms:{faster:'Berapa laju laman web saya?',cost:'Berapa harganya?',dash:'Adakah dashboard WordPress hilang?',check:'Semak laman web saya',call:'Bercakap, bukan menaip',human:'Hubungi pasukan jualan',any:'Mana-mana bahasa',anyR:'Ya, mana-mana bahasa, dan boleh bertukar bila-bila masa. Taip seperti biasa.'},
+zh:{faster:'我的网站能快多少？',cost:'费用是多少？',dash:'会失去 WordPress 后台吗？',check:'检测我的网站',call:'直接说话，不用打字',human:'联系销售团队',any:'任何语言',anyR:'可以，任何语言都行，也可以随时切换。想怎么写就怎么写。'},
+ta:{faster:'என் தளம் எவ்வளவு வேகமாகும்?',cost:'செலவு எவ்வளவு?',dash:'WordPress dashboard போய்விடுமா?',check:'என் இணையதளத்தைச் சோதிக்கவும்',call:'தட்டச்சுக்குப் பதில் பேசவும்',human:'விற்பனைக் குழுவுடன் பேசவும்',any:'எந்த மொழியும்',anyR:'ஆம், எந்த மொழியும் சரி, எப்போது வேண்டுமானாலும் மாற்றலாம். உங்கள் பாணியில் எழுதுங்கள்.'}};
+function openChips(){var c=CH.en;chipsSet([[c.check,function(t){handle('check my website');},'speed'],[c.call,function(){startCall();},'call'],[c.faster,function(t){handle(t);}],[c.cost,function(t){handle(t);}]]);}
+function anyChip(){var c=CH[st.style];return [c.any,async function(t){usr(t);await bot(c.anyR);mainChips();},'public'];}
+function mainChips(){var c=CH[st.style];chipsSet([[c.check,function(t){handle(t);},'speed'],[c.call,function(){startCall();},'call'],[c.faster,function(t){handle(t);}],[c.cost,function(t){handle(t);}]]);}
+function setStyle(s){var l=$('lang');$('langT').textContent=STY[s].c;l.classList.remove('flip');void l.offsetWidth;l.classList.add('flip');}
+function tick(k){st.done[k]=1;var e=document.querySelector('#caps [data-k="'+k+'"]');if(e)e.classList.add('done');}
+function tickLang(s){st.styles[s]=1;var n=Math.min(3,Object.keys(st.styles).length);$('lc').textContent=n;if(n>=3)tick('lang');}
+async function handle(raw){raw=raw.trim();if(!raw)return;chips.innerHTML='';usr(raw);
+ var N=norm(raw),isUrl=/^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/.*)?$/i.test(raw);
+ if(st.awaitUrl&&isUrl){return runCheck(raw.replace(/^https?:\/\//i,'').replace(/^www\./i,'').split('/')[0].toLowerCase());}
+ if(st.awaitUrl&&!/\s/.test(raw)&&/^[a-z0-9.\-]+$/i.test(raw)){await bot(R[st.style].bad);chipsSet([[R[st.style].use,function(t){usr(t);runCheck('majupackaging.com.my');}]]);return;}
+ st.awaitUrl=false;var s=style(raw,N.n);if(s!==st.style){st.style=s;sys('Ollie is now replying in '+STY[s].n);setStyle(s);}tickLang(s);
+ var k=intentOf(N.n,raw),R_=R[s],label=STY[s].n;
+ if(/\b(enna|evlo|romba|seri|machan)\b/i.test(N.n))label='Tanglish';else if(s==='rojak'&&/\b(lah|bro|boss)\b/i.test(N.n))label='Manglish';
+ var d=decoder(MEAN[k],N.hits,label);
+ if(k==='check'){await bot(R_.check,d);st.awaitUrl=true;chipsSet([[R_.use,function(t){usr(t);runCheck('majupackaging.com.my');}]]);}
+ else if(k==='call'){await bot(R_.call,d);$('callb').classList.add('ring');setTimeout(function(){$('callb').classList.remove('ring');},5200);chipsSet([['Call Ollie',function(){startCall();},'call']]);}
+ else if(k==='quote'){st.interests['Quotation request']=1;await bot(R_.quote,d);chipsSet([[R_.use,function(t){usr(t);runCheck('majupackaging.com.my');},'speed'],[R_.send,function(t){usr(t);handoff();},'forward_to_inbox']]);}
+ else if(k==='human'){await bot(R_.human,d);handoff();}
+ else if(k==='price'||k==='speed'||k==='dash'||k==='time'){st.interests[k==='price'?'Pricing':'Lightning-fast website']=1;await bot(R_[k],d);followChips();}
+ else{await bot(R_[k],d);if(k==='fb')chipsSet([['Talk to a person',function(t){usr(t);handoff();}],['Check my website',function(t){usr(t);handle('check my website');}]]);else mainChips();}}
+function followChips(){var c=CH[st.style];chipsSet([[c.check,function(t){handle('check my website');},'speed'],[c.call,function(){startCall();},'call'],[c.human,function(t){handle('talk to a person');},'forward_to_inbox']]);}
+async function runCheck(site){var R_=R[st.style];st.awaitUrl=false;st.site=site;st.score=34;st.interests['Lightning-fast website']=1;tick('check');
+ var c=add('<div class="card"><h4><span class="mi">travel_explore</span>'+esc(site)+'</h4><ul class="steps">'+R_.steps.map(function(x){return '<li><span class="mi">autorenew</span>'+esc(x)+'</li>';}).join('')+'</ul></div>','x').firstChild;msgs.lastChild.replaceWith(c);scrl();
+ var lis=c.querySelectorAll('li');for(var i=0;i<lis.length;i++){lis[i].className='run';await wait(950);lis[i].className='ok';lis[i].querySelector('.mi').textContent='check';}
+ await wait(350);c.remove();st.interests['Found by AI search']=1;st.interests['AI chatbot']=1;st.interests['App-like experience']=1;
+ var r=add('<div class="card"><h4><span class="mi">insights</span>'+esc(R_.found)+esc(site)+'</h4><div class="score"><div class="ring" id="rg"><b id="rn">0</b></div><div><strong>'+esc(R_.scoreT)+'</strong><small>Sample data for this demo</small></div></div><b style="font-size:12px;color:#7a746d;display:block;margin-top:12px">'+esc(R_.missT)+'</b><div class="gaps" style="margin-top:6px">'+R_.miss.map(function(x,i){return '<span style="animation-delay:'+(.5+i*.3)+'s"><span class="mi">close</span>'+esc(x)+'</span>';}).join('')+'</div></div>','x').firstChild;msgs.lastChild.replaceWith(r);scrl();
+ var n=0,ring=r.querySelector('#rg'),num=r.querySelector('#rn');while(n<34){n++;ring.style.setProperty('--p',n);num.textContent=n;await wait(24);}
+ await wait(900);await bot(R_.after);chipsSet([[R_.send,function(t){usr(t);handoff();},'forward_to_inbox'],['Talk instead of typing',function(){startCall();},'call']]);}
+var ct={on:false,t:null,iv:null,n:0,sec:0};
+function startCall(){if(ct.on)return;ct.on=true;ct.n=0;ct.sec=0;chips.innerHTML='';var c=$('call'),L=R[st.style].callL;$('lines').innerHTML='';$('callSt').textContent='Connecting...';$('tm').textContent='00:00';c.classList.add('on');
+ setTimeout(function(){if(!ct.on)return;$('callSt').textContent='Connected · '+STY[st.style].n;ct.iv=setInterval(function(){ct.sec++;$('tm').textContent=('0'+Math.floor(ct.sec/60)).slice(-2)+':'+('0'+ct.sec%60).slice(-2);},1000);line();},1300);
+ function line(){if(!ct.on)return;if(ct.n>=L.length){$('callSt').textContent='Wrapping up...';ct.t=setTimeout(endCall,2000);return;}var isO=ct.n%2===0,d=document.createElement('div');d.className='ln '+(isO?'o':'y');d.innerHTML='<small>'+(isO?'Ollie':'You (demo)')+'</small>'+esc(L[ct.n]);$('lines').appendChild(d);c.classList.add('talk');ct.n++;ct.t=setTimeout(function(){c.classList.remove('talk');ct.t=setTimeout(line,450);},2500);}}
+async function endCall(){if(!ct.on)return;ct.on=false;clearTimeout(ct.t);clearInterval(ct.iv);$('call').classList.remove('on','talk');var lines=ct.n,m=Math.floor(ct.sec/60)+':'+('0'+ct.sec%60).slice(-2);tick('call');await wait(500);
+ if(lines>=4){st.name='Hafiz';st.company='Maju Packaging';st.call={dur:m,note:'Online catalogue slow on mobile. Call back tomorrow morning.'};st.interests['Lightning-fast website']=1;}else if(lines>=1){st.call={dur:m,note:'Short call, no details captured.'};}
+ if(!st.call){mainChips();return;}
+ add('<div class="card"><h4><span class="mi">call</span>Call summary · '+m+'</h4><ul class="sum"><li><b>Topic</b><span>'+esc(st.call.note)+'</span></li>'+(st.name?'<li><b>Name</b><span>'+esc(st.name)+'</span></li>':'')+'<li><b>Language</b><span>'+esc(STY[st.style].n)+'</span></li></ul></div>','x');
+ await bot(R[st.style].callDone);chipsSet([[R[st.style].send,function(t){usr(t);handoff();},'forward_to_inbox']]);}
+$('end').addEventListener('click',endCall);$('callb').addEventListener('click',startCall);$('mic').addEventListener('click',startCall);
+function summary(){var k=Object.keys(st.interests);return{name:st.name,company:st.company,lang:Object.keys(st.styles).map(function(s){return STY[s].n;}).join(', ')||STY[st.style].n,site:st.site,score:st.score,interests:k.length?k:['General enquiry'],call:st.call};}
+function waText(x){var L=['Hi Orangesoft, '+(x.name?'this is '+x.name+(x.company?' from '+x.company:''):'I am a website visitor')+' (via the Ollie chat, language: '+x.lang+').','','Summary:'];if(x.site)L.push('- Website: '+x.site+(x.score?' (mobile speed '+x.score+'/100)':''));L.push('- Interested in: '+x.interests.join(', '));if(x.call)L.push('- Call ('+x.call.dur+'): '+x.call.note);L.push('','Please follow up. Thank you.');return L.join('\n');}
+async function handoff(){var R_=R[st.style],x=summary();await bot(R_.hand);
+ var rows='<li><b>Name</b><span>'+esc(x.name||'Not given yet')+'</span></li>'+(x.company?'<li><b>Company</b><span>'+esc(x.company)+'</span></li>':'')+'<li><b>Language</b><span>'+esc(x.lang)+'</span></li>'+(x.site?'<li><b>Website</b><span>'+esc(x.site)+' · '+x.score+'/100</span></li>':'')+'<li><b>Interested in</b><span>'+esc(x.interests.join(', '))+'</span></li>'+(x.call?'<li><b>Call</b><span>'+esc(x.call.dur)+' · '+esc(x.call.note)+'</span></li>':'');
+ var c=add('<div class="card"><h4><span class="mi">forward_to_inbox</span>Summary for our sales team</h4><ul class="sum">'+rows+'</ul><a class="wa" id="wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(waText(x))+'"><span class="mi">chat</span>Continue on WhatsApp</a><p class="fine">Tap to send this summary to our team and open WhatsApp. Written in English for the team, whatever language you chat in.</p></div>','x').firstChild;msgs.lastChild.replaceWith(c);scrl();
+ c.querySelector('#wa').addEventListener('click',function(e){var a=e.currentTarget;if(a.classList.contains('sent'))return;a.classList.add('sent');a.innerHTML='<span class="mi">done_all</span>Summary sent to sales';tick('hand');if(HANDOFF_ENDPOINT){try{fetch(HANDOFF_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(x),keepalive:true});}catch(er){}}$('toast').classList.add('on');setTimeout(function(){$('toast').classList.remove('on');},3800);});}
+$('form').addEventListener('submit',function(e){e.preventDefault();var v=inp.value;inp.value='';handle(v);});
+document.querySelectorAll('.pr button').forEach(function(b){b.addEventListener('click',function(){inp.value='';handle(b.dataset.t);if(window.innerWidth<=980)$('phone').scrollIntoView({behavior:'smooth',block:'start'});});});
+function fit(){var p=$('phone'),s=Math.min(1,(window.innerHeight-24)/826);p.style.transform='scale('+s+')';p.style.marginBottom=(-826*(1-s))+'px';}
+window.addEventListener('resize',fit);fit();
+(function(){var H=['Hello','Hai','你好','வணக்கம்','مرحبا','こんにちは','Bonjour','สวัสดี','Hola','안녕하세요','नमस्ते','Olá'],P=['Type in any language or short form...','ketik apa saja, bahasa apa pun...','用任何语言输入…','எந்த மொழியிலும் எழுதுங்கள்…','اكتب بأي لغة…','どの言語でも入力…','พิมพ์ภาษาใดก็ได้…'],i=0,h=$('hello');setInterval(function(){i++;h.classList.add('f');setTimeout(function(){h.textContent=H[i%H.length];h.classList.remove('f');},300);if(document.activeElement!==$('inp'))$('inp').placeholder=P[i%P.length];},2200);})();
+(async function(){await wait(500);await bot(R.en.greet);openChips();$('callb').classList.add('ring');})();
+})();
+</script>
+</body>
+</html>
